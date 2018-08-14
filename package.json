@@ -1,0 +1,28 @@
+{
+  "name": "striim-sdk",
+  "version": "1.0.0",
+  "description": "Javascript SDK for using hubii striim APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha lib/**/*.spec.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubiinetwork/striim-sdk.git"
+  },
+  "keywords": [
+    "hubii",
+    "striim",
+    "sdk",
+    "js",
+    "blockchain",
+    "ethereum",
+    "layer2"
+  ],
+  "author": "Morten Fjeldstad <morten@hubii.com>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hubiinetwork/striim-sdk/issues"
+  },
+  "homepage": "https://github.com/hubiinetwork/striim-sdk#readme"
+}
