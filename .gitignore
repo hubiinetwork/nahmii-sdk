@@ -62,3 +62,4 @@ typings/
 
 # WebStorm
 .idea
+package-lock.json

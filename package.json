@@ -24,5 +24,22 @@
   "bugs": {
     "url": "https://github.com/hubiinetwork/striim-sdk/issues"
   },
-  "homepage": "https://github.com/hubiinetwork/striim-sdk#readme"
+  "homepage": "https://github.com/hubiinetwork/striim-sdk#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nock": "^9.6.1",
+    "proxyquire": "^2.0.1",
+    "sinon": "^6.1.5",
+    "sinon-chai": "^3.2.0"
+  },
+  "dependencies": {
+    "ethereumjs-util": "^5.2.0",
+    "ethers": "^3.0.26",
+    "keythereum": "^1.0.4",
+    "node-yaml": "^3.1.1",
+    "superagent": "^3.8.3",
+    "web3-utils": "^1.0.0-beta.35",
+    "yargs": "^12.0.1"
+  }
 }
