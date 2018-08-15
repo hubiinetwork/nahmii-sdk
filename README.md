@@ -3,7 +3,7 @@
 ## About the SDK
 
 This is a javascript library that wraps the _hubii striim_ APIs making them 
-easier.
+easier to get started with.
 
 ## About striim
 
