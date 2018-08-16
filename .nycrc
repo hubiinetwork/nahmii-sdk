@@ -1,0 +1,25 @@
+{
+  "include": [
+    "lib/**/*.js"
+  ],
+  "exclude": [
+    "coverage/**",
+    "test/**",
+    "test{,-*}.js",
+    "**/*.test.js",
+    "**/__tests__/**",
+    "**/node_modules/**",
+    "**/testing-utilities/**",
+    "**/*.spec.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "check-coverage": false,
+  "per-file": true,
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100
+}
