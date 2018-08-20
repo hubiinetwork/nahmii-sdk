@@ -37,6 +37,22 @@ Constructor
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 
+**Example**  
+```js
+const striim = require('striim-sdk');
+const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
+
+// Creates a new Payment, providing essential inputs such as the amount,
+// the currency, the sender, and the recipient.
+const payment = new striim.Payment(provider, amount, erc20_token_address, wallet_address, recipient_address);
+
+// Signs the payment with the private key belonging to your wallet_address.
+payment.sign(private_key);
+
+// Sends the signed payment to the API for registration and execution and
+// logs the API response to the console.
+payment.register().then(console.log);
+```
 <a name="module_striim-sdk--Payment+amount"></a>
 
 #### payment.amount ⇒ <code>String</code> \| <code>BigNumber</code>
