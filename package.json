@@ -1,6 +1,6 @@
 {
   "name": "striim-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript SDK for using hubii striim APIs",
   "main": "index.js",
   "scripts": {
