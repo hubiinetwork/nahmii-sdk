@@ -74,3 +74,9 @@ create a payment, sign it and register it with the API:
     payment.register().then(console.log);
 
 ```
+
+## Reference manual
+
+* [class StriimProvider](Docs/striim-provider.md)
+* [class Wallet](Docs/wallet.md)
+* [class Payment](Docs/payment.md)
