@@ -11,6 +11,7 @@
             * [.sender](#module_striim-sdk--Payment+sender) ⇒ <code>Address</code>
             * [.recipient](#module_striim-sdk--Payment+recipient) ⇒ <code>Address</code>
             * [.sign(privateKey)](#module_striim-sdk--Payment+sign)
+            * [.isSigned()](#module_striim-sdk--Payment+isSigned) ⇒ <code>Boolean</code>
             * [.register()](#module_striim-sdk--Payment+register) ⇒ <code>Promise</code>
             * [.toJSON()](#module_striim-sdk--Payment+toJSON) ⇒ <code>Object</code>
         * _static_
@@ -88,6 +89,13 @@ Will hash and sign the payment given a private key
 | --- | --- | --- |
 | privateKey | <code>String</code> \| <code>PrivateKey</code> | This key should match the sender address |
 
+<a name="module_striim-sdk--Payment+isSigned"></a>
+
+#### payment.isSigned() ⇒ <code>Boolean</code>
+Verifies that the payment is signed by the sender and has not been
+tampered with since.
+
+**Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
 <a name="module_striim-sdk--Payment+register"></a>
 
 #### payment.register() ⇒ <code>Promise</code>
