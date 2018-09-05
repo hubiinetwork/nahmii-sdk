@@ -45,6 +45,7 @@
     "jsdoc-to-markdown": "^4.0.1",
     "keythereum": "^1.0.4",
     "node-yaml": "^3.1.1",
+    "pluck": "0.0.4",
     "superagent": "^3.8.3",
     "web3-utils": "^1.0.0-beta.35",
     "yargs": "^12.0.1"
