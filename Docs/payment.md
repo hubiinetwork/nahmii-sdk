@@ -15,7 +15,7 @@
             * [.register()](#module_striim-sdk--Payment+register) ⇒ <code>Promise</code>
             * [.toJSON()](#module_striim-sdk--Payment+toJSON) ⇒ <code>Object</code>
         * _static_
-            * [.from(provider, payload)](#module_striim-sdk--Payment.from) ⇒ <code>Payment</code>
+            * [.from(provider, json)](#module_striim-sdk--Payment.from) ⇒ <code>Payment</code>
 
 <a name="exp_module_striim-sdk--Payment"></a>
 
@@ -111,7 +111,7 @@ Converts the payment into a JSON object
 **Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
 <a name="module_striim-sdk--Payment.from"></a>
 
-#### Payment.from(provider, payload) ⇒ <code>Payment</code>
+#### Payment.from(provider, json) ⇒ <code>Payment</code>
 Factory/de-serializing method
 
 **Kind**: static method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
@@ -119,5 +119,5 @@ Factory/de-serializing method
 | Param | Type | Description |
 | --- | --- | --- |
 | provider | <code>StriimProvider</code> | An instance of a StriimProvider |
-| payload |  | A JSON object that can be de-serialized to a Payment instance |
+| json |  | A JSON object that can be de-serialized to a Payment instance |
 

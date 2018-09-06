@@ -9,7 +9,7 @@
             * [.isSigned()](#module_striim-sdk--Receipt+isSigned) ⇒ <code>Boolean</code>
             * [.toJSON()](#module_striim-sdk--Receipt+toJSON) ⇒ <code>Object</code>
         * _static_
-            * [.from(provider, payload)](#module_striim-sdk--Receipt.from) ⇒ <code>Receipt</code>
+            * [.from(provider, json)](#module_striim-sdk--Receipt.from) ⇒ <code>Receipt</code>
 
 <a name="exp_module_striim-sdk--Receipt"></a>
 
@@ -44,7 +44,7 @@ Converts the receipt into a JSON object
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_striim-sdk--Receipt)  
 <a name="module_striim-sdk--Receipt.from"></a>
 
-#### Receipt.from(provider, payload) ⇒ <code>Receipt</code>
+#### Receipt.from(provider, json) ⇒ <code>Receipt</code>
 Factory/de-serializing method
 
 **Kind**: static method of [<code>Receipt</code>](#exp_module_striim-sdk--Receipt)  
@@ -52,5 +52,5 @@ Factory/de-serializing method
 | Param | Type | Description |
 | --- | --- | --- |
 | provider | <code>StriimProvider</code> | An instance of a StriimProvider |
-| payload |  | A JSON object that can be de-serialized to a Rayment instance |
+| json |  | A JSON object that can be de-serialized to a Receipt instance |
 
