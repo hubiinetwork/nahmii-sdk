@@ -64,7 +64,8 @@ create a payment, sign it and register it with the API:
 
     // Creates a new Payment, providing essential inputs such as the amount,
     // the currency, the sender, and the recipient.
-    const payment = new striim.Payment(provider, amount, erc20_token_address, wallet_address, recipient_address);
+    const monetaryAmount = new striim.MonetaryAmount(amount, erc20_token_address);
+    const payment = new striim.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
     // Signs the payment with the private key belonging to your wallet_address.
     payment.sign(private_key);
