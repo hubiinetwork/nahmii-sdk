@@ -81,4 +81,5 @@ create a payment, sign it and register it with the API:
 * [class Wallet](Docs/wallet.md)
 * [class Payment](Docs/payment.md)
 * [class Receipt](Docs/receipt.md)
+* [class MonetaryAmount](Docs/monetary-amount.md)
 * [class utils](Docs/utils.md)
