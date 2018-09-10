@@ -4,16 +4,15 @@
 
 * [striim-sdk](#module_striim-sdk)
     * [Payment](#exp_module_striim-sdk--Payment) ⏏
-        * [new Payment(provider, amount, currency, sender, recipient)](#new_module_striim-sdk--Payment_new)
+        * [new Payment(provider, amount, sender, recipient)](#new_module_striim-sdk--Payment_new)
         * _instance_
-            * [.amount](#module_striim-sdk--Payment+amount) ⇒ <code>String</code> \| <code>BigNumber</code>
-            * [.currency](#module_striim-sdk--Payment+currency) ⇒ <code>Address</code>
+            * [.amount](#module_striim-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
             * [.sender](#module_striim-sdk--Payment+sender) ⇒ <code>Address</code>
             * [.recipient](#module_striim-sdk--Payment+recipient) ⇒ <code>Address</code>
             * [.sign(privateKey)](#module_striim-sdk--Payment+sign)
             * [.isSigned()](#module_striim-sdk--Payment+isSigned) ⇒ <code>Boolean</code>
             * [.register()](#module_striim-sdk--Payment+register) ⇒ <code>Promise</code>
-            * [.toJSON()](#module_striim-sdk--Payment+toJSON) ⇒ <code>Object</code>
+            * [.toJSON()](#module_striim-sdk--Payment+toJSON) ⇒
         * _static_
             * [.from(provider, json)](#module_striim-sdk--Payment.from) ⇒ <code>Payment</code>
 
@@ -26,15 +25,14 @@ A class for creating a _hubii striim_ payment.
 **Kind**: Exported class  
 <a name="new_module_striim-sdk--Payment_new"></a>
 
-#### new Payment(provider, amount, currency, sender, recipient)
+#### new Payment(provider, amount, sender, recipient)
 Constructor
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | provider | <code>StriimProvider</code> | A StriimProvider instance |
-| amount | <code>String</code> \| <code>BigNumber</code> | Amount in base units (wei for ETH) |
-| currency | <code>Address</code> | Currency identifier for the payment, 0x0000000000000000000000000000000000000000 for ETH |
+| amount | <code>MonetaryAmount</code> | Amount in base units (wei for ETH) |
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 
@@ -56,14 +54,8 @@ payment.register().then(console.log);
 ```
 <a name="module_striim-sdk--Payment+amount"></a>
 
-#### payment.amount ⇒ <code>String</code> \| <code>BigNumber</code>
-The amount of currency in base units (wei for ETH)
-
-**Kind**: instance property of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
-<a name="module_striim-sdk--Payment+currency"></a>
-
-#### payment.currency ⇒ <code>Address</code>
-The currency identifier of the payment, 0x0000000000000000000000000000000000000000 for ETH
+#### payment.amount ⇒ <code>MonetaryAmount</code>
+This payment's amount and currency
 
 **Kind**: instance property of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
 <a name="module_striim-sdk--Payment+sender"></a>
@@ -105,10 +97,11 @@ Registers the payment with the server to be effectuated
 **Returns**: <code>Promise</code> - A promise that resolves to the registered payment as JSON  
 <a name="module_striim-sdk--Payment+toJSON"></a>
 
-#### payment.toJSON() ⇒ <code>Object</code>
+#### payment.toJSON() ⇒
 Converts the payment into a JSON object
 
 **Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
+**Returns**: A JSON object that is in the format the API expects  
 <a name="module_striim-sdk--Payment.from"></a>
 
 #### Payment.from(provider, json) ⇒ <code>Payment</code>
