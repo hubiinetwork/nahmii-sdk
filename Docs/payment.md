@@ -32,7 +32,7 @@ Constructor
 | Param | Type | Description |
 | --- | --- | --- |
 | provider | <code>StriimProvider</code> | A StriimProvider instance |
-| amount | <code>MonetaryAmount</code> | Amount in base units (wei for ETH) |
+| amount | <code>MonetaryAmount</code> | Amount in a currency |
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 
@@ -43,7 +43,8 @@ const provider = new striim.StriimProvider(striim_base_url, striim_app_id, strii
 
 // Creates a new Payment, providing essential inputs such as the amount,
 // the currency, the sender, and the recipient.
-const payment = new striim.Payment(provider, amount, erc20_token_address, wallet_address, recipient_address);
+const monetaryAmount = new striim.MonetaryAmount(amount, erc20_token_address);
+const payment = new striim.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
 // Signs the payment with the private key belonging to your wallet_address.
 payment.sign(private_key);
