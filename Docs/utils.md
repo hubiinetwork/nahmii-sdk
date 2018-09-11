@@ -20,9 +20,6 @@
 <dt><a href="#strip0x">strip0x(str)</a> ⇒ <code>String</code></dt>
 <dd><p>Removes 0x from the start of the string if present.</p>
 </dd>
-<dt><a href="#ethHash">ethHash(message)</a> ⇒ <code>String</code></dt>
-<dd><p>Re-hashes a message as an Ethereum message hash.</p>
-</dd>
 <dt><a href="#sign">sign(message, privateKey)</a> ⇒ <code>Object</code></dt>
 <dd><p>Creates a signature for the specified message the Ethereum way according to
 <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sign">eth_sign</a></p>
@@ -84,18 +81,6 @@ Removes 0x from the start of the string if present.
 | Param |
 | --- |
 | str | 
-
-<a name="ethHash"></a>
-
-## ethHash(message) ⇒ <code>String</code>
-Re-hashes a message as an Ethereum message hash.
-
-**Kind**: global function  
-**Returns**: <code>String</code> - hexadecimal string  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| message | <code>String</code> | hexadecimal string |
 
 <a name="sign"></a>
 
