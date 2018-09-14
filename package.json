@@ -1,14 +1,17 @@
 {
   "name": "striim-sdk",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Javascript SDK for using hubii striim APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
-    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment",
+    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils",
     "build:docs:provider": "jsdoc2md lib/striim-provider.js > Docs/striim-provider.md",
     "build:docs:wallet": "jsdoc2md lib/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
+    "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
+    "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
+    "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "test": "nyc mocha lib/**/*.spec.js --exit"
   },
   "repository": {
@@ -44,6 +47,7 @@
     "ethers": "^3.0.26",
     "jsdoc-to-markdown": "^4.0.1",
     "keythereum": "^1.0.4",
+    "lodash.get": "^4.4.2",
     "node-yaml": "^3.1.1",
     "superagent": "^3.8.3",
     "web3-utils": "^1.0.0-beta.35",

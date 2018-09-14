@@ -2,13 +2,13 @@
 
 ## About the SDK
 
-This is a javascript library that wraps the _hubii striim_ APIs making them 
+This is a javascript library that wraps the _hubii striim_ APIs making them
 easier to get started with.
 
 ## About striim
 
 _striim_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
-hybrid centralized/decentralized solution that enables instant 
+hybrid centralized/decentralized solution that enables instant
 (micro-) payments, trading and trustless settlements.
 
 ## About hubii
@@ -40,7 +40,7 @@ Create a provider to gain access to the low-level SDK:
 
 ```
 
-The provider can be used to gain access to the API resources, such as a 
+The provider can be used to gain access to the API resources, such as a
 wallet's balance:
 
 ```javascript
@@ -54,7 +54,7 @@ wallet's balance:
 ```
 
 To do make more advanced workflows as easy as possible there is also a higher
-level SDK, e.g.: the Wallet class and the Payment class. In this example we 
+level SDK, e.g.: the Wallet class and the Payment class. In this example we
 create a payment, sign it and register it with the API:
 
 ```javascript
@@ -62,14 +62,15 @@ create a payment, sign it and register it with the API:
     const striim = require('striim-sdk');
     const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
 
-    // Creates a new Payment, providing essential inputs such as the amount, 
+    // Creates a new Payment, providing essential inputs such as the amount,
     // the currency, the sender, and the recipient.
-    const payment = new striim.Payment(provider, amount, erc20_token_address, wallet_address, recipient_address);
+    const monetaryAmount = new striim.MonetaryAmount(amount, erc20_token_address);
+    const payment = new striim.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
     // Signs the payment with the private key belonging to your wallet_address.
     payment.sign(private_key);
 
-    // Sends the signed payment to the API for registration and execution and 
+    // Sends the signed payment to the API for registration and execution and
     // logs the API response to the console.
     payment.register().then(console.log);
 
@@ -80,3 +81,6 @@ create a payment, sign it and register it with the API:
 * [class StriimProvider](Docs/striim-provider.md)
 * [class Wallet](Docs/wallet.md)
 * [class Payment](Docs/payment.md)
+* [class Receipt](Docs/receipt.md)
+* [class MonetaryAmount](Docs/monetary-amount.md)
+* [class utils](Docs/utils.md)
