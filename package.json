@@ -1,12 +1,12 @@
 {
-  "name": "striim-sdk",
-  "version": "2.0.0",
-  "description": "Javascript SDK for using hubii striim APIs",
+  "name": "nahmii-sdk",
+  "version": "1.0.0-beta.3",
+  "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
     "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils",
-    "build:docs:provider": "jsdoc2md lib/striim-provider.js > Docs/striim-provider.md",
+    "build:docs:provider": "jsdoc2md lib/nahmii-provider.js > Docs/nahmii-provider.md",
     "build:docs:wallet": "jsdoc2md lib/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
@@ -16,11 +16,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hubiinetwork/striim-sdk.git"
+    "url": "git+https://github.com/hubiinetwork/nahmii-sdk.git"
   },
   "keywords": [
     "hubii",
-    "striim",
+    "nahmii",
     "sdk",
     "js",
     "blockchain",
@@ -30,9 +30,9 @@
   "author": "Morten Fjeldstad <morten@hubii.com>",
   "license": "LGPL-3.0",
   "bugs": {
-    "url": "https://github.com/hubiinetwork/striim-sdk/issues"
+    "url": "https://github.com/hubiinetwork/nahmii-sdk/issues"
   },
-  "homepage": "https://github.com/hubiinetwork/striim-sdk#readme",
+  "homepage": "https://github.com/hubiinetwork/nahmii-sdk#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",

@@ -1,13 +1,13 @@
-# HUBII STRIIM SDK
+# NAHMII BY HUBII SDK
 
 ## About the SDK
 
-This is a javascript library that wraps the _hubii striim_ APIs making them
+This is a javascript library that wraps the _hubii nahmii_ APIs making them
 easier to get started with.
 
-## About striim
+## About nahmii
 
-_striim_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
+_nahmii_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
 hybrid centralized/decentralized solution that enables instant
 (micro-) payments, trading and trustless settlements.
 
@@ -26,7 +26,7 @@ See www.hubii.com for more information.
 
 To install the SDK into your project, simply run:
 
-    npm install striim-sdk
+    npm install nahmii-sdk
 
 ## Usage
 
@@ -34,9 +34,9 @@ Create a provider to gain access to the low-level SDK:
 
 ```javascript
 
-    const striim = require('striim-sdk');
+    const nahmii = require('nahmii-sdk');
 
-    const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
+    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
 
 ```
 
@@ -45,11 +45,11 @@ wallet's balance:
 
 ```javascript
 
-    const striim = require('striim-sdk');
-    const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
+    const nahmii = require('nahmii-sdk');
+    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
 
     // Logs all assets of the specified wallet to the console
-    provider.getStriimBalances(wallet_address).then(console.log);
+    provider.getNahmiiBalances(wallet_address).then(console.log);
 
 ```
 
@@ -59,13 +59,13 @@ create a payment, sign it and register it with the API:
 
 ```javascript
 
-    const striim = require('striim-sdk');
-    const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
+    const nahmii = require('nahmii-sdk');
+    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
 
     // Creates a new Payment, providing essential inputs such as the amount,
     // the currency, the sender, and the recipient.
-    const monetaryAmount = new striim.MonetaryAmount(amount, erc20_token_address);
-    const payment = new striim.Payment(provider, monetaryAmount, wallet_address, recipient_address);
+    const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
+    const payment = new nahmii.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
     // Signs the payment with the private key belonging to your wallet_address.
     payment.sign(private_key);
@@ -78,7 +78,7 @@ create a payment, sign it and register it with the API:
 
 ## Reference manual
 
-* [class StriimProvider](Docs/striim-provider.md)
+* [class NahmiiProvider](Docs/nahmii-provider.md)
 * [class Wallet](Docs/wallet.md)
 * [class Payment](Docs/payment.md)
 * [class Receipt](Docs/receipt.md)

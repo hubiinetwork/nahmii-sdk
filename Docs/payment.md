@@ -1,29 +1,29 @@
-<a name="module_striim-sdk"></a>
+<a name="module_nahmii-sdk"></a>
 
-## striim-sdk
+## nahmii-sdk
 
-* [striim-sdk](#module_striim-sdk)
-    * [Payment](#exp_module_striim-sdk--Payment) ⏏
-        * [new Payment(provider, amount, sender, recipient)](#new_module_striim-sdk--Payment_new)
+* [nahmii-sdk](#module_nahmii-sdk)
+    * [Payment](#exp_module_nahmii-sdk--Payment) ⏏
+        * [new Payment(provider, amount, sender, recipient)](#new_module_nahmii-sdk--Payment_new)
         * _instance_
-            * [.amount](#module_striim-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
-            * [.sender](#module_striim-sdk--Payment+sender) ⇒ <code>Address</code>
-            * [.recipient](#module_striim-sdk--Payment+recipient) ⇒ <code>Address</code>
-            * [.sign(privateKey)](#module_striim-sdk--Payment+sign)
-            * [.isSigned()](#module_striim-sdk--Payment+isSigned) ⇒ <code>Boolean</code>
-            * [.register()](#module_striim-sdk--Payment+register) ⇒ <code>Promise</code>
-            * [.toJSON()](#module_striim-sdk--Payment+toJSON) ⇒
+            * [.amount](#module_nahmii-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
+            * [.sender](#module_nahmii-sdk--Payment+sender) ⇒ <code>Address</code>
+            * [.recipient](#module_nahmii-sdk--Payment+recipient) ⇒ <code>Address</code>
+            * [.sign(privateKey)](#module_nahmii-sdk--Payment+sign)
+            * [.isSigned()](#module_nahmii-sdk--Payment+isSigned) ⇒ <code>Boolean</code>
+            * [.register()](#module_nahmii-sdk--Payment+register) ⇒ <code>Promise</code>
+            * [.toJSON()](#module_nahmii-sdk--Payment+toJSON) ⇒
         * _static_
-            * [.from(provider, json)](#module_striim-sdk--Payment.from) ⇒ <code>Payment</code>
+            * [.from(provider, json)](#module_nahmii-sdk--Payment.from) ⇒ <code>Payment</code>
 
-<a name="exp_module_striim-sdk--Payment"></a>
+<a name="exp_module_nahmii-sdk--Payment"></a>
 
 ### Payment ⏏
 Payment
-A class for creating a _hubii striim_ payment.
+A class for creating a _hubii nahmii_ payment.
 
 **Kind**: Exported class  
-<a name="new_module_striim-sdk--Payment_new"></a>
+<a name="new_module_nahmii-sdk--Payment_new"></a>
 
 #### new Payment(provider, amount, sender, recipient)
 Constructor
@@ -31,20 +31,20 @@ Constructor
 
 | Param | Type | Description |
 | --- | --- | --- |
-| provider | <code>StriimProvider</code> | A StriimProvider instance |
+| provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
 | amount | <code>MonetaryAmount</code> | Amount in a currency |
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 
 **Example**  
 ```js
-const striim = require('striim-sdk');
-const provider = new striim.StriimProvider(striim_base_url, striim_app_id, striim_app_secret);
+const nahmii = require('nahmii-sdk');
+const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
 
 // Creates a new Payment, providing essential inputs such as the amount,
 // the currency, the sender, and the recipient.
-const monetaryAmount = new striim.MonetaryAmount(amount, erc20_token_address);
-const payment = new striim.Payment(provider, monetaryAmount, wallet_address, recipient_address);
+const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
+const payment = new nahmii.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
 // Signs the payment with the private key belonging to your wallet_address.
 payment.sign(private_key);
@@ -53,65 +53,65 @@ payment.sign(private_key);
 // logs the API response to the console.
 payment.register().then(console.log);
 ```
-<a name="module_striim-sdk--Payment+amount"></a>
+<a name="module_nahmii-sdk--Payment+amount"></a>
 
 #### payment.amount ⇒ <code>MonetaryAmount</code>
 This payment's amount and currency
 
-**Kind**: instance property of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
-<a name="module_striim-sdk--Payment+sender"></a>
+**Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
+<a name="module_nahmii-sdk--Payment+sender"></a>
 
 #### payment.sender ⇒ <code>Address</code>
 The sender of the payment
 
-**Kind**: instance property of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
-<a name="module_striim-sdk--Payment+recipient"></a>
+**Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
+<a name="module_nahmii-sdk--Payment+recipient"></a>
 
 #### payment.recipient ⇒ <code>Address</code>
 The recipient of the payment
 
-**Kind**: instance property of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
-<a name="module_striim-sdk--Payment+sign"></a>
+**Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
+<a name="module_nahmii-sdk--Payment+sign"></a>
 
 #### payment.sign(privateKey)
 Will hash and sign the payment given a private key
 
-**Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
+**Kind**: instance method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | privateKey | <code>String</code> \| <code>PrivateKey</code> | This key should match the sender address |
 
-<a name="module_striim-sdk--Payment+isSigned"></a>
+<a name="module_nahmii-sdk--Payment+isSigned"></a>
 
 #### payment.isSigned() ⇒ <code>Boolean</code>
 Verifies that the payment is signed by the sender and has not been
 tampered with since.
 
-**Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
-<a name="module_striim-sdk--Payment+register"></a>
+**Kind**: instance method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
+<a name="module_nahmii-sdk--Payment+register"></a>
 
 #### payment.register() ⇒ <code>Promise</code>
 Registers the payment with the server to be effectuated
 
-**Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
+**Kind**: instance method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 **Returns**: <code>Promise</code> - A promise that resolves to the registered payment as JSON  
-<a name="module_striim-sdk--Payment+toJSON"></a>
+<a name="module_nahmii-sdk--Payment+toJSON"></a>
 
 #### payment.toJSON() ⇒
 Converts the payment into a JSON object
 
-**Kind**: instance method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
+**Kind**: instance method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 **Returns**: A JSON object that is in the format the API expects  
-<a name="module_striim-sdk--Payment.from"></a>
+<a name="module_nahmii-sdk--Payment.from"></a>
 
 #### Payment.from(provider, json) ⇒ <code>Payment</code>
 Factory/de-serializing method
 
-**Kind**: static method of [<code>Payment</code>](#exp_module_striim-sdk--Payment)  
+**Kind**: static method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| provider | <code>StriimProvider</code> | An instance of a StriimProvider |
+| provider | <code>NahmiiProvider</code> | An instance of a NahmiiProvider |
 | json |  | A JSON object that can be de-serialized to a Payment instance |
 

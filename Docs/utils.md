@@ -1,7 +1,7 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_striim-sdk/utils">striim-sdk/utils</a></dt>
+<dt><a href="#module_nahmii-sdk/utils">nahmii-sdk/utils</a></dt>
 <dd></dd>
 </dl>
 
@@ -30,9 +30,9 @@ sign the specified message and signature.</p>
 </dd>
 </dl>
 
-<a name="module_striim-sdk/utils"></a>
+<a name="module_nahmii-sdk/utils"></a>
 
-## striim-sdk/utils
+## nahmii-sdk/utils
 <a name="hash"></a>
 
 ## hash(...args) ⇒ <code>String</code>
