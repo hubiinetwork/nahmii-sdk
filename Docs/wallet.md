@@ -1,22 +1,22 @@
-<a name="module_striim-sdk"></a>
+<a name="module_nahmii-sdk"></a>
 
-## striim-sdk
+## nahmii-sdk
 
-* [striim-sdk](#module_striim-sdk)
-    * [Wallet](#exp_module_striim-sdk--Wallet) ⏏
-        * [new Wallet(privateKey, provider)](#new_module_striim-sdk--Wallet_new)
-        * [.getStriimBalance()](#module_striim-sdk--Wallet+getStriimBalance) ⇒ <code>Promise</code>
-        * [.depositEth(amountEth, [options])](#module_striim-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
-        * [.depositToken(amount, symbol, [options])](#module_striim-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
+* [nahmii-sdk](#module_nahmii-sdk)
+    * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
+        * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
+        * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
+        * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
+        * [.depositToken(amount, symbol, [options])](#module_nahmii-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
 
-<a name="exp_module_striim-sdk--Wallet"></a>
+<a name="exp_module_nahmii-sdk--Wallet"></a>
 
 ### Wallet ⏏
 Wallet
 A class for performing various operations on a wallet.
 
 **Kind**: Exported class  
-<a name="new_module_striim-sdk--Wallet_new"></a>
+<a name="new_module_nahmii-sdk--Wallet_new"></a>
 
 #### new Wallet(privateKey, provider)
 Create a Wallet
@@ -25,21 +25,21 @@ Create a Wallet
 | Param | Type | Description |
 | --- | --- | --- |
 | privateKey | <code>string</code> | The private key for the wallet |
-| provider | <code>StriimProvider</code> | A StriimProvider instance |
+| provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
 
-<a name="module_striim-sdk--Wallet+getStriimBalance"></a>
+<a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
 
-#### wallet.getStriimBalance() ⇒ <code>Promise</code>
-Retrieves striim balance for current wallet.
+#### wallet.getNahmiiBalance() ⇒ <code>Promise</code>
+Retrieves nahmii balance for current wallet.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_striim-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
-<a name="module_striim-sdk--Wallet+depositEth"></a>
+<a name="module_nahmii-sdk--Wallet+depositEth"></a>
 
 #### wallet.depositEth(amountEth, [options]) ⇒ <code>Promise</code>
-Deposits ETH from the on-chain balance of the wallet to striim.
+Deposits ETH from the on-chain balance of the wallet to nahmii.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_striim-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a transaction receipt.  
 **See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts  
 
@@ -52,12 +52,12 @@ Deposits ETH from the on-chain balance of the wallet to striim.
 ```js
 let receipt = await wallet.depositEth('1.1', {gasLimit: 200000});
 ```
-<a name="module_striim-sdk--Wallet+depositToken"></a>
+<a name="module_nahmii-sdk--Wallet+depositToken"></a>
 
 #### wallet.depositToken(amount, symbol, [options]) ⇒ <code>Promise</code>
-Deposits a token from the on-chain balance of the wallet to striim.
+Deposits a token from the on-chain balance of the wallet to nahmii.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_striim-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of transaction receipts.  
 **See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts  
 
