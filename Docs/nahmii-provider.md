@@ -5,11 +5,15 @@
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiProvider](#exp_module_nahmii-sdk--NahmiiProvider) ⏏
         * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret)](#new_module_nahmii-sdk--NahmiiProvider_new)
+        * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
+        * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
+        * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
         * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
         * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
         * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
         * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
+        * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
         * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
@@ -31,6 +35,30 @@ Construct a new NahmiiProvider.
 | apiAppId | <code>string</code> | nahmii API app-ID |
 | apiAppSecret | <code>string</code> | nahmii API app-secret |
 
+<a name="module_nahmii-sdk--NahmiiProvider+isUpdating"></a>
+
+#### nahmiiProvider.isUpdating ⇒ <code>boolean</code>
+Returns the state of the API access token update process.
+
+**Kind**: instance property of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>boolean</code> - True if the update is running, false otherwise.  
+<a name="module_nahmii-sdk--NahmiiProvider+startUpdate"></a>
+
+#### nahmiiProvider.startUpdate()
+Force provider to start updating the API access token once a minute. The
+update will continue until stopUpdate() is called.
+Using any methods that require an API access token will automatically
+start the update process.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+<a name="module_nahmii-sdk--NahmiiProvider+stopUpdate"></a>
+
+#### nahmiiProvider.stopUpdate()
+Stops the automatic update of API access tokens. This should be called
+when you want to terminate/delete the provider to ensure there are no
+lingering references.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 <a name="module_nahmii-sdk--NahmiiProvider+getApiAccessToken"></a>
 
 #### nahmiiProvider.getApiAccessToken() ⇒ <code>Promise</code>
@@ -79,6 +107,20 @@ protocol.
 | Param | Description |
 | --- | --- |
 | payment | A JSON object of a serialized signed Payment |
+
+<a name="module_nahmii-sdk--NahmiiProvider+effectuatePayment"></a>
+
+#### nahmiiProvider.effectuatePayment(receipt) ⇒ <code>Promise</code>
+Registers a receipt with the server to effectuate the transfer. The
+receipt is expected to be hashed and signed according to the
+_hubii nahmii_ protocol.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolved into a receipt registration payload  
+
+| Param | Description |
+| --- | --- |
+| receipt | A JSON object of a serialized signed Receipt |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getAllReceipts"></a>
 

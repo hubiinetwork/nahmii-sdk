@@ -7,6 +7,7 @@
         * _instance_
             * [.sign(privateKey)](#module_nahmii-sdk--Receipt+sign)
             * [.isSigned()](#module_nahmii-sdk--Receipt+isSigned) ⇒ <code>Boolean</code>
+            * [.effectuate()](#module_nahmii-sdk--Receipt+effectuate) ⇒ <code>Promise</code>
             * [.toJSON()](#module_nahmii-sdk--Receipt+toJSON) ⇒ <code>Object</code>
         * _static_
             * [.from(provider, json)](#module_nahmii-sdk--Receipt.from) ⇒ <code>Receipt</code>
@@ -36,6 +37,13 @@ Verifies that the receipt is signed by both sender and exchange, and has
 not been tampered with since.
 
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+effectuate"></a>
+
+#### receipt.effectuate() ⇒ <code>Promise</code>
+Registers the receipt with the server to be effectuated
+
+**Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+**Returns**: <code>Promise</code> - A promise that resolves to the registered receipt as JSON  
 <a name="module_nahmii-sdk--Receipt+toJSON"></a>
 
 #### receipt.toJSON() ⇒ <code>Object</code>
