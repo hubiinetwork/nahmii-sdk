@@ -1,0 +1,19 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "mocha": true
+    },
+    "parserOptions": {
+        "sourceType": "script",
+        "ecmaFeatures": {
+            "impliedStrict": false
+        }
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "curly": ["error", "multi-or-nest", "consistent"],
+        "strict": ["error", "global"]
+    },
+    "extends": "@hubiinetwork"
+}

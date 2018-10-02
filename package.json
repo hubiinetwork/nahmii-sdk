@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0-beta.8",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,10 @@
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "test": "nyc mocha lib/**/*.spec.js --exit",
-    "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch"
+    "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch",
+    "lint": "eslint --ignore-path .gitignore --fix ."
   },
+  "pre-commit": ["lint"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hubiinetwork/nahmii-sdk.git"
@@ -35,10 +37,13 @@
   },
   "homepage": "https://github.com/hubiinetwork/nahmii-sdk#readme",
   "devDependencies": {
+    "@hubiinetwork/eslint-config": "github:hubiinetwork/eslint-config",
     "chai": "^4.1.2",
+    "eslint": "^5.6.1",
     "mocha": "^5.2.0",
     "nock": "^9.6.1",
     "nyc": "^12.0.2",
+    "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
     "sinon": "^6.1.5",
     "sinon-chai": "^3.2.0"
