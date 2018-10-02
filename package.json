@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
-    "test": "nyc mocha lib/**/*.spec.js --exit"
+    "test": "nyc mocha lib/**/*.spec.js --exit",
+    "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch"
   },
   "repository": {
     "type": "git",
