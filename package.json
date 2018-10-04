@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,9 @@
     "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch",
     "lint": "eslint --ignore-path .gitignore --fix ."
   },
-  "pre-commit": ["lint"],
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hubiinetwork/nahmii-sdk.git"
