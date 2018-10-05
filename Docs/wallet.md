@@ -4,7 +4,7 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
-        * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
+        * [new Wallet(signer, provider)](#new_module_nahmii-sdk--Wallet_new)
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
         * [.depositToken(amount, symbol, [options])](#module_nahmii-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
@@ -34,7 +34,7 @@ The custom parameters are
 
 | Param | Type | Description |
 | --- | --- | --- |
-| signer | <code>string or object</code> | A private key, or object containing custom parameters |
+| signer | <code>string</code> or <code>object</code> | A private key, or object containing custom parameters |
 | provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
 
 **Wallet from private key example**
