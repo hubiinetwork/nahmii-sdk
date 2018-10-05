@@ -2,12 +2,12 @@
 
 ## nahmii-sdk
 
-* [nahmii-sdk](#module_nahmii-sdk)
-    * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
-        * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
-        * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
-        * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
-        * [.depositToken(amount, symbol, [options])](#module_nahmii-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
+- [nahmii-sdk](#nahmii-sdk)
+    - [Wallet ⏏](#wallet-%E2%8F%8F)
+        - [new Wallet(privateKey, provider)](#new-walletprivatekey-provider)
+        - [wallet.getNahmiiBalance() ⇒ <code>Promise</code>](#walletgetnahmiibalance-%E2%87%92-codepromisecode)
+        - [wallet.depositEth(amountEth, [options]) ⇒ <code>Promise</code>](#walletdepositethamounteth-options-%E2%87%92-codepromisecode)
+        - [wallet.depositToken(amount, symbol, [options]) ⇒ <code>Promise</code>](#walletdeposittokenamount-symbol-options-%E2%87%92-codepromisecode)
 
 <a name="exp_module_nahmii-sdk--Wallet"></a>
 
@@ -19,13 +19,73 @@ A class for performing various operations on a wallet.
 <a name="new_module_nahmii-sdk--Wallet_new"></a>
 
 #### new Wallet(privateKey, provider)
-Create a Wallet
+Create a Wallet from a private key or custom address and signing parameters.
+
+Use a private key to initialize a software wallet, and custom parameters to initialize a hardware wallet.
+
+The custom parameters are
+
+- {function} signMessage - Takes a string as input and returns a flat format Ethereum signature
+- {function} signTransaction - Takes a transaction as input and returns the same transaction signed as a hex string
+- {string} address - The address to use. Must be able to derive from the private key used in the signing functions
+
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| privateKey | <code>string</code> | The private key for the wallet |
+| signer | <code>string or object</code> | A private key, or object containing custom parameters |
 | provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
+
+**Example**
+```js
+// Create a Wallet instance from a private key
+const privateKey = '0x9616c2ab6330c7fda535042c120b55d992fa8c2c2a3d82603ea043aeb09ff411';
+const provider = new NahmiiProvider(...);
+const softwareWallet = new Wallet(privateKey, provider);
+
+// Define params to sign transactions with a Ledger Nano S
+import Transport from '@ledgerhq/hw-transport-node-hid';
+import LedgerEth from '@ledgerhq/hw-app-eth';
+
+const signMessage = async message => {
+  const transport = await Transport.create();
+  const eth = new LedgerEth(transport);
+
+  if (typeof message === "string") {
+    message = ethers.utils.toUtf8Bytes(message);
+  }
+  let messageHex = ethers.utils.hexlify(message).substring(2);
+  return eth.signPersonalMessage("m/44'/60'/0'/0", messageHex).then(signature => {
+    signature.r = "0x" + signature.r;
+    signature.s = "0x" + signature.s;
+    return ethers.utils.joinSignature(signature);
+  });
+};
+
+const signTransaction = async unresolvedTx => {
+  const transport = await Transport.create();
+  const eth = new LedgerEth(transport);
+
+  const tx = await ethers.utils.resolveProperties(unresolvedTx);
+  const serializedTx = ethers.utils.serializeTransaction(tx);
+  const sig = await eth.signTransaction("m/44'/60'/0'/0", serializedTx.substring(2));
+  sig.r = '0x' + sig.r;
+  sig.s = '0x' + sig.s;
+  return ethers.utils.serializeTransaction(tx, sig);
+};
+
+// Create a Wallet instance from a Ledger Nano S
+const transport = await Transport.create();
+const eth = new LedgerEth(transport);
+const ledgerWallet = new Wallet(
+  {
+    address: await eth.getAddress("m/44'/60'/0'/0"),
+    signMessage,
+    signTransaction
+  },
+  new NahmiiProvider(...)
+);
+```
 
 <a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
 
