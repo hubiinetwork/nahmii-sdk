@@ -36,14 +36,15 @@ The custom parameters are
 | signer | <code>string or object</code> | A private key, or object containing custom parameters |
 | provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
 
-**Example**
+**Wallet from private key example**
 ```js
-// Create a Wallet instance from a private key
 const privateKey = '0x9616c2ab6330c7fda535042c120b55d992fa8c2c2a3d82603ea043aeb09ff411';
 const provider = new NahmiiProvider(...);
 const softwareWallet = new Wallet(privateKey, provider);
+```
 
-// Define params to sign transactions with a Ledger Nano S
+**Wallet from Ledger Nano S example**
+```js
 import Transport from '@ledgerhq/hw-transport-node-hid';
 import LedgerEth from '@ledgerhq/hw-app-eth';
 
@@ -74,7 +75,6 @@ const signTransaction = async unresolvedTx => {
   return ethers.utils.serializeTransaction(tx, sig);
 };
 
-// Create a Wallet instance from a Ledger Nano S
 const transport = await Transport.create();
 const eth = new LedgerEth(transport);
 const ledgerWallet = new Wallet(
