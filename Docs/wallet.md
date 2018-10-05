@@ -27,7 +27,7 @@ Use a private key to initialize a software wallet, and custom parameters to init
 The custom parameters are
 
 - {function} signMessage - Takes a string as input and returns a flat format Ethereum signature
-- {function} signTransaction - Takes a transaction as input and returns the same transaction signed as a hex string
+- {function} signTransaction - Takes a transaction as input and returns the same transaction signed as a hex string. The input may contain unresolved values, so it's important to wait for them to resolve with `ethers.utils.resolveProperties(tx);` before performing any logic.
 - {string} address - The address to use. Must be able to derive from the private key used in the signing functions
 
 
@@ -91,24 +91,63 @@ const ledgerWallet = new Wallet(
 **Wallet from Trezor example**
 
 ```js
-import TrezorConnect from 'trezor-connect';
+import trezor from 'trezor.js';
 
-const path = "m/44'/60'/0'/0/0";
-const getAddress = async () => await TrezorConnect.ethereumGetAddress({ path });
-const signMessage = async (message) => await TrezorConnect.ethereumSignMessage({
-    path,
-    message
-});
-const signTransaction = async (transaction) => await TrezorConnect.ethereumSignTransaction({
-    path,
-    transaction
-});
+const getAddress = async () => {
+  const deviceList = new trezor.DeviceList();
+  const { session } = await deviceList.acquireFirstDevice();
+  return await session.ethereumGetAddress([0]);
+}
+
+const signMessage = async (message) => {
+  const deviceList = new trezor.DeviceList();
+  const { session } = await deviceList.acquireFirstDevice();
+
+  if (typeof message === "string") {
+    message = ethers.utils.toUtf8Bytes(message);
+  }
+  let messageHex = ethers.utils.hexlify(message).substring(2);
+  return await session.signEthMessage([0], messageHex);
+}
+
+const signTransaction = async (unresolvedTx) => {
+  const deviceList = new trezor.DeviceList();
+  const { session } = await deviceList.acquireFirstDevice();
+
+  const tx = await ethers.utils.resolveProperties(unresolvedTx);
+
+  // Trezor requires all params excluding chainId to be even len hex strings without a 0x prefix
+  const trezorTx = {...tx};
+  Object.keys(tx).map(k => {
+    let val = tx[k];
+    if (k === 'chainId') return;
+    val = ethers.utils.hexlify(val); // transform into hex
+    val = val.substring(2); // remove 0x prefix
+    val = (val.length % 2) ? '0' + val : val; // pad with a leading 0 if uneven
+    trezorTx[k] = val;
+  });
+
+  const sig = await session.signEthTx(
+    [0],
+    trezorTx.nonce,
+    trezorTx.gasPrice,
+    trezorTx.gasLimit,
+    trezorTx.to,
+    trezorTx.value,
+    null,
+    trezorTx.chainId
+  );
+  sig.r = '0x' + sig.r;
+  sig.s = '0x' + sig.s;
+
+  return ethers.utils.serializeTransaction(tx, sig);
+}
 
 const trezorWallet = new Wallet(
   {
-    address: getAddress(),
-    signMessage,
-    signTransaction
+    address: await getAddress(),
+    signMessage: signMessage,
+    signTransaction: signTransaction
   },
   new NahmiiProvider(...)
 );
