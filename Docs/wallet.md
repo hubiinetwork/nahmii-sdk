@@ -2,12 +2,12 @@
 
 ## nahmii-sdk
 
-- [nahmii-sdk](#nahmii-sdk)
-    - [Wallet ⏏](#wallet-%E2%8F%8F)
-        - [new Wallet(signer, provider)](#new-walletsigner-provider)
-        - [wallet.getNahmiiBalance() ⇒ <code>Promise</code>](#walletgetnahmiibalance-%E2%87%92-codepromisecode)
-        - [wallet.depositEth(amountEth, [options]) ⇒ <code>Promise</code>](#walletdepositethamounteth-options-%E2%87%92-codepromisecode)
-        - [wallet.depositToken(amount, symbol, [options]) ⇒ <code>Promise</code>](#walletdeposittokenamount-symbol-options-%E2%87%92-codepromisecode)
+* [nahmii-sdk](#module_nahmii-sdk)
+    * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
+        * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
+        * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
+        * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
+        * [.depositToken(amount, symbol, [options])](#module_nahmii-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--Wallet"></a>
 
