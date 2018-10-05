@@ -4,7 +4,7 @@
 
 - [nahmii-sdk](#nahmii-sdk)
     - [Wallet ⏏](#wallet-%E2%8F%8F)
-        - [new Wallet(privateKey, provider)](#new-walletprivatekey-provider)
+        - [new Wallet(signer, provider)](#new-walletsigner-provider)
         - [wallet.getNahmiiBalance() ⇒ <code>Promise</code>](#walletgetnahmiibalance-%E2%87%92-codepromisecode)
         - [wallet.depositEth(amountEth, [options]) ⇒ <code>Promise</code>](#walletdepositethamounteth-options-%E2%87%92-codepromisecode)
         - [wallet.depositToken(amount, symbol, [options]) ⇒ <code>Promise</code>](#walletdeposittokenamount-symbol-options-%E2%87%92-codepromisecode)
@@ -18,7 +18,8 @@ A class for performing various operations on a wallet.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--Wallet_new"></a>
 
-#### new Wallet(privateKey, provider)
+#### new Wallet(signer, provider)
+
 Create a Wallet from a private key or custom address and signing parameters.
 
 Use a private key to initialize a software wallet, and custom parameters to initialize a hardware wallet.
