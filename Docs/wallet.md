@@ -88,6 +88,36 @@ const ledgerWallet = new Wallet(
 );
 ```
 
+**Wallet from Trezor example**
+
+```js
+import TrezorConnect from 'trezor-connect';
+
+const path = "m/44'/60'/0'/0/0";
+const getAddress = async () => await TrezorConnect.ethereumGetAddress({ path });
+const signMessage = async (message) => await TrezorConnect.ethereumSignMessage({
+    path,
+    message
+});
+const signTransaction = async (transaction) => await TrezorConnect.ethereumSignTransaction({
+    path,
+    transaction
+});
+
+const trezorWallet = new Wallet(
+  {
+    address: getAddress(),
+    signMessage,
+    signTransaction
+  },
+  new NahmiiProvider(
+    "api2.dev.hubii.net",
+    process.env.ROPSTEN_IDENTITY_SERVICE_APPID,
+    process.env.ROPSTEN_IDENTITY_SERVICE_SECRET
+  )
+);
+```
+
 <a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
 
 #### wallet.getNahmiiBalance() ⇒ <code>Promise</code>
