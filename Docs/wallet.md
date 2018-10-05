@@ -110,11 +110,7 @@ const trezorWallet = new Wallet(
     signMessage,
     signTransaction
   },
-  new NahmiiProvider(
-    "api2.dev.hubii.net",
-    process.env.ROPSTEN_IDENTITY_SERVICE_APPID,
-    process.env.ROPSTEN_IDENTITY_SERVICE_SECRET
-  )
+  new NahmiiProvider(...)
 );
 ```
 
