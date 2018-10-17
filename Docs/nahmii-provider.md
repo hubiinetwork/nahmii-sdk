@@ -134,6 +134,6 @@ Retrieves all receipts for effectuated payments from the server.
 <a name="module_nahmii-sdk--NahmiiProvider+waitForConfirmation"></a>
 
 #### nahmiiProvider.waitForConfirmation() ⇒ <code>Promise</code>
-Waits for a transaction to be mined, polling every second.
+Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
