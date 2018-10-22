@@ -38670,7 +38670,11 @@
     "name": "solc",
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "3": {
+      "address": "0x91f580d05584efd68085ab032f70be2cf42bd86f"
+    }
+  },
   "schemaVersion": "2.0.0",
   "updatedAt": "2018-10-22T07:23:38.571Z"
 }
