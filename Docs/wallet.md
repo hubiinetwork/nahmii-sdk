@@ -73,7 +73,7 @@ let approveTxHash = await wallet.approveTokenDeposit('1.1', 'TT1', {gasLimit: 20
 <a name="module_nahmii-sdk--Wallet+completeTokenDeposit"></a>
 
 #### wallet.completeTokenDeposit(amount, symbol, [options]) ⇒ <code>Promise</code>
-Initiates the completion of a deposit of a token from a wallet's on-chain balance to nahmii by calling the depositTokens method of the nahmii clientFund smart contract.
+Initiates the completion of a deposit of a token from a wallet's on-chain balance to nahmii by calling the depositTokens method of the nahmii clientFund smart contract. Requires approveTokenDeposit to have been called first.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a transaction hash.
