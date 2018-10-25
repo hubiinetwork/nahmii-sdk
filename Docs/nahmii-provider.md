@@ -15,7 +15,7 @@
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
         * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-        * [.waitForConfirmation()](#module_nahmii-sdk--NahmiiProvider+waitForConfirmation) ⇒ <code>Promise</code>
+        * [.getTransactionConfirmation()](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -131,9 +131,9 @@ Retrieves all receipts for effectuated payments from the server.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
 
-<a name="module_nahmii-sdk--NahmiiProvider+waitForConfirmation"></a>
+<a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
 
-#### nahmiiProvider.waitForConfirmation() ⇒ <code>Promise</code>
+#### nahmiiProvider.getTransactionConfirmation() ⇒ <code>Promise</code>
 Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
