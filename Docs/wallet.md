@@ -7,7 +7,7 @@
         * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
-        * [.initiateTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+initiateTokenDeposit) ⇒ <code>Promise</code>
+        * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
         * [.completeTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+completeTokenDeposit) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--Wallet"></a>
@@ -52,9 +52,9 @@ Initiates the deposit of ETH from the on-chain balance of the wallet to nahmii.
 ```js
 let depositTxHash = await wallet.depositEth('1.1', {gasLimit: 200000});
 ```
-<a name="module_nahmii-sdk--Wallet+initiateTokenDeposit"></a>
+<a name="module_nahmii-sdk--Wallet+approveTokenDeposit"></a>
 
-#### wallet.initiateTokenDeposit(amount, symbol, [options]) ⇒ <code>Promise</code>
+#### wallet.approveTokenDeposit(amount, symbol, [options]) ⇒ <code>Promise</code>
 Initiates the deposit of a token from a wallet's the on-chain balance to nahmii by calling the approve method of the token smart contract.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
@@ -68,7 +68,7 @@ Initiates the deposit of a token from a wallet's the on-chain balance to nahmii 
 
 **Example**  
 ```js
-let approveTxHash = await wallet.initiateTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
+let approveTxHash = await wallet.approveTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
 ```
 <a name="module_nahmii-sdk--Wallet+completeTokenDeposit"></a>
 
