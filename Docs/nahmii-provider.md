@@ -9,8 +9,12 @@
         * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
         * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
         * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
+        * [.getAllSupportedCurrencies()](#module_nahmii-sdk--NahmiiProvider+getAllSupportedCurrencies) ⇒ <code>Promise</code>
         * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
         * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
+        * [.getStagedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagedBalances) ⇒ <code>Promise</code>
+        * [.getSettledBalances(address)](#module_nahmii-sdk--NahmiiProvider+getSettledBalances) ⇒ <code>Promise</code>
+        * [.getDepositedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getDepositedBalances) ⇒ <code>Promise</code>
         * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
@@ -51,6 +55,7 @@ Using any methods that require an API access token will automatically
 start the update process.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+
 <a name="module_nahmii-sdk--NahmiiProvider+stopUpdate"></a>
 
 #### nahmiiProvider.stopUpdate()
@@ -67,6 +72,15 @@ server as needed.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an API access token  
+
+<a name="module_nahmii-sdk--NahmiiProvider+getAllSupportedCurrencies"></a>
+
+#### nahmiiProvider.getAllSupportedCurrencies() ⇒ <code>Promise</code>
+Resolves into a list of every currency supported by nahmii.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of currency details
+
 <a name="module_nahmii-sdk--NahmiiProvider+getSupportedTokens"></a>
 
 #### nahmiiProvider.getSupportedTokens() ⇒ <code>Promise</code>
@@ -74,6 +88,7 @@ Retrieves the list of tokens (currencies) supported by _hubii nahmii_.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of token definitions.  
+
 <a name="module_nahmii-sdk--NahmiiProvider+getNahmiiBalances"></a>
 
 #### nahmiiProvider.getNahmiiBalances(address) ⇒ <code>Promise</code>
@@ -81,6 +96,42 @@ Retrieves the balances for all available tokens for the specified wallet address
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into a array of balance information.  
+
+| Param | Type |
+| --- | --- |
+| address | <code>Address</code> | 
+
+<a name="module_nahmii-sdk--NahmiiProvider+getStagedBalances"></a>
+
+#### nahmiiProvider.getStagedBalances(address) ⇒ <code>Promise</code>
+Retrieves the staged balances for all available currencies for the specified wallet address.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into a of balance information.  
+
+| Param | Type |
+| --- | --- |
+| address | <code>Address</code> |
+
+<a name="module_nahmii-sdk--NahmiiProvider+getSettledBalances"></a>
+
+#### nahmiiProvider.getSettledBalances(address) ⇒ <code>Promise</code>
+Retrieves the settled balances for all available currencies for the specified wallet address.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an object of balance information.  
+
+| Param | Type |
+| --- | --- |
+| address | <code>Address</code> |
+
+<a name="module_nahmii-sdk--NahmiiProvider+getDepositedBalances"></a>
+
+#### nahmiiProvider.getDepositedBalances(address) ⇒ <code>Promise</code>
+Retrieves the deposited balances for all available currencies for the specified wallet address.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an object of balance information.  
 
 | Param | Type |
 | --- | --- |
