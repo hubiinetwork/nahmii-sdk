@@ -5,7 +5,7 @@
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
         * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
-        * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
+        * [.getAvaliableBalances()](#module_nahmii-sdk--Wallet+getAvaliableBalances) ⇒ <code>Promise</code>
         * [.getStagedBalances()](#module_nahmii-sdk--Wallet+getStagedBalances) ⇒ <code>Promise</code>
         * [.getSettledBalances()](#module_nahmii-sdk--Wallet+getSettledBalance) ⇒ <code>Promise</code>
         * [.getDepositedBalances()](#module_nahmii-sdk--Wallet+getDepositedBalance) ⇒ <code>Promise</code>
@@ -30,10 +30,10 @@ Create a Wallet
 | privateKey | <code>string</code> | The private key for the wallet |
 | provider | <code>NahmiiProvider</code> | A NahmiiProvider instance |
 
-<a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
+<a name="module_nahmii-sdk--Wallet+getAvaliableBalances"></a>
 
-#### wallet.getNahmiiBalance() ⇒ <code>Promise</code>
-Retrieves nahmii balance for current wallet.
+#### wallet.getAvaliableBalances() ⇒ <code>Promise</code>
+Retrieves the avaliable nahmii balance for current wallet.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
