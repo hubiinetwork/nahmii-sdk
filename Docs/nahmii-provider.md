@@ -12,6 +12,7 @@
         * [.getAllSupportedCurrencies()](#module_nahmii-sdk--NahmiiProvider+getAllSupportedCurrencies) ⇒ <code>Promise</code>
         * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
         * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
+        * [.getBaseLayerBalances(address)](#module_nahmii-sdk--NahmiiProvider+getBaseLayerBalances) ⇒ <code>Promise</code>
         * [.getStagedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagedBalances) ⇒ <code>Promise</code>
         * [.getSettledBalances(address)](#module_nahmii-sdk--NahmiiProvider+getSettledBalances) ⇒ <code>Promise</code>
         * [.getDepositedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getDepositedBalances) ⇒ <code>Promise</code>
@@ -96,6 +97,18 @@ Retrieves the balances for all available tokens for the specified wallet address
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into a array of balance information.  
+
+| Param | Type |
+| --- | --- |
+| address | <code>Address</code> | 
+
+<a name="module_nahmii-sdk--NahmiiProvider+getBaseLayerBalances"></a>
+
+#### nahmiiProvider.getBaseLayerBalances(address) ⇒ <code>Promise</code>
+Retrieves the base layer (on-chain, non-nahmii) balances for nahmii compatible assets in the specified wallet address.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an object of balance information.  
 
 | Param | Type |
 | --- | --- |
