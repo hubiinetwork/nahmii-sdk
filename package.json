@@ -53,7 +53,7 @@
   "dependencies": {
     "bignumber.js": "^7.2.1",
     "ethereumjs-util": "^5.2.0",
-    "ethers": "^3.0.26",
+    "ethers": "^3.0.7",
     "jsdoc-to-markdown": "^4.0.1",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",

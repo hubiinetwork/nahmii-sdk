@@ -6,6 +6,7 @@
     * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
         * [new Wallet(privateKey, provider)](#new_module_nahmii-sdk--Wallet_new)
         * [.getAvaliableBalances()](#module_nahmii-sdk--Wallet+getAvaliableBalances) ⇒ <code>Promise</code>
+        * [.getStagingBalances()](#module_nahmii-sdk--Wallet+getStagingBalances) ⇒ <code>Promise</code>
         * [.getStagedBalances()](#module_nahmii-sdk--Wallet+getStagedBalances) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
         * [.depositToken(amount, symbol, [options])](#module_nahmii-sdk--Wallet+depositToken) ⇒ <code>Promise</code>
@@ -32,6 +33,14 @@ Create a Wallet
 
 #### wallet.getAvaliableBalances() ⇒ <code>Promise</code>
 Retrieves the avaliable nahmii balance for current wallet.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
+
+<a name="module_nahmii-sdk--Wallet+getStagingBalances"></a>
+
+#### wallet.getStagingBalances() ⇒ <code>Promise</code>
+Retrieves all balances locked up in the process of staging for the wallet.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  

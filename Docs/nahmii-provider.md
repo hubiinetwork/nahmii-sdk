@@ -13,6 +13,7 @@
         * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
         * [.getAvaliableBalances(address)](#module_nahmii-sdk--NahmiiProvider+getAvaliableBalances) ⇒ <code>Promise</code>
         * [.getBaseLayerBalances(address)](#module_nahmii-sdk--NahmiiProvider+getBaseLayerBalances) ⇒ <code>Promise</code>
+        * [.getStagingBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagingBalances) ⇒ <code>Promise</code>
         * [.getStagedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagedBalances) ⇒ <code>Promise</code>
         * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
@@ -111,6 +112,18 @@ Retrieves the base layer (on-chain, non-nahmii) balances for nahmii compatible a
 | Param | Type |
 | --- | --- |
 | address | <code>Address</code> | 
+
+<a name="module_nahmii-sdk--NahmiiProvider+getStagingBalances"></a>
+
+#### nahmiiProvider.getStagingBalances(address) ⇒ <code>Promise</code>
+Retrieves all balances locked up in the process of staging for the specified wallet address.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into a of balance information.  
+
+| Param | Type |
+| --- | --- |
+| address | <code>Address</code> |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getStagedBalances"></a>
 
