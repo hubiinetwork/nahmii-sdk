@@ -14,8 +14,6 @@
         * [.getAvaliableBalances(address)](#module_nahmii-sdk--NahmiiProvider+getAvaliableBalances) ⇒ <code>Promise</code>
         * [.getBaseLayerBalances(address)](#module_nahmii-sdk--NahmiiProvider+getBaseLayerBalances) ⇒ <code>Promise</code>
         * [.getStagedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagedBalances) ⇒ <code>Promise</code>
-        * [.getSettledBalances(address)](#module_nahmii-sdk--NahmiiProvider+getSettledBalances) ⇒ <code>Promise</code>
-        * [.getDepositedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getDepositedBalances) ⇒ <code>Promise</code>
         * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
@@ -125,30 +123,6 @@ Retrieves the staged balances for all available currencies for the specified wal
 | Param | Type |
 | --- | --- |
 | address | <code>Address</code> |
-
-<a name="module_nahmii-sdk--NahmiiProvider+getSettledBalances"></a>
-
-#### nahmiiProvider.getSettledBalances(address) ⇒ <code>Promise</code>
-Retrieves the settled balances for all available currencies for the specified wallet address.
-
-**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
-**Returns**: <code>Promise</code> - A promise that resolves into an object of balance information.  
-
-| Param | Type |
-| --- | --- |
-| address | <code>Address</code> |
-
-<a name="module_nahmii-sdk--NahmiiProvider+getDepositedBalances"></a>
-
-#### nahmiiProvider.getDepositedBalances(address) ⇒ <code>Promise</code>
-Retrieves the deposited balances for all available currencies for the specified wallet address.
-
-**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
-**Returns**: <code>Promise</code> - A promise that resolves into an object of balance information.  
-
-| Param | Type |
-| --- | --- |
-| address | <code>Address</code> | 
 
 <a name="module_nahmii-sdk--NahmiiProvider+getPendingPayments"></a>
 
