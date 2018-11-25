@@ -4,7 +4,8 @@ const NahmiiProvider = require('./lib/nahmii-provider');
 const Wallet = require('./lib/wallet');
 const Payment = require('./lib/payment');
 const Receipt = require('./lib/receipt');
-const SettlementChallenge = require('./lib/driip-settlement');
+const DriipSettlementChallenge = require('./lib/driip-settlement');
+const NullSettlementChallenge = require('./lib/null-settlement');
 const MonetaryAmount = require('./lib/monetary-amount');
 const utils = require('./lib/utils');
 
@@ -13,7 +14,8 @@ module.exports = {
     Wallet,
     Payment,
     Receipt,
-    SettlementChallenge,
+    DriipSettlementChallenge,
+    NullSettlementChallenge,
     MonetaryAmount,
     utils
 };
