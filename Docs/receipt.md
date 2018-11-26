@@ -29,7 +29,7 @@ Will hash and sign the receipt with the wallet provided during instantiation
 <a name="module_nahmii-sdk--Receipt+isSigned"></a>
 
 #### receipt.isSigned() ⇒ <code>Boolean</code>
-Verifies that the receipt is signed by both sender and exchange, and has
+Verifies that the receipt is signed by both sender and operator, and has
 not been tampered with since.
 
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
