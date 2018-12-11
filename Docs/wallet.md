@@ -50,30 +50,34 @@ const softwareWallet = new Wallet(privateKey, provider);
 import Transport from '@ledgerhq/hw-transport-node-hid';
 import LedgerEth from '@ledgerhq/hw-app-eth';
 
-const signMessage = async message => {
+const signMessage = async (rawMessage) => {
   const transport = await Transport.create();
   const eth = new LedgerEth(transport);
 
-  if (typeof message === "string") {
+  let message = rawMessage;
+  if (typeof message === 'string') {
     message = ethers.utils.toUtf8Bytes(message);
   }
-  let messageHex = ethers.utils.hexlify(message).substring(2);
-  return eth.signPersonalMessage("m/44'/60'/0'/0", messageHex).then(signature => {
-    signature.r = "0x" + signature.r;
-    signature.s = "0x" + signature.s;
+  const messageHex = ethers.utils.hexlify(message).substring(2);
+  return eth.signPersonalMessage("m/44'/60'/0'/0", messageHex).then((rawSignature) => {
+    const signature = {
+      ...rawSignature,
+      r: `0x${signature.r}`,
+      s: `0x${signature.s}`,
+    };
     return ethers.utils.joinSignature(signature);
   });
 };
 
-const signTransaction = async unresolvedTx => {
+const signTransaction = async (unresolvedTx) => {
   const transport = await Transport.create();
   const eth = new LedgerEth(transport);
 
   const tx = await ethers.utils.resolveProperties(unresolvedTx);
   const serializedTx = ethers.utils.serializeTransaction(tx);
   const sig = await eth.signTransaction("m/44'/60'/0'/0", serializedTx.substring(2));
-  sig.r = '0x' + sig.r;
-  sig.s = '0x' + sig.s;
+  sig.r = `0x${sig.r}`;
+  sig.s = `0x${sig.s}`;
   return ethers.utils.serializeTransaction(tx, sig);
 };
 
@@ -97,19 +101,20 @@ import trezor from 'trezor.js';
 const getAddress = async () => {
   const deviceList = new trezor.DeviceList();
   const { session } = await deviceList.acquireFirstDevice();
-  return await session.ethereumGetAddress([0]);
-}
+  return session.ethereumGetAddress([0]);
+};
 
-const signMessage = async (message) => {
+const signMessage = async (rawMessage) => {
   const deviceList = new trezor.DeviceList();
   const { session } = await deviceList.acquireFirstDevice();
 
-  if (typeof message === "string") {
+  let message = rawMessage;
+  if (typeof message === 'string') {
     message = ethers.utils.toUtf8Bytes(message);
   }
-  let messageHex = ethers.utils.hexlify(message).substring(2);
-  return await session.signEthMessage([0], messageHex);
-}
+  const messageHex = ethers.utils.hexlify(message).substring(2);
+  return session.signEthMessage([0], messageHex);
+};
 
 const signTransaction = async (unresolvedTx) => {
   const deviceList = new trezor.DeviceList();
@@ -118,13 +123,13 @@ const signTransaction = async (unresolvedTx) => {
   const tx = await ethers.utils.resolveProperties(unresolvedTx);
 
   // Trezor requires all params excluding chainId to be even len hex strings without a 0x prefix
-  const trezorTx = {...tx};
-  Object.keys(tx).map(k => {
+  const trezorTx = { ...tx };
+  Object.keys(tx).forEach((k) => {
     let val = tx[k];
     if (k === 'chainId') return;
     val = ethers.utils.hexlify(val); // transform into hex
     val = val.substring(2); // remove 0x prefix
-    val = (val.length % 2) ? '0' + val : val; // pad with a leading 0 if uneven
+    val = (val.length % 2) ? `0${val}` : val; // pad with a leading 0 if uneven
     trezorTx[k] = val;
   });
 
@@ -138,11 +143,11 @@ const signTransaction = async (unresolvedTx) => {
     null,
     trezorTx.chainId
   );
-  sig.r = '0x' + sig.r;
-  sig.s = '0x' + sig.s;
+  sig.r = `0x${sig.r}`;
+  sig.s = `0x${sig.s}`;
 
   return ethers.utils.serializeTransaction(tx, sig);
-}
+};
 
 const trezorWallet = new Wallet(
   {
