@@ -17,7 +17,7 @@
         * [.sign(transaction)](#module_nahmii-sdk--Wallet+sign) ⇒ <code>Promise.&lt;string&gt;</code>
         * [.getBalance([blockTag])](#module_nahmii-sdk--Wallet+getBalance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.getTransactionCount([blockTag])](#module_nahmii-sdk--Wallet+getTransactionCount) ⇒ <code>Promise.&lt;number&gt;</code>
-        * [.sendTransaction(transaction)](#module_nahmii-sdk--Wallet+sendTransaction)
+        * [.sendTransaction(transaction)](#module_nahmii-sdk--Wallet+sendTransaction) ⇒ <code>Promise.&lt;TransactionResponse&gt;</code>
 
 <a name="exp_module_nahmii-sdk--Wallet"></a>
 
@@ -205,7 +205,7 @@ Returns the wallet instance on-chain transaction count
 
 <a name="module_nahmii-sdk--Wallet+sendTransaction"></a>
 
-#### wallet.sendTransaction(transaction)
+#### wallet.sendTransaction(transaction) ⇒ <code>Promise.&lt;TransactionResponse&gt;</code>
 Signs and broadcasts an Ethereum transaction to the network
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
