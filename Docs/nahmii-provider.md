@@ -15,6 +15,7 @@
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
         * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
+        * [.getWalletReceipts(address, [fromNonce], [limit], [asc])](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
         * [.getTransactionConfirmation()](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
@@ -137,3 +138,18 @@ Retrieves all receipts for effectuated payments from the server.
 Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
+
+<a name="module_nahmii-sdk--NahmiiProvider+getWalletReceipts"></a>
+
+#### nahmiiProvider.getWalletReceipts(address, [fromNonce], [limit], [asc]) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments using filter/pagnination criteria.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>Address</code> |  | Filter payment receipts for a specific wallet address. |
+| [fromNonce] | <code>number</code> |  | Filter payment receipts greater or equal to specific nonce. |
+| [limit] | <code>number</code> |  | The max number of payment receipts to return. |
+| [asc] | <code>boolean</code> |  | Return payment receipts in asc order. The default order is desc. |

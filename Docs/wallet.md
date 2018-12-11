@@ -9,6 +9,7 @@
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
         * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
         * [.completeTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+completeTokenDeposit) ⇒ <code>Promise</code>
+        * [.getReceipts([fromNonce], [limit], [asc])](#module_nahmii-sdk--Wallet+getReceipts) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--Wallet"></a>
 
@@ -214,3 +215,17 @@ Initiates the completion of a deposit of a token from a wallet's on-chain balanc
 ```js
 let depositTokensTxHash = await wallet.completeTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
 ```
+
+<a name="module_nahmii-sdk--Wallet+getReceipts"></a>
+
+#### wallet.getReceipts([fromNonce], [limit], [asc]) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments for the wallet using filter/pagnination criteria.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [fromNonce] | <code>number</code> |  | Filter payment receipts greater or equal to specific nonce. |
+| [limit] | <code>number</code> |  | The max number of payment receipts to return. |
+| [asc] | <code>boolean</code> | <code>false</code> | Return payment receipts in asc order. |
