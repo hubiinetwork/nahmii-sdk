@@ -167,7 +167,7 @@ Retrieves nahmii balance for current wallet.
 Initiates the deposit of ETH from the on-chain balance of the wallet to nahmii.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction containing a hash.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -176,7 +176,7 @@ Initiates the deposit of ETH from the on-chain balance of the wallet to nahmii.
 
 **Example**  
 ```js
-let depositTxHash = await wallet.depositEth('1.1', {gasLimit: 200000});
+let {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 ```
 <a name="module_nahmii-sdk--Wallet+approveTokenDeposit"></a>
 
@@ -184,7 +184,7 @@ let depositTxHash = await wallet.depositEth('1.1', {gasLimit: 200000});
 Initiates the deposit of a token from a wallet's the on-chain balance to nahmii by calling the approve method of the token smart contract.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction containing a hash.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -194,7 +194,7 @@ Initiates the deposit of a token from a wallet's the on-chain balance to nahmii 
 
 **Example**  
 ```js
-let approveTxHash = await wallet.approveTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
+let {hash} = await wallet.approveTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
 ```
 <a name="module_nahmii-sdk--Wallet+completeTokenDeposit"></a>
 
@@ -202,7 +202,7 @@ let approveTxHash = await wallet.approveTokenDeposit('1.1', 'TT1', {gasLimit: 20
 Initiates the completion of a deposit of a token from a wallet's on-chain balance to nahmii by calling the depositTokens method of the nahmii clientFund smart contract. Requires approveTokenDeposit to have been called first.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction hash.
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction containing a hash.
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -212,5 +212,5 @@ Initiates the completion of a deposit of a token from a wallet's on-chain balanc
 
 **Example**  
 ```js
-let depositTokensTxHash = await wallet.completeTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
+let {hash} = await wallet.completeTokenDeposit('1.1', 'TT1', {gasLimit: 200000});
 ```
