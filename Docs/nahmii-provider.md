@@ -152,4 +152,4 @@ Retrieves all receipts for effectuated payments using filter/pagnination criteri
 | address | <code>Address</code> |  | Filter payment receipts for a specific wallet address. |
 | [fromNonce] | <code>number</code> |  | Filter payment receipts greater or equal to specific nonce. |
 | [limit] | <code>number</code> |  | The max number of payment receipts to return. |
-| [asc] | <code>boolean</code> |  | Return payment receipts in asc order. The default order is desc. |
+| [asc] | <code>boolean</code> | <code>false</code> | Return payment receipts in asc order. |
