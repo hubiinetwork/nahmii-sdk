@@ -31,7 +31,7 @@ Constructor
 
 | Param | Type | Description |
 | --- | --- | --- |
-| wallet | <code>Wallet</code> | A Wallet instance able to sign for the sender address |
+| wallet | <code>Wallet</code> | A Wallet instance, must be the sender of this payment |
 | amount | <code>MonetaryAmount</code> | Amount in a currency |
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
@@ -40,15 +40,14 @@ Constructor
 ```js
 const nahmii = require('nahmii-sdk');
 const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
-const wallet = new nahmii.Wallet(private_key, provider);
 
 // Creates a new Payment, providing essential inputs such as the amount,
 // the currency, the sender, and the recipient.
 const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
-const payment = new nahmii.Payment(wallet, monetaryAmount, wallet_address, recipient_address);
+const payment = new nahmii.Payment(provider, monetaryAmount, wallet_address, recipient_address);
 
-// Signs the payment with the wallet passed during instantiation.
-payment.sign();
+// Signs the payment with the private key belonging to your wallet_address.
+payment.sign(private_key);
 
 // Sends the signed payment to the API for registration and execution and
 // logs the API response to the console.
@@ -75,10 +74,9 @@ The recipient of the payment
 <a name="module_nahmii-sdk--Payment+sign"></a>
 
 #### payment.sign()
-Will hash and sign the payment 
+Will hash and sign the payment with the wallet passed into the constructor
 
 **Kind**: instance method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
-
 <a name="module_nahmii-sdk--Payment+isSigned"></a>
 
 #### payment.isSigned() ⇒ <code>Boolean</code>
@@ -109,4 +107,6 @@ Factory/de-serializing method
 
 | Param | Type | Description |
 | --- | --- | --- |
-| wallet | <code>Wallet</code> | An instance of a Wallet, must be able to sign for the sender address  |
+| wallet | <code>Wallet</code> | The wallet sending the payment |
+| json |  | A JSON object that can be de-serialized to a Payment instance |
+
