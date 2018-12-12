@@ -15,7 +15,7 @@
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
         * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-        * [.getTransactionConfirmation()](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
+        * [.getTransactionConfirmation(hash, timeout)](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -133,7 +133,12 @@ Retrieves all receipts for effectuated payments from the server.
 
 <a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
 
-#### nahmiiProvider.getTransactionConfirmation() ⇒ <code>Promise</code>
+#### nahmiiProvider.getTransactionConfirmation(hash, timeout) ⇒ <code>Promise</code>
 Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| hash | <code>string</code> | A transaction hash |
+| timeout | <code>number</code> | Seconds to wait before timing out (default=60) |
