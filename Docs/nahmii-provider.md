@@ -15,7 +15,8 @@
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
         * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
         * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-        * [.getTransactionConfirmation(hash, timeout)](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
+        * [.getWalletReceipts(address, fromNonce, limit, asc)](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
+        * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -130,15 +131,37 @@ Retrieves all receipts for effectuated payments from the server.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+<a name="module_nahmii-sdk--NahmiiProvider+getWalletReceipts"></a>
 
-<a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
+#### nahmiiProvider.getWalletReceipts(address, fromNonce, limit, asc) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments using filter/pagnination criteria.
 
-#### nahmiiProvider.getTransactionConfirmation(hash, timeout) ⇒ <code>Promise</code>
-Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
-**Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| hash | <code>string</code> | A transaction hash |
-| timeout | <code>number</code> | Seconds to wait before timing out (default=60) |
+| address | <code>Address</code> | Filter payment receipts for a specific wallet address. |
+| fromNonce | <code>number</code> | Filter payment receipts greater or equal to specific nonce. |
+| limit | <code>number</code> | The max number of payment receipts to return. |
+| asc | <code>boolean</code> | Return payment receipts in asc order. The default order is desc. |
+
+<a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
+
+#### nahmiiProvider.getTransactionConfirmation(transactionHash, [timeout]) ⇒ <code>Promise.&lt;Object&gt;</code>
+Waits for a transaction to be mined, polling every second. 
+Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| transactionHash | <code>string</code> |  |  |
+| [timeout] | <code>number</code> | <code>60</code> | Seconds to wait before timing out |
+
+**Example**  
+```js
+const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
+const transactionReceipt = await getTransactionConfirmation(hash);
+```

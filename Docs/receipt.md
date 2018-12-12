@@ -22,10 +22,9 @@ A class for modelling a _hubii nahmii_ payment receipt.
 <a name="module_nahmii-sdk--Receipt+sign"></a>
 
 #### receipt.sign()
-Will hash and sign the receipt with the wallet provided during instantiation
+Will hash and sign the receipt with the wallet passed into the constructor
 
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
-
 <a name="module_nahmii-sdk--Receipt+isSigned"></a>
 
 #### receipt.isSigned() ⇒ <code>Boolean</code>
