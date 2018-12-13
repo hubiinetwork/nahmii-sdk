@@ -20,6 +20,10 @@
 <dt><a href="#strip0x">strip0x(str)</a> ⇒ <code>String</code></dt>
 <dd><p>Removes 0x from the start of the string if present.</p>
 </dd>
+<dt><a href="#fromRpcSig">fromRpcSig(flatSig)</a> ⇒ <code>Object</code></dt>
+<dd><p>Takes a flat format RPC signature and returns it in expanded form, with
+s, r in hex string form, and v a number</p>
+</dd>
 <dt><a href="#sign">sign(message, privateKey)</a> ⇒ <code>Object</code></dt>
 <dd><p>Creates a signature for the specified message the Ethereum way according to
 <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sign">eth_sign</a></p>
@@ -81,6 +85,19 @@ Removes 0x from the start of the string if present.
 | Param |
 | --- |
 | str | 
+
+<a name="fromRpcSig"></a>
+
+## fromRpcSig(flatSig) ⇒ <code>Object</code>
+Takes a flat format RPC signature and returns it in expanded form, with
+s, r in hex string form, and v a number
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Expanded form signature  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| flatSig | <code>String</code> | Flat form signature |
 
 <a name="sign"></a>
 
