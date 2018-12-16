@@ -10,6 +10,7 @@
         * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
         * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
         * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
+        * [.getTokenInfo(symbolOrAddress, byAddress)](#module_nahmii-sdk--NahmiiProvider+getTokenInfo) ⇒ <code>Promise.&lt;Object&gt;</code>
         * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
         * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
         * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
@@ -76,6 +77,18 @@ Retrieves the list of tokens (currencies) supported by _hubii nahmii_.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of token definitions.  
+<a name="module_nahmii-sdk--NahmiiProvider+getTokenInfo"></a>
+
+#### nahmiiProvider.getTokenInfo(symbolOrAddress, byAddress) ⇒ <code>Promise.&lt;Object&gt;</code>
+Retrieves information about the token that has the specified symbol.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbolOrAddress | <code>string</code> | token symbol or address |
+| byAddress | <code>boolean</code> | a flag to tell whether to look up by symbol or address |
+
 <a name="module_nahmii-sdk--NahmiiProvider+getNahmiiBalances"></a>
 
 #### nahmiiProvider.getNahmiiBalances(address) ⇒ <code>Promise</code>
@@ -149,7 +162,7 @@ Retrieves all receipts for effectuated payments using filter/pagnination criteri
 <a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
 
 #### nahmiiProvider.getTransactionConfirmation(transactionHash, [timeout]) ⇒ <code>Promise.&lt;Object&gt;</code>
-Waits for a transaction to be mined, polling every second. 
+Waits for a transaction to be mined, polling every second.
 Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
