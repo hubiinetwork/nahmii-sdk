@@ -4,7 +4,7 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Payment](#exp_module_nahmii-sdk--Payment) ⏏
-        * [new Payment(wallet, amount, sender, recipient)](#new_module_nahmii-sdk--Payment_new)
+        * [new Payment(amount, sender, recipient, [walletOrProvider])](#new_module_nahmii-sdk--Payment_new)
         * _instance_
             * [.amount](#module_nahmii-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
             * [.sender](#module_nahmii-sdk--Payment+sender) ⇒ <code>Address</code>
@@ -14,40 +14,43 @@
             * [.register()](#module_nahmii-sdk--Payment+register) ⇒ <code>Promise</code>
             * [.toJSON()](#module_nahmii-sdk--Payment+toJSON) ⇒
         * _static_
-            * [.from(wallet, json)](#module_nahmii-sdk--Payment.from) ⇒ <code>Payment</code>
+            * [.from(json, [walletOrProvider])](#module_nahmii-sdk--Payment.from) ⇒ <code>Payment</code>
 
 <a name="exp_module_nahmii-sdk--Payment"></a>
 
 ### Payment ⏏
 Payment
 A class for creating a _hubii nahmii_ payment.
+To be able to sign a new payment, you must supply a valid Wallet instance.
+To be able to do operations that interacts with the server you need to
+supply a valid Wallet or NahmiiProvider instance.
 
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--Payment_new"></a>
 
-#### new Payment(wallet, amount, sender, recipient)
+#### new Payment(amount, sender, recipient, [walletOrProvider])
 Constructor
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| wallet | <code>Wallet</code> | A Wallet instance, must be the sender of this payment |
 | amount | <code>MonetaryAmount</code> | Amount in a currency |
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
+| [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | An optional Wallet or NahmiiProvider instance |
 
 **Example**  
 ```js
 const nahmii = require('nahmii-sdk');
-const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
+const wallet = new nahmii.Wallet(...);
 
 // Creates a new Payment, providing essential inputs such as the amount,
 // the currency, the sender, and the recipient.
 const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
-const payment = new nahmii.Payment(provider, monetaryAmount, wallet_address, recipient_address);
+const payment = new nahmii.Payment(monetaryAmount, wallet_address, recipient_address, wallet);
 
-// Signs the payment with the private key belonging to your wallet_address.
-payment.sign(private_key);
+// Signs the payment with the private key belonging to your wallet.
+payment.sign();
 
 // Sends the signed payment to the API for registration and execution and
 // logs the API response to the console.
@@ -100,13 +103,13 @@ Converts the payment into a JSON object
 **Returns**: A JSON object that is in the format the API expects  
 <a name="module_nahmii-sdk--Payment.from"></a>
 
-#### Payment.from(wallet, json) ⇒ <code>Payment</code>
+#### Payment.from(json, [walletOrProvider]) ⇒ <code>Payment</code>
 Factory/de-serializing method
 
 **Kind**: static method of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| wallet | <code>Wallet</code> | The wallet sending the payment |
-| json |  | A JSON object that can be de-serialized to a Payment instance |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| json |  |  | A JSON object that can be de-serialized to a Payment instance |
+| [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | <code></code> | The wallet used for signing the payment |
 
