@@ -12,6 +12,7 @@
     },
     "rules": {
         "indent": ["error", 4],
+        "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
         "curly": ["error", "multi-or-nest", "consistent"],
         "strict": ["error", "global"]
     },
