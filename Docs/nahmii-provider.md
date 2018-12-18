@@ -4,20 +4,23 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiProvider](#exp_module_nahmii-sdk--NahmiiProvider) ⏏
-        * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret)](#new_module_nahmii-sdk--NahmiiProvider_new)
-        * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
-        * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
-        * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
-        * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
-        * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
-        * [.getTokenInfo(symbolOrAddress, byAddress)](#module_nahmii-sdk--NahmiiProvider+getTokenInfo) ⇒ <code>Promise.&lt;Object&gt;</code>
-        * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
-        * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
-        * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
-        * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
-        * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-        * [.getWalletReceipts(address, fromNonce, limit, asc)](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
-        * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
+        * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)](#new_module_nahmii-sdk--NahmiiProvider_new)
+        * _instance_
+            * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
+            * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
+            * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
+            * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
+            * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
+            * [.getTokenInfo(symbolOrAddress, byAddress)](#module_nahmii-sdk--NahmiiProvider+getTokenInfo) ⇒ <code>Promise.&lt;Object&gt;</code>
+            * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
+            * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
+            * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
+            * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
+            * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
+            * [.getWalletReceipts(address, fromNonce, limit, asc)](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
+            * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
+        * _static_
+            * [.from(nahmiiBaseUrl, apiAppId, apiAppSecret)](#module_nahmii-sdk--NahmiiProvider.from) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -28,8 +31,10 @@ A class providing low-level access to the _hubii nahmii_ APIs.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NahmiiProvider_new"></a>
 
-#### new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret)
+#### new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)
 Construct a new NahmiiProvider.
+Instead of using this constructor directly it is recommended that you use
+the NahmiiProvider.from() factory function.
 
 
 | Param | Type | Description |
@@ -37,7 +42,15 @@ Construct a new NahmiiProvider.
 | nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
 | apiAppId | <code>string</code> | nahmii API app-ID |
 | apiAppSecret | <code>string</code> | nahmii API app-secret |
+| nodeUrl | <code>string</code> | url to an ethereum node to connect to |
+| network | <code>string</code> \| <code>number</code> | a known ethereum network name or ID |
 
+**Example**  
+```js
+const {NahmiiProvider} = require('nahmii-sdk');
+
+const provider = await NahmiiProvider.from('https://api.nahmii.io', app_id, app_secret);
+```
 <a name="module_nahmii-sdk--NahmiiProvider+isUpdating"></a>
 
 #### nahmiiProvider.isUpdating ⇒ <code>boolean</code>
@@ -178,3 +191,17 @@ Rejects if a transaction is mined, but fails to execute, for example in an out o
 const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 const transactionReceipt = await getTransactionConfirmation(hash);
 ```
+<a name="module_nahmii-sdk--NahmiiProvider.from"></a>
+
+#### NahmiiProvider.from(nahmiiBaseUrl, apiAppId, apiAppSecret) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
+Factory method for creating a new NahmiiProvider automatically configured
+from the specified nahmii cluster.
+
+**Kind**: static method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
+| apiAppId | <code>string</code> | nahmii API app-ID |
+| apiAppSecret | <code>string</code> | nahmii API app-secret |
+

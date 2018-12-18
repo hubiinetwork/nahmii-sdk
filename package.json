@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.27",
+  "version": "1.0.0-beta.28",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,9 @@
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "test": "nyc mocha lib/**/*.spec.js --exit",
-    "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch",
+    "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "eslint --ignore-path .gitignore --fix ."
+    "lint:fix": "npm run lint -- --fix"
   },
   "pre-commit": [
     "lint",
