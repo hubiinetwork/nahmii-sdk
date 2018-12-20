@@ -12,7 +12,7 @@
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
-    "test": "nyc mocha lib/**/*.spec.js --exit",
+    "test": "nyc mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix"
