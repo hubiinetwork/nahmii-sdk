@@ -55,8 +55,8 @@ methods.
 <a name="module_nahmii-sdk--Wallet+signerKey"></a>
 
 #### wallet.signerKey ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
-If used with software wallet, returns an object contianing signer related information and logic 
-such as the private key, otherwise undefined
+If used with software wallet, returns an object containing signer related
+information and logic such as the private key, otherwise undefined
 
 **Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>ethers.SignerKey</code> \| <code>undefined</code> - The private key or undefined  
@@ -152,7 +152,8 @@ let hashObj = await wallet.withdraw(monetaryAmount, {gasLimit: 200000});
 <a name="module_nahmii-sdk--Wallet+unstage"></a>
 
 #### wallet.unstage(monetaryAmount, [options]) ⇒ <code>Promise</code>
-Unstage an amount of ETH or ERC20 tokens from staged balance back to nahmii available balance.
+Unstage an amount of ETH or ERC20 tokens from staged balance back to
+nahmii available balance.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
@@ -179,9 +180,9 @@ Retrieves the wallet address.
 <a name="module_nahmii-sdk--Wallet+signMessage"></a>
 
 #### wallet.signMessage(message) ⇒ <code>Promise.&lt;string&gt;</code>
-Signs message and returns a Promise that resolves to the flat-format signature.
-If message is a string, it is converted to UTF-8 bytes, otherwise it is preserved 
-as a binary representation of the Arrayish data.
+Signs message and returns a Promise that resolves to the flat-format
+signature. If message is a string, it is converted to UTF-8 bytes,
+otherwise it is preserved as a binary representation of the Arrayish data.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 
@@ -192,8 +193,10 @@ as a binary representation of the Arrayish data.
 <a name="module_nahmii-sdk--Wallet+sign"></a>
 
 #### wallet.sign(transaction) ⇒ <code>Promise.&lt;string&gt;</code>
-Signs transaction and returns a Promise that resolves to the signed transaction as a hex string.
-In general, the sendTransaction method is preferred to sign, as it can automatically populate values asynchronously.
+Signs transaction and returns a Promise that resolves to the signed
+transaction as a hex string.
+In general, the sendTransaction method is preferred to sign, as it can
+automatically populate values asynchronously.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 
@@ -226,8 +229,8 @@ Returns the wallet instance on-chain transaction count
 <a name="module_nahmii-sdk--Wallet+sendTransaction"></a>
 
 #### wallet.sendTransaction(transaction) ⇒ <code>Promise.&lt;TransactionResponse&gt;</code>
-Sends the transaction to the network and returns 
-a Promise that resolves to a Transaction Response. 
+Sends the transaction to the network and returns a Promise that resolves
+to a Transaction Response.
 Any properties that are not provided will be populated from the network.
 See: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-request
 

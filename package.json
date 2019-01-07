@@ -7,12 +7,12 @@
     "build": "npm run build:docs",
     "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils",
     "build:docs:provider": "jsdoc2md lib/nahmii-provider.js > Docs/nahmii-provider.md",
-    "build:docs:wallet": "jsdoc2md lib/wallet.js > Docs/wallet.md",
+    "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
-    "test": "nyc mocha lib/**/*.spec.js --exit",
+    "test": "nyc mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix"
@@ -43,7 +43,9 @@
   "devDependencies": {
     "@hubiinetwork/eslint-config": "github:hubiinetwork/eslint-config",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.6.1",
+    "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
     "nock": "^9.6.1",
     "nyc": "^12.0.2",
@@ -53,10 +55,8 @@
     "sinon-chai": "^3.2.0"
   },
   "dependencies": {
-    "chai-as-promised": "^7.1.1",
     "ethereumjs-util": "^5.2.0",
     "ethers": "4.0.18",
-    "jsdoc-to-markdown": "^4.0.1",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "node-yaml": "^3.1.1",
