@@ -97,10 +97,10 @@ Retrieves information about the token that has the specified symbol.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| symbolOrAddress | <code>string</code> | token symbol or address |
-| byAddress | <code>boolean</code> | a flag to tell whether to look up by symbol or address |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| symbolOrAddress | <code>string</code> |  | token symbol or address |
+| byAddress | <code>boolean</code> | <code>false</code> | a flag to tell whether to look up by symbol or address |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getNahmiiBalances"></a>
 

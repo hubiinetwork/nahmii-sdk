@@ -9,6 +9,7 @@ const DriipSettlementChallenge = require('./lib/driip-settlement');
 const NullSettlementChallenge = require('./lib/null-settlement');
 const Settlement = require('./lib/settlement');
 const utils = require('./lib/utils');
+const Erc20Contract = require('./lib/erc20/erc20-contract');
 
 module.exports = {
     NahmiiProvider,
@@ -19,5 +20,6 @@ module.exports = {
     DriipSettlementChallenge,
     NullSettlementChallenge,
     Settlement,
+    Erc20Contract,
     utils
 };
