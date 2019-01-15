@@ -11,7 +11,7 @@
 <dt><a href="#hash">hash(...args)</a> ⇒ <code>String</code></dt>
 <dd><p>Hash according to <a href="https://en.wikipedia.org/wiki/SHA-3">sha3 (aka keccak-256)</a></p>
 </dd>
-<dt><a href="#hashObject">hashObject(obj, propertyNameGlobs)</a> ⇒ <code>String</code></dt>
+<dt><a href="#hashObject">hashObject(obj, propertyNameGlobs, prevHashValue)</a> ⇒ <code>String</code></dt>
 <dd><p>Plucks properties from an object, and hashes them according to <a href="https://en.wikipedia.org/wiki/SHA-3">sha3 (aka keccak-256)</a></p>
 </dd>
 <dt><a href="#prefix0x">prefix0x(str)</a> ⇒ <code>String</code></dt>
@@ -19,6 +19,10 @@
 </dd>
 <dt><a href="#strip0x">strip0x(str)</a> ⇒ <code>String</code></dt>
 <dd><p>Removes 0x from the start of the string if present.</p>
+</dd>
+<dt><a href="#fromRpcSig">fromRpcSig(flatSig)</a> ⇒ <code>Object</code></dt>
+<dd><p>Takes a flat format RPC signature and returns it in expanded form, with
+s, r in hex string form, and v a number</p>
 </dd>
 <dt><a href="#sign">sign(message, privateKey)</a> ⇒ <code>Object</code></dt>
 <dd><p>Creates a signature for the specified message the Ethereum way according to
@@ -51,7 +55,7 @@ Hash according to [sha3 (aka keccak-256)](https://en.wikipedia.org/wiki/SHA-3)
 
 <a name="hashObject"></a>
 
-## hashObject(obj, propertyNameGlobs) ⇒ <code>String</code>
+## hashObject(obj, propertyNameGlobs, prevHashValue) ⇒ <code>String</code>
 Plucks properties from an object, and hashes them according to [sha3 (aka keccak-256)](https://en.wikipedia.org/wiki/SHA-3)
 
 **Kind**: global function  
@@ -61,6 +65,7 @@ Plucks properties from an object, and hashes them according to [sha3 (aka keccak
 | --- | --- |
 | obj | <code>Object</code> | 
 | propertyNameGlobs | <code>Array.&lt;String&gt;</code> | 
+| prevHashValue | <code>String</code> | 
 
 <a name="prefix0x"></a>
 
@@ -85,6 +90,19 @@ Removes 0x from the start of the string if present.
 | Param |
 | --- |
 | str | 
+
+<a name="fromRpcSig"></a>
+
+## fromRpcSig(flatSig) ⇒ <code>Object</code>
+Takes a flat format RPC signature and returns it in expanded form, with
+s, r in hex string form, and v a number
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - Expanded form signature  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| flatSig | <code>String</code> | Flat form signature |
 
 <a name="sign"></a>
 

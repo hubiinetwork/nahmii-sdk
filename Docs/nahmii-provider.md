@@ -4,22 +4,23 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiProvider](#exp_module_nahmii-sdk--NahmiiProvider) ⏏
-        * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret)](#new_module_nahmii-sdk--NahmiiProvider_new)
-        * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
-        * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
-        * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
-        * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
-        * [.getAllSupportedCurrencies()](#module_nahmii-sdk--NahmiiProvider+getAllSupportedCurrencies) ⇒ <code>Promise</code>
-        * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
-        * [.getAvaliableBalances(address)](#module_nahmii-sdk--NahmiiProvider+getAvaliableBalances) ⇒ <code>Promise</code>
-        * [.getBaseLayerBalances(address)](#module_nahmii-sdk--NahmiiProvider+getBaseLayerBalances) ⇒ <code>Promise</code>
-        * [.getStagingBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagingBalances) ⇒ <code>Promise</code>
-        * [.getStagedBalances(address)](#module_nahmii-sdk--NahmiiProvider+getStagedBalances) ⇒ <code>Promise</code>
-        * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
-        * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
-        * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
-        * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-        * [.getTransactionConfirmation()](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise</code>
+        * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)](#new_module_nahmii-sdk--NahmiiProvider_new)
+        * _instance_
+            * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
+            * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
+            * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
+            * [.getApiAccessToken()](#module_nahmii-sdk--NahmiiProvider+getApiAccessToken) ⇒ <code>Promise</code>
+            * [.getSupportedTokens()](#module_nahmii-sdk--NahmiiProvider+getSupportedTokens) ⇒ <code>Promise</code>
+            * [.getTokenInfo(symbolOrAddress, byAddress)](#module_nahmii-sdk--NahmiiProvider+getTokenInfo) ⇒ <code>Promise.&lt;Object&gt;</code>
+            * [.getNahmiiBalances(address)](#module_nahmii-sdk--NahmiiProvider+getNahmiiBalances) ⇒ <code>Promise</code>
+            * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
+            * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
+            * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
+            * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
+            * [.getWalletReceipts(address, fromNonce, limit, asc)](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
+            * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
+        * _static_
+            * [.from(nahmiiBaseUrl, apiAppId, apiAppSecret)](#module_nahmii-sdk--NahmiiProvider.from) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -30,8 +31,10 @@ A class providing low-level access to the _hubii nahmii_ APIs.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NahmiiProvider_new"></a>
 
-#### new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret)
+#### new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)
 Construct a new NahmiiProvider.
+Instead of using this constructor directly it is recommended that you use
+the NahmiiProvider.from() factory function.
 
 
 | Param | Type | Description |
@@ -39,7 +42,15 @@ Construct a new NahmiiProvider.
 | nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
 | apiAppId | <code>string</code> | nahmii API app-ID |
 | apiAppSecret | <code>string</code> | nahmii API app-secret |
+| nodeUrl | <code>string</code> | url to an ethereum node to connect to |
+| network | <code>string</code> \| <code>number</code> | a known ethereum network name or ID |
 
+**Example**  
+```js
+const {NahmiiProvider} = require('nahmii-sdk');
+
+const provider = await NahmiiProvider.from('https://api.nahmii.io', app_id, app_secret);
+```
 <a name="module_nahmii-sdk--NahmiiProvider+isUpdating"></a>
 
 #### nahmiiProvider.isUpdating ⇒ <code>boolean</code>
@@ -89,6 +100,19 @@ Retrieves the list of tokens (currencies) supported by _hubii nahmii_.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of token definitions.  
+<a name="module_nahmii-sdk--NahmiiProvider+getTokenInfo"></a>
+
+#### nahmiiProvider.getTokenInfo(symbolOrAddress, byAddress) ⇒ <code>Promise.&lt;Object&gt;</code>
+Retrieves information about the token that has the specified symbol.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbolOrAddress | <code>string</code> | token symbol or address |
+| byAddress | <code>boolean</code> | a flag to tell whether to look up by symbol or address |
+
+<a name="module_nahmii-sdk--NahmiiProvider+getNahmiiBalances"></a>
 
 <a name="module_nahmii-sdk--NahmiiProvider+getAvaliableBalances"></a>
 
@@ -181,10 +205,51 @@ Retrieves all receipts for effectuated payments from the server.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+<a name="module_nahmii-sdk--NahmiiProvider+getWalletReceipts"></a>
+
+#### nahmiiProvider.getWalletReceipts(address, fromNonce, limit, asc) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments using filter/pagnination criteria.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address | <code>Address</code> | Filter payment receipts for a specific wallet address. |
+| fromNonce | <code>number</code> | Filter payment receipts greater or equal to specific nonce. |
+| limit | <code>number</code> | The max number of payment receipts to return. |
+| asc | <code>boolean</code> | Return payment receipts in asc order. The default order is desc. |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
 
-#### nahmiiProvider.getTransactionConfirmation() ⇒ <code>Promise</code>
-Waits for a transaction to be mined, polling every second. Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
+#### nahmiiProvider.getTransactionConfirmation(transactionHash, [timeout]) ⇒ <code>Promise.&lt;Object&gt;</code>
+Waits for a transaction to be mined, polling every second.
+Rejects if a transaction is mined, but fails to execute, for example in an out of gas scenario.
+
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
-**Returns**: <code>Promise</code> - A promise that resolves into an a transaction receipt  
+**See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| transactionHash | <code>string</code> |  |  |
+| [timeout] | <code>number</code> | <code>60</code> | Seconds to wait before timing out |
+
+**Example**  
+```js
+const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
+const transactionReceipt = await getTransactionConfirmation(hash);
+```
+<a name="module_nahmii-sdk--NahmiiProvider.from"></a>
+
+#### NahmiiProvider.from(nahmiiBaseUrl, apiAppId, apiAppSecret) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
+Factory method for creating a new NahmiiProvider automatically configured
+from the specified nahmii cluster.
+
+**Kind**: static method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
+| apiAppId | <code>string</code> | nahmii API app-ID |
+| apiAppSecret | <code>string</code> | nahmii API app-secret |
+

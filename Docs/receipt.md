@@ -4,32 +4,42 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Receipt](#exp_module_nahmii-sdk--Receipt) ⏏
+        * [new Receipt(payment, [walletOrProvider])](#new_module_nahmii-sdk--Receipt_new)
         * _instance_
-            * [.sign(privateKey)](#module_nahmii-sdk--Receipt+sign)
+            * [.sign()](#module_nahmii-sdk--Receipt+sign)
             * [.isSigned()](#module_nahmii-sdk--Receipt+isSigned) ⇒ <code>Boolean</code>
             * [.effectuate()](#module_nahmii-sdk--Receipt+effectuate) ⇒ <code>Promise</code>
             * [.toJSON()](#module_nahmii-sdk--Receipt+toJSON) ⇒ <code>Object</code>
         * _static_
-            * [.from(provider, json)](#module_nahmii-sdk--Receipt.from) ⇒ <code>Receipt</code>
+            * [.from(json, [walletOrProvider])](#module_nahmii-sdk--Receipt.from) ⇒ <code>Receipt</code>
 
 <a name="exp_module_nahmii-sdk--Receipt"></a>
 
 ### Receipt ⏏
 Receipt
 A class for modelling a _hubii nahmii_ payment receipt.
+To be able to sign a receipt, you must supply a valid Wallet instance.
+To be able to do operations that interacts with the server you need to
+supply a valid Wallet or NahmiiProvider instance.
 
 **Kind**: Exported class  
+<a name="new_module_nahmii-sdk--Receipt_new"></a>
+
+#### new Receipt(payment, [walletOrProvider])
+Receipt constructor
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| payment | <code>Payment</code> |  | A payment instance |
+| [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | <code></code> | Optional wallet or provider instance |
+
 <a name="module_nahmii-sdk--Receipt+sign"></a>
 
-#### receipt.sign(privateKey)
-Will hash and sign the receipt given a private key
+#### receipt.sign()
+Will hash and sign the receipt with the wallet passed into the constructor
 
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| privateKey | <code>String</code> \| <code>PrivateKey</code> | Operator private key |
-
 <a name="module_nahmii-sdk--Receipt+isSigned"></a>
 
 #### receipt.isSigned() ⇒ <code>Boolean</code>
@@ -52,13 +62,13 @@ Converts the receipt into a JSON object
 **Kind**: instance method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
 <a name="module_nahmii-sdk--Receipt.from"></a>
 
-#### Receipt.from(provider, json) ⇒ <code>Receipt</code>
+#### Receipt.from(json, [walletOrProvider]) ⇒ <code>Receipt</code>
 Factory/de-serializing method
 
 **Kind**: static method of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| provider | <code>NahmiiProvider</code> | An instance of a NahmiiProvider |
-| json |  | A JSON object that can be de-serialized to a Receipt instance |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| json |  |  | A JSON object that can be de-serialized to a Receipt instance |
+| [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | <code></code> | Optional wallet or provider instance |
 

@@ -16,10 +16,10 @@
     "lcov",
     "text"
   ],
-  "check-coverage": false,
-  "per-file": true,
-  "lines": 100,
-  "statements": 100,
-  "functions": 100,
-  "branches": 100
+  "check-coverage": true,
+  "per-file": false,
+  "lines": 95,
+  "statements": 95,
+  "functions": 93,
+  "branches": 90
 }

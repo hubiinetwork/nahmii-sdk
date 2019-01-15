@@ -1,23 +1,25 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.17",
+  "version": "1.0.0-beta.31",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
     "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils",
     "build:docs:provider": "jsdoc2md lib/nahmii-provider.js > Docs/nahmii-provider.md",
-    "build:docs:wallet": "jsdoc2md lib/wallet.js > Docs/wallet.md",
+    "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
-    "test": "nyc mocha lib/**/*.spec.js --exit",
-    "test:watch": "nyc mocha lib/**/*.spec.js --exit --watch",
-    "lint": "eslint --ignore-path .gitignore --fix ."
+    "test": "nyc mocha 'lib/**/*.spec.js' --exit",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
@@ -41,7 +43,9 @@
   "devDependencies": {
     "@hubiinetwork/eslint-config": "github:hubiinetwork/eslint-config",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.6.1",
+    "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
     "nock": "^9.6.1",
     "nyc": "^12.0.2",
@@ -53,8 +57,8 @@
   "dependencies": {
     "bignumber.js": "^7.2.1",
     "ethereumjs-util": "^5.2.0",
-    "ethers": "^3.0.7",
     "jsdoc-to-markdown": "^4.0.1",
+    "ethers": "4.0.18",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "node-yaml": "^3.1.1",
