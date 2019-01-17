@@ -57,13 +57,14 @@
   "dependencies": {
     "bignumber.js": "^7.2.1",
     "ethereumjs-util": "^5.2.0",
-    "jsdoc-to-markdown": "^4.0.1",
     "ethers": "4.0.18",
+    "jsdoc-to-markdown": "^4.0.1",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "node-yaml": "^3.1.1",
     "superagent": "^3.8.3",
     "web3-utils": "^1.0.0-beta.35",
+    "xmlhttprequest": "^1.8.0",
     "yargs": "^12.0.1"
   }
 }
