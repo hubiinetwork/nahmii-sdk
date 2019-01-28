@@ -1,17 +1,18 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.29",
+  "version": "1.0.0-beta.35",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
-    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils",
+    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils && npm run build:docs:erc20",
     "build:docs:provider": "jsdoc2md lib/nahmii-provider.js > Docs/nahmii-provider.md",
     "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
     "build:docs:monetary-amount": "jsdoc2md lib/monetary-amount.js > Docs/monetary-amount.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
+    "build:docs:erc20": "jsdoc2md lib/erc20/erc20-contract.js > Docs/erc20-contract.md",
     "test": "nyc mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
@@ -61,7 +62,7 @@
     "lodash.get": "^4.4.2",
     "node-yaml": "^3.1.1",
     "superagent": "^3.8.3",
-    "web3-utils": "^1.0.0-beta.35",
+    "web3-utils": "1.0.0-beta.37",
     "yargs": "^12.0.1"
   }
 }

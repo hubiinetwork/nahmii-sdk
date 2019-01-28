@@ -84,4 +84,5 @@ create a payment, sign it and register it with the API:
 * [class Payment](Docs/payment.md)
 * [class Receipt](Docs/receipt.md)
 * [class MonetaryAmount](Docs/monetary-amount.md)
+* [class Erc20Contract](Docs/erc20-contract.md)
 * [class utils](Docs/utils.md)

@@ -14,7 +14,8 @@
         "indent": ["error", 4],
         "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
         "curly": ["error", "multi-or-nest", "consistent"],
-        "strict": ["error", "global"]
+        "strict": ["error", "global"],
+        "no-buffer-constructor": 2
     },
     "extends": "@hubiinetwork"
 }

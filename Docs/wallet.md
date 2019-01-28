@@ -10,6 +10,7 @@
         * [.signerKey](#module_nahmii-sdk--Wallet+signerKey) ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
+        * [.getDepositAllowance(symbol)](#module_nahmii-sdk--Wallet+getDepositAllowance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
         * [.completeTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+completeTokenDeposit) ⇒ <code>Promise</code>
         * [.withdraw(monetaryAmount, [options])](#module_nahmii-sdk--Wallet+withdraw) ⇒ <code>Promise</code>
@@ -86,6 +87,17 @@ nahmii.
 const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 const receipt = await wallet.provider.getTransactionConfirmation(hash);
 ```
+<a name="module_nahmii-sdk--Wallet+getDepositAllowance"></a>
+
+#### wallet.getDepositAllowance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
+Retrieve current deposit allowance for the specified symbol.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbol | <code>string</code> | The currency symbol |
+
 <a name="module_nahmii-sdk--Wallet+approveTokenDeposit"></a>
 
 #### wallet.approveTokenDeposit(amount, symbol, [options]) ⇒ <code>Promise</code>
