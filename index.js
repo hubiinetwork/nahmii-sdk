@@ -5,9 +5,7 @@ const Wallet = require('./lib/wallet');
 const Payment = require('./lib/payment');
 const Receipt = require('./lib/receipt');
 const MonetaryAmount = require('./lib/monetary-amount');
-const DriipSettlementChallenge = require('./lib/driip-settlement');
-const NullSettlementChallenge = require('./lib/null-settlement');
-const Settlement = require('./lib/settlement');
+const {Settlement, DriipSettlementChallenge, NullSettlementChallenge} = require('./lib/settlement');
 const utils = require('./lib/utils');
 const Erc20Contract = require('./lib/erc20/erc20-contract');
 

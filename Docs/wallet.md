@@ -9,6 +9,7 @@
         * [.address](#module_nahmii-sdk--Wallet+address) ⇒ <code>String</code>
         * [.signerKey](#module_nahmii-sdk--Wallet+signerKey) ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
+        * [.getNahmiiStagedBalance(symbol)](#module_nahmii-sdk--Wallet+getNahmiiStagedBalance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
         * [.getDepositAllowance(symbol)](#module_nahmii-sdk--Wallet+getDepositAllowance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
@@ -68,6 +69,17 @@ Retrieves nahmii balance for current wallet.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
+<a name="module_nahmii-sdk--Wallet+getNahmiiStagedBalance"></a>
+
+#### wallet.getNahmiiStagedBalance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
+Retrieves nahmii staged balance for a currency of the current wallet.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbol | <code>string</code> | The currency symbol |
+
 <a name="module_nahmii-sdk--Wallet+depositEth"></a>
 
 #### wallet.depositEth(amountEth, [options]) ⇒ <code>Promise</code>
