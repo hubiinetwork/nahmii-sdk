@@ -5,7 +5,6 @@
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NullSettlement](#exp_module_nahmii-sdk--NullSettlement) ⏏
         * [new NullSettlement(provider)](#new_module_nahmii-sdk--NullSettlement_new)
-        * [.isWalletLocked(address)](#module_nahmii-sdk--NullSettlement+isWalletLocked) ⇒ <code>Promise</code>
         * [.hasCurrentProposalExpired(address, ct, id)](#module_nahmii-sdk--NullSettlement+hasCurrentProposalExpired) ⇒ <code>Promise</code>
         * [.getCurrentProposalNonce(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalNonce) ⇒ <code>Promise</code>
         * [.getCurrentProposalExpirationTime(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalExpirationTime) ⇒ <code>Promise</code>
@@ -41,22 +40,6 @@ const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmi
 
 const nullSettlement = new nahmii.NullSettlement(provider);
 const expired = await nullSettlement.hasCurrentProposalExpired(walletAddress, currencyAddress, currencyId);
-```
-<a name="module_nahmii-sdk--NullSettlement+isWalletLocked"></a>
-
-#### nullSettlement.isWalletLocked(address) ⇒ <code>Promise</code>
-Returns locked state of the given wallet
-
-**Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
-**Returns**: <code>Promise</code> - A promise that resolves into a boolean value indicating if the wallet has been locked.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| address | <code>Address</code> | The wallet address |
-
-**Example**  
-```js
-let locked = await nullSettlement.isWalletLocked(address);
 ```
 <a name="module_nahmii-sdk--NullSettlement+hasCurrentProposalExpired"></a>
 
