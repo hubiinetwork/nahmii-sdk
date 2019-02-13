@@ -10,6 +10,7 @@
         * [.signerKey](#module_nahmii-sdk--Wallet+signerKey) ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
         * [.getNahmiiStagedBalance(symbol)](#module_nahmii-sdk--Wallet+getNahmiiStagedBalance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
+        * [.getReceipts([fromNonce], [limit], [asc])](#module_nahmii-sdk--Wallet+getReceipts) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
         * [.getDepositAllowance(symbol)](#module_nahmii-sdk--Wallet+getDepositAllowance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
@@ -50,8 +51,7 @@ The Nahmii Provider used by this wallet instance.
 <a name="module_nahmii-sdk--Wallet+address"></a>
 
 #### wallet.address ⇒ <code>String</code>
-Returns the address for this wallet, required by ethers Wallet
-methods.
+Returns the address for this wallet, required by ethers Wallet methods.
 
 **Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 <a name="module_nahmii-sdk--Wallet+signerKey"></a>
@@ -79,6 +79,21 @@ Retrieves nahmii staged balance for a currency of the current wallet.
 | Param | Type | Description |
 | --- | --- | --- |
 | symbol | <code>string</code> | The currency symbol |
+
+<a name="module_nahmii-sdk--Wallet+getReceipts"></a>
+
+#### wallet.getReceipts([fromNonce], [limit], [asc]) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments for the wallet using
+filter/pagination criteria.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [fromNonce] | <code>number</code> |  | Filter payment receipts greater or equal to specific nonce. |
+| [limit] | <code>number</code> |  | The max number of payment receipts to return. |
+| [asc] | <code>boolean</code> | <code>false</code> | Return payment receipts in asc order. |
 
 <a name="module_nahmii-sdk--Wallet+depositEth"></a>
 
