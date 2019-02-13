@@ -6,10 +6,13 @@
     * [Wallet](#exp_module_nahmii-sdk--Wallet) ⏏
         * [new Wallet(signer, provider)](#new_module_nahmii-sdk--Wallet_new)
         * [.provider](#module_nahmii-sdk--Wallet+provider) ⇒ <code>NahmiiProvider</code>
+        * [.address](#module_nahmii-sdk--Wallet+address) ⇒ <code>String</code>
         * [.signerKey](#module_nahmii-sdk--Wallet+signerKey) ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
         * [.getNahmiiBalance()](#module_nahmii-sdk--Wallet+getNahmiiBalance) ⇒ <code>Promise</code>
+        * [.getNahmiiStagedBalance(symbol)](#module_nahmii-sdk--Wallet+getNahmiiStagedBalance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.getReceipts([fromNonce], [limit], [asc])](#module_nahmii-sdk--Wallet+getReceipts) ⇒ <code>Promise</code>
         * [.depositEth(amountEth, [options])](#module_nahmii-sdk--Wallet+depositEth) ⇒ <code>Promise</code>
+        * [.getDepositAllowance(symbol)](#module_nahmii-sdk--Wallet+getDepositAllowance) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
         * [.approveTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+approveTokenDeposit) ⇒ <code>Promise</code>
         * [.completeTokenDeposit(amount, symbol, [options])](#module_nahmii-sdk--Wallet+completeTokenDeposit) ⇒ <code>Promise</code>
         * [.withdraw(monetaryAmount, [options])](#module_nahmii-sdk--Wallet+withdraw) ⇒ <code>Promise</code>
@@ -45,10 +48,17 @@ Create a Wallet from either a private key or custom signing functions
 The Nahmii Provider used by this wallet instance.
 
 **Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+<a name="module_nahmii-sdk--Wallet+address"></a>
+
+#### wallet.address ⇒ <code>String</code>
+Returns the address for this wallet, required by ethers Wallet methods.
+
+**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 <a name="module_nahmii-sdk--Wallet+signerKey"></a>
 
 #### wallet.signerKey ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
-Private key, if used with software signatures
+If used with software wallet, returns an object containing signer related
+information and logic such as the private key, otherwise undefined
 
 **Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>ethers.SignerKey</code> \| <code>undefined</code> - The private key or undefined  
@@ -59,10 +69,22 @@ Retrieves nahmii balance for current wallet.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
+<a name="module_nahmii-sdk--Wallet+getNahmiiStagedBalance"></a>
+
+#### wallet.getNahmiiStagedBalance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
+Retrieves nahmii staged balance for a currency of the current wallet.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbol | <code>string</code> | The currency symbol |
+
 <a name="module_nahmii-sdk--Wallet+getReceipts"></a>
 
 #### wallet.getReceipts([fromNonce], [limit], [asc]) ⇒ <code>Promise</code>
-Retrieves all receipts for effectuated payments for the wallet using filter/pagnination criteria.
+Retrieves all receipts for effectuated payments for the wallet using
+filter/pagination criteria.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
@@ -92,6 +114,17 @@ nahmii.
 const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 const receipt = await wallet.provider.getTransactionConfirmation(hash);
 ```
+<a name="module_nahmii-sdk--Wallet+getDepositAllowance"></a>
+
+#### wallet.getDepositAllowance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
+Retrieve current deposit allowance for the specified symbol.
+
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| symbol | <code>string</code> | The currency symbol |
+
 <a name="module_nahmii-sdk--Wallet+approveTokenDeposit"></a>
 
 #### wallet.approveTokenDeposit(amount, symbol, [options]) ⇒ <code>Promise</code>
@@ -158,7 +191,8 @@ let hashObj = await wallet.withdraw(monetaryAmount, {gasLimit: 200000});
 <a name="module_nahmii-sdk--Wallet+unstage"></a>
 
 #### wallet.unstage(monetaryAmount, [options]) ⇒ <code>Promise</code>
-Unstage an amount of ETH or ERC20 tokens from staged balance back to nahmii available balance.
+Unstage an amount of ETH or ERC20 tokens from staged balance back to
+nahmii available balance.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
@@ -185,7 +219,9 @@ Retrieves the wallet address.
 <a name="module_nahmii-sdk--Wallet+signMessage"></a>
 
 #### wallet.signMessage(message) ⇒ <code>Promise.&lt;string&gt;</code>
-Asynchronous method for signing a message.
+Signs message and returns a Promise that resolves to the flat-format
+signature. If message is a string, it is converted to UTF-8 bytes,
+otherwise it is preserved as a binary representation of the Arrayish data.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 
@@ -196,7 +232,10 @@ Asynchronous method for signing a message.
 <a name="module_nahmii-sdk--Wallet+sign"></a>
 
 #### wallet.sign(transaction) ⇒ <code>Promise.&lt;string&gt;</code>
-Asynchronous method for signing a transaction.
+Signs transaction and returns a Promise that resolves to the signed
+transaction as a hex string.
+In general, the sendTransaction method is preferred to sign, as it can
+automatically populate values asynchronously.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 
@@ -229,7 +268,10 @@ Returns the wallet instance on-chain transaction count
 <a name="module_nahmii-sdk--Wallet+sendTransaction"></a>
 
 #### wallet.sendTransaction(transaction) ⇒ <code>Promise.&lt;TransactionResponse&gt;</code>
-Signs and broadcasts an Ethereum transaction to the network
+Sends the transaction to the network and returns a Promise that resolves
+to a Transaction Response.
+Any properties that are not provided will be populated from the network.
+See: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-request
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 

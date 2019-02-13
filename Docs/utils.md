@@ -11,7 +11,7 @@
 <dt><a href="#hash">hash(...args)</a> ⇒ <code>String</code></dt>
 <dd><p>Hash according to <a href="https://en.wikipedia.org/wiki/SHA-3">sha3 (aka keccak-256)</a></p>
 </dd>
-<dt><a href="#hashObject">hashObject(obj, propertyNameGlobs)</a> ⇒ <code>String</code></dt>
+<dt><a href="#hashObject">hashObject(obj, propertyNameGlobs, prevHashValue)</a> ⇒ <code>String</code></dt>
 <dd><p>Plucks properties from an object, and hashes them according to <a href="https://en.wikipedia.org/wiki/SHA-3">sha3 (aka keccak-256)</a></p>
 </dd>
 <dt><a href="#prefix0x">prefix0x(str)</a> ⇒ <code>String</code></dt>
@@ -51,7 +51,7 @@ Hash according to [sha3 (aka keccak-256)](https://en.wikipedia.org/wiki/SHA-3)
 
 <a name="hashObject"></a>
 
-## hashObject(obj, propertyNameGlobs) ⇒ <code>String</code>
+## hashObject(obj, propertyNameGlobs, prevHashValue) ⇒ <code>String</code>
 Plucks properties from an object, and hashes them according to [sha3 (aka keccak-256)](https://en.wikipedia.org/wiki/SHA-3)
 
 **Kind**: global function  
@@ -61,6 +61,7 @@ Plucks properties from an object, and hashes them according to [sha3 (aka keccak
 | --- | --- |
 | obj | <code>Object</code> | 
 | propertyNameGlobs | <code>Array.&lt;String&gt;</code> | 
+| prevHashValue | <code>String</code> | 
 
 <a name="prefix0x"></a>
 
