@@ -63,6 +63,7 @@
     "ethers": "4.0.18",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
+    "nahmii-ethereum-address": "^2.0.0",
     "node-yaml": "^3.1.1",
     "superagent": "^3.8.3",
     "web3-utils": "1.0.0-beta.37",
