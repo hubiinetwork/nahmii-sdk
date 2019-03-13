@@ -36,7 +36,7 @@ Create a provider to gain access to the low-level SDK:
 
     const nahmii = require('nahmii-sdk');
 
-    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
+    const provider = await nahmii.NahmiiProvider.from(nahmii_domain, nahmii_app_id, nahmii_app_secret);
 
 ```
 
@@ -46,10 +46,11 @@ wallet's balance:
 ```javascript
 
     const nahmii = require('nahmii-sdk');
-    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
+    const provider = await nahmii.NahmiiProvider.from(nahmii_domain, nahmii_app_id, nahmii_app_secret);
 
     // Logs all assets of the specified wallet to the console
-    provider.getNahmiiBalances(wallet_address).then(console.log);
+    const balances = await provider.getNahmiiBalances(wallet_address);
+    console.log(balances);
 
 ```
 
@@ -60,12 +61,12 @@ create a payment, sign it and register it with the API:
 ```javascript
 
     const nahmii = require('nahmii-sdk');
-    const provider = new nahmii.NahmiiProvider(nahmii_base_url, nahmii_app_id, nahmii_app_secret);
+    const provider = await nahmii.NahmiiProvider.from(nahmii_domain, nahmii_app_id, nahmii_app_secret);
     const wallet = new nahmii.Wallet(private_key, provider);
 
     // Creates a new Payment, providing essential inputs such as the amount,
     // the currency, the sender, and the recipient.
-    const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
+    const monetaryAmount = nahmii.MonetaryAmount.from(amount, erc20_token_address);
     const payment = new nahmii.Payment(wallet, monetaryAmount, wallet_address, recipient_address);
 
     // Signs the payment with the wallet passed during instantiation
