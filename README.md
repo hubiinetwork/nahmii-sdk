@@ -81,6 +81,7 @@ create a payment, sign it and register it with the API:
 ## Reference manual
 
 * [class NahmiiProvider](Docs/nahmii-provider.md)
+* [class NahmiiEventProvider](Docs/nahmii-event-provider.md)
 * [class Wallet](Docs/wallet.md)
 * [class Payment](Docs/payment.md)
 * [class Receipt](Docs/receipt.md)
