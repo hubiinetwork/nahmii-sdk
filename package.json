@@ -21,7 +21,7 @@
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
-    "postinstall": "if [[ $npm_config_production == 'true' || $npm_config_only == prod* ]] ; then exit 0 ; else npx npm-install-peers ; fi"
+    "postinstall": "bash -c \"if [[ $npm_config_production == 'true' || $npm_config_only == prod* ]] ; then exit 0 ; else npx npm-install-peers ; fi\""
   },
   "pre-commit": [
     "lint",
