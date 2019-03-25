@@ -6,6 +6,12 @@
     * [Receipt](#exp_module_nahmii-sdk--Receipt) ⏏
         * [new Receipt(payment, [walletOrProvider])](#new_module_nahmii-sdk--Receipt_new)
         * _instance_
+            * [.payment](#module_nahmii-sdk--Receipt+payment) ⇒ <code>Payment</code>
+            * [.blockNumber](#module_nahmii-sdk--Receipt+blockNumber) ⇒ <code>any</code>
+            * ~~[.nonce](#module_nahmii-sdk--Receipt+nonce) ⇒ <code>any</code>~~
+            * [.sender](#module_nahmii-sdk--Receipt+sender) ⇒ <code>Address</code>
+            * [.recipient](#module_nahmii-sdk--Receipt+recipient) ⇒ <code>Address</code>
+            * [.operatorId](#module_nahmii-sdk--Receipt+operatorId) ⇒ <code>Number</code>
             * [.sign()](#module_nahmii-sdk--Receipt+sign)
             * [.isSigned()](#module_nahmii-sdk--Receipt+isSigned) ⇒ <code>Boolean</code>
             * [.effectuate()](#module_nahmii-sdk--Receipt+effectuate) ⇒ <code>Promise</code>
@@ -34,6 +40,44 @@ Receipt constructor
 | payment | <code>Payment</code> |  | A payment instance |
 | [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | <code></code> | Optional wallet or provider instance |
 
+<a name="module_nahmii-sdk--Receipt+payment"></a>
+
+#### receipt.payment ⇒ <code>Payment</code>
+Retrieve the payment this Receipt is based on.
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+blockNumber"></a>
+
+#### receipt.blockNumber ⇒ <code>any</code>
+Reference to the on-chain state the payments was effectuated after.
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+nonce"></a>
+
+#### ~~receipt.nonce ⇒ <code>any</code>~~
+***Deprecated***
+
+Global nonce - dont use this for anything, will be removed!
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+sender"></a>
+
+#### receipt.sender ⇒ <code>Address</code>
+The address of the sender
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+recipient"></a>
+
+#### receipt.recipient ⇒ <code>Address</code>
+The address of the recipient
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
+<a name="module_nahmii-sdk--Receipt+operatorId"></a>
+
+#### receipt.operatorId ⇒ <code>Number</code>
+The ID of the operator that effectuated this payment.
+
+**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
 <a name="module_nahmii-sdk--Receipt+sign"></a>
 
 #### receipt.sign()

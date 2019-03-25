@@ -7,6 +7,7 @@
         * [new NahmiiEventProvider(nahmiiDomainOrProvider)](#new_module_nahmii-sdk--NahmiiEventProvider_new)
         * _instance_
             * [.onNewReceipt(listener)](#module_nahmii-sdk--NahmiiEventProvider+onNewReceipt) ⇒ <code>NahmiiEventProvider</code>
+            * [.dispose()](#module_nahmii-sdk--NahmiiEventProvider+dispose)
         * _static_
             * [.from(nahmiiDomainOrProvider)](#module_nahmii-sdk--NahmiiEventProvider.from) ⇒ <code>Promise.&lt;NahmiiEventProvider&gt;</code>
 
@@ -46,7 +47,7 @@ nahmiiEvents.onNewReceipt(receipt => {
 const {NahmiiProvider, NahmiiEventProvider}= require('nahmii-sdk');
 
 const provider = await NahmiiProvider.from('api.nahmii.io', my_app_id, my_app_secret);
-const nahmiiEvents = NahmiiEventProvider.from(provider);
+const nahmiiEvents = await NahmiiEventProvider.from(provider);
 
 nahmiiEvents.onNewReceipt(receipt => {
     if (!receipt.isSigned())
@@ -71,6 +72,14 @@ chained.
 | --- |
 | listener | 
 
+<a name="module_nahmii-sdk--NahmiiEventProvider+dispose"></a>
+
+#### nahmiiEventProvider.dispose()
+Call this to stop listening for events from the nahmii cluster. The
+instance of the NahmiiEventProvider can not be used after it has been
+disposed.
+
+**Kind**: instance method of [<code>NahmiiEventProvider</code>](#exp_module_nahmii-sdk--NahmiiEventProvider)  
 <a name="module_nahmii-sdk--NahmiiEventProvider.from"></a>
 
 #### NahmiiEventProvider.from(nahmiiDomainOrProvider) ⇒ <code>Promise.&lt;NahmiiEventProvider&gt;</code>
