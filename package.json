@@ -1,12 +1,13 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.37",
+  "version": "1.0.0-beta.42",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
-    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils && npm run build:docs:erc20 && npm run build:docs:settlement && npm run build:docs:driip-settlement && npm run build:docs:null-settlement",
+    "build:docs": "npm run build:docs:provider && npm run build:docs:wallet && npm run build:docs:payment && npm run build:docs:receipt && npm run build:docs:monetary-amount && npm run build:docs:utils && npm run build:docs:erc20 && npm run build:docs:settlement && npm run build:docs:driip-settlement && npm run build:docs:null-settlement && npm run build:docs:event-provider",
     "build:docs:provider": "jsdoc2md lib/nahmii-provider.js > Docs/nahmii-provider.md",
+    "build:docs:event-provider": "jsdoc2md lib/event-provider/index.js > Docs/nahmii-event-provider.md",
     "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
     "build:docs:payment": "jsdoc2md lib/payment.js > Docs/payment.md",
     "build:docs:receipt": "jsdoc2md lib/receipt.js > Docs/receipt.md",
@@ -60,10 +61,12 @@
   },
   "dependencies": {
     "ethereumjs-util": "^5.2.0",
-    "ethers": "4.0.18",
+    "ethers": "~4.0.0",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
+    "nahmii-ethereum-address": "^2.0.0",
     "node-yaml": "^3.1.1",
+    "socket.io-client": "^2.2.0",
     "superagent": "^3.8.3",
     "web3-utils": "1.0.0-beta.37",
     "yargs": "^12.0.1"

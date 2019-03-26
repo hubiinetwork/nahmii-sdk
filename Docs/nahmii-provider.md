@@ -4,8 +4,9 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiProvider](#exp_module_nahmii-sdk--NahmiiProvider) ⏏
-        * [new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)](#new_module_nahmii-sdk--NahmiiProvider_new)
+        * [new NahmiiProvider(nahmiiDomain, apiAppId, apiAppSecret, nodeUrl, network)](#new_module_nahmii-sdk--NahmiiProvider_new)
         * _instance_
+            * [.nahmiiDomain](#module_nahmii-sdk--NahmiiProvider+nahmiiDomain) ⇒ <code>string</code>
             * [.isUpdating](#module_nahmii-sdk--NahmiiProvider+isUpdating) ⇒ <code>boolean</code>
             * [.startUpdate()](#module_nahmii-sdk--NahmiiProvider+startUpdate)
             * [.stopUpdate()](#module_nahmii-sdk--NahmiiProvider+stopUpdate)
@@ -17,10 +18,10 @@
             * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
             * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
             * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
-            * [.getWalletReceipts(address, fromNonce, limit, asc)](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
+            * [.getWalletReceipts(address, [fromNonce], [limit], [asc])](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
             * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
         * _static_
-            * [.from(nahmiiBaseUrl, apiAppId, apiAppSecret)](#module_nahmii-sdk--NahmiiProvider.from) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
+            * [.from(nahmiiDomain, apiAppId, apiAppSecret)](#module_nahmii-sdk--NahmiiProvider.from) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiProvider"></a>
 
@@ -31,7 +32,7 @@ A class providing low-level access to the _hubii nahmii_ APIs.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NahmiiProvider_new"></a>
 
-#### new NahmiiProvider(nahmiiBaseUrl, apiAppId, apiAppSecret, nodeUrl, network)
+#### new NahmiiProvider(nahmiiDomain, apiAppId, apiAppSecret, nodeUrl, network)
 Construct a new NahmiiProvider.
 Instead of using this constructor directly it is recommended that you use
 the NahmiiProvider.from() factory function.
@@ -39,7 +40,7 @@ the NahmiiProvider.from() factory function.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
+| nahmiiDomain | <code>string</code> | The domain name for the nahmii API |
 | apiAppId | <code>string</code> | nahmii API app-ID |
 | apiAppSecret | <code>string</code> | nahmii API app-secret |
 | nodeUrl | <code>string</code> | url to an ethereum node to connect to |
@@ -49,8 +50,14 @@ the NahmiiProvider.from() factory function.
 ```js
 const {NahmiiProvider} = require('nahmii-sdk');
 
-const provider = await NahmiiProvider.from('https://api.nahmii.io', app_id, app_secret);
+const provider = await NahmiiProvider.from('api.nahmii.io', app_id, app_secret);
 ```
+<a name="module_nahmii-sdk--NahmiiProvider+nahmiiDomain"></a>
+
+#### nahmiiProvider.nahmiiDomain ⇒ <code>string</code>
+Retrieves the domain name of the nahmii cluster.
+
+**Kind**: instance property of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 <a name="module_nahmii-sdk--NahmiiProvider+isUpdating"></a>
 
 #### nahmiiProvider.isUpdating ⇒ <code>boolean</code>
@@ -159,18 +166,19 @@ Retrieves all receipts for effectuated payments from the server.
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
 <a name="module_nahmii-sdk--NahmiiProvider+getWalletReceipts"></a>
 
-#### nahmiiProvider.getWalletReceipts(address, fromNonce, limit, asc) ⇒ <code>Promise</code>
-Retrieves all receipts for effectuated payments using filter/pagnination criteria.
+#### nahmiiProvider.getWalletReceipts(address, [fromNonce], [limit], [asc]) ⇒ <code>Promise</code>
+Retrieves all receipts for effectuated payments using filter/pagination
+criteria.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| address | <code>Address</code> | Filter payment receipts for a specific wallet address. |
-| fromNonce | <code>number</code> | Filter payment receipts greater or equal to specific nonce. |
-| limit | <code>number</code> | The max number of payment receipts to return. |
-| asc | <code>boolean</code> | Return payment receipts in asc order. The default order is desc. |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| address | <code>Address</code> |  | Filter payment receipts for a specific wallet address. |
+| [fromNonce] | <code>number</code> |  | Filter payment receipts greater or equal to specific nonce. |
+| [limit] | <code>number</code> |  | The max number of payment receipts to return. |
+| [asc] | <code>boolean</code> | <code>false</code> | Return payment receipts in asc order. |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation"></a>
 
@@ -193,7 +201,7 @@ const transactionReceipt = await getTransactionConfirmation(hash);
 ```
 <a name="module_nahmii-sdk--NahmiiProvider.from"></a>
 
-#### NahmiiProvider.from(nahmiiBaseUrl, apiAppId, apiAppSecret) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
+#### NahmiiProvider.from(nahmiiDomain, apiAppId, apiAppSecret) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
 Factory method for creating a new NahmiiProvider automatically configured
 from the specified nahmii cluster.
 
@@ -201,7 +209,7 @@ from the specified nahmii cluster.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| nahmiiBaseUrl | <code>string</code> | The base URL (domain name) for the nahmii API |
+| nahmiiDomain | <code>string</code> | The domain name for the nahmii API |
 | apiAppId | <code>string</code> | nahmii API app-ID |
 | apiAppSecret | <code>string</code> | nahmii API app-secret |
 
