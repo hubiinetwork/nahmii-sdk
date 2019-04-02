@@ -15,6 +15,7 @@
         * [.checkSettleNull(address, ct, id)](#module_nahmii-sdk--NullSettlement+checkSettleNull) ⇒ <code>Promise</code>
         * [.settleNull(wallet, ct, id, [options])](#module_nahmii-sdk--NullSettlement+settleNull) ⇒ <code>Promise</code>
         * [.startChallenge(wallet, stageAmount, [options])](#module_nahmii-sdk--NullSettlement+startChallenge) ⇒ <code>Promise</code>
+        * [.stopChallenge(wallet, ct, id, [options])](#module_nahmii-sdk--NullSettlement+stopChallenge) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--NullSettlement"></a>
 
@@ -213,3 +214,18 @@ Start a null settlement challenge.
 ```js
 let hashObj = await nullSettlement.startChallenge(address, stageAmount, {gasLimit: 200000});
 ```
+<a name="module_nahmii-sdk--NullSettlement+stopChallenge"></a>
+
+#### nullSettlement.stopChallenge(wallet, ct, id, [options]) ⇒ <code>Promise</code>
+Stop a null settlement challenge for wallet/currency pair.
+
+**Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
+**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| wallet | <code>Wallet</code> | The wallet object that stops the challenge. |
+| ct | <code>Address</code> | The currency address. |
+| id | <code>Integer</code> | The currency id. |
+| [options] |  |  |
+
