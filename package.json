@@ -17,10 +17,11 @@
     "build:docs:settlement": "jsdoc2md lib/settlement/settlement.js > Docs/settlement.md",
     "build:docs:driip-settlement": "jsdoc2md lib/settlement/driip-settlement.js > Docs/driip-settlement.md",
     "build:docs:null-settlement": "jsdoc2md lib/settlement/null-settlement.js > Docs/null-settlement.md",
-    "test": "nyc mocha 'lib/**/*.spec.js' --exit",
+    "test": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules nyc mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "bash -c \"if [[ '$npm_config_production' == 'true' || '$npm_config_only' == prod* ]] ; then exit 0 ; else npx npm-install-peers ; fi\""
   },
   "pre-commit": [
     "lint",
@@ -53,6 +54,7 @@
     "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
     "nock": "^9.6.1",
+    "npm-install-peers": "^1.2.1",
     "nyc": "^12.0.2",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
@@ -61,7 +63,6 @@
   },
   "dependencies": {
     "ethereumjs-util": "^5.2.0",
-    "ethers": "~4.0.0",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.0.0",
@@ -72,5 +73,11 @@
     "superagent": "^3.8.3",
     "web3-utils": "1.0.0-beta.37",
     "yargs": "^12.0.1"
+  },
+  "peerDependencies": {
+    "ethers": "~4.0.0"
+  },
+  "peerInstallOptions": {
+    "prefix": "./peer_modules"
   }
 }
