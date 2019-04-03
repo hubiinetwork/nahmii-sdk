@@ -16,6 +16,7 @@
         * [.checkSettleDriipAsPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkSettleDriipAsPayment) ⇒ <code>Promise</code>
         * [.settleDriipAsPayment(receipt, wallet, [options])](#module_nahmii-sdk--DriipSettlement+settleDriipAsPayment) ⇒ <code>Promise</code>
         * [.startChallengeFromPayment(receipt, stageAmount, wallet, [options])](#module_nahmii-sdk--DriipSettlement+startChallengeFromPayment) ⇒ <code>Promise</code>
+        * [.stopChallenge(wallet, ct, id, [options])](#module_nahmii-sdk--DriipSettlement+stopChallenge) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--DriipSettlement"></a>
 
@@ -224,3 +225,18 @@ Start a challenge from a payment
 ```js
 let hashObj = await driipSettlement.startChallengeFromPayment(receipt, stageAmount, wallet, {gasLimit: 200000});
 ```
+<a name="module_nahmii-sdk--DriipSettlement+stopChallenge"></a>
+
+#### driipSettlement.stopChallenge(wallet, ct, id, [options]) ⇒ <code>Promise</code>
+Stop a driip settlement challenge for wallet/currency pair.
+
+**Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
+**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| wallet | <code>Wallet</code> | The wallet object that stops the challenge. |
+| ct | <code>Address</code> | The currency address. |
+| id | <code>Integer</code> | The currency id. |
+| [options] |  |  |
+
