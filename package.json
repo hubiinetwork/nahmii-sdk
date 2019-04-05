@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "1.0.0-beta.45",
+  "version": "1.0.0-beta.46",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -50,29 +50,29 @@
     "@hubiinetwork/eslint-config": "github:hubiinetwork/eslint-config",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^5.6.1",
+    "eslint": "^5.16.0",
     "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^5.2.0",
-    "nock": "^9.6.1",
+    "mocha": "^6.0.2",
+    "nock": "^10.0.6",
     "npm-install-peers": "^1.2.1",
-    "nyc": "^12.0.2",
+    "nyc": "^13.3.0",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
-    "sinon": "^6.1.5",
+    "sinon": "^7.3.1",
     "sinon-chai": "^3.2.0"
   },
   "dependencies": {
-    "ethereumjs-util": "^5.2.0",
+    "ethereumjs-util": "^6.1.0",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.0.0",
-    "nahmii-contract-abstractions-ropsten": "1.0.0-ropsten.10",
+    "nahmii-contract-abstractions-ropsten": "^1.0.0-ropsten.10.1",
     "nahmii-ethereum-address": "^2.0.0",
-    "node-yaml": "^3.1.1",
+    "node-yaml": "^3.2.0",
     "socket.io-client": "^2.2.0",
-    "superagent": "^3.8.3",
+    "superagent": "^5.0.2",
     "web3-utils": "1.0.0-beta.37",
-    "yargs": "^12.0.1"
+    "yargs": "^13.2.2"
   },
   "peerDependencies": {
     "ethers": "~4.0.0"
