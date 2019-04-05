@@ -10,7 +10,7 @@
         * [.hasProposalExpired(address, ct, id)](#module_nahmii-sdk--DriipSettlement+hasProposalExpired) ⇒ <code>Promise</code>
         * [.getCurrentProposalStageAmount(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStageAmount) ⇒ <code>Promise</code>
         * [.getCurrentProposalStatus(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStatus) ⇒ <code>Promise</code>
-        * [.getSettlementByNonce(nonce)](#module_nahmii-sdk--DriipSettlement+getSettlementByNonce) ⇒ <code>Promise</code>
+        * [.getSettlementByNonce(address, nonce)](#module_nahmii-sdk--DriipSettlement+getSettlementByNonce) ⇒ <code>Promise</code>
         * [.hasPaymentDriipSettled(nonce, address)](#module_nahmii-sdk--DriipSettlement+hasPaymentDriipSettled) ⇒ <code>Promise</code>
         * [.checkStartChallengeFromPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkStartChallengeFromPayment) ⇒ <code>Promise</code>
         * [.checkSettleDriipAsPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkSettleDriipAsPayment) ⇒ <code>Promise</code>
@@ -135,7 +135,7 @@ let status = await driipSettlement.getCurrentProposalStatus(address, ct, id);
 ```
 <a name="module_nahmii-sdk--DriipSettlement+getSettlementByNonce"></a>
 
-#### driipSettlement.getSettlementByNonce(nonce) ⇒ <code>Promise</code>
+#### driipSettlement.getSettlementByNonce(address, nonce) ⇒ <code>Promise</code>
 Returns settlement details object.
 
 **Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
@@ -143,11 +143,12 @@ Returns settlement details object.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| address | <code>Address</code> | The wallet address. |
 | nonce | <code>number</code> | The nonce that this function queries for. |
 
 **Example**  
 ```js
-let settlement = await driipSettlement.getSettlementByNonce(1);
+let settlement = await driipSettlement.settlementByWalletAndNonce('0x0000000000000000000000000000000000000001', 1);
 ```
 <a name="module_nahmii-sdk--DriipSettlement+hasPaymentDriipSettled"></a>
 
@@ -235,7 +236,7 @@ Stop a driip settlement challenge for wallet/currency pair.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| wallet | <code>Wallet</code> | The wallet object that stops the challenge. |
+| wallet | <code>Wallet</code> | The wallet object to stop the challenge. |
 | ct | <code>Address</code> | The currency address. |
 | id | <code>Integer</code> | The currency id. |
 | [options] |  |  |
