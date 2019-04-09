@@ -30,7 +30,7 @@
 Wallet
 A class for performing various operations on a wallet.
 
-**Kind**: Exported class  
+**Kind**: Exported class
 <a name="new_module_nahmii-sdk--Wallet_new"></a>
 
 #### new Wallet(signer, provider)
@@ -47,34 +47,34 @@ Create a Wallet from either a private key or custom signing functions
 #### wallet.provider ⇒ <code>NahmiiProvider</code>
 The Nahmii Provider used by this wallet instance.
 
-**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 <a name="module_nahmii-sdk--Wallet+address"></a>
 
 #### wallet.address ⇒ <code>String</code>
 Returns the address for this wallet, required by ethers Wallet methods.
 
-**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 <a name="module_nahmii-sdk--Wallet+signerKey"></a>
 
 #### wallet.signerKey ⇒ <code>ethers.SignerKey</code> \| <code>undefined</code>
 If used with software wallet, returns an object containing signer related
 information and logic such as the private key, otherwise undefined
 
-**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>ethers.SignerKey</code> \| <code>undefined</code> - The private key or undefined  
+**Kind**: instance property of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>ethers.SignerKey</code> \| <code>undefined</code> - The private key or undefined
 <a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
 
 #### wallet.getNahmiiBalance() ⇒ <code>Promise</code>
-Retrieves nahmii balance for current wallet.
+Retrieves available nahmii balance for current wallet.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.
 <a name="module_nahmii-sdk--Wallet+getNahmiiStagedBalance"></a>
 
 #### wallet.getNahmiiStagedBalance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
 Retrieves nahmii staged balance for a currency of the current wallet.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -86,8 +86,8 @@ Retrieves nahmii staged balance for a currency of the current wallet.
 Retrieves all receipts for effectuated payments for the wallet using
 filter/pagination criteria.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into an array of payment receipts
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -101,15 +101,15 @@ filter/pagination criteria.
 Initiates the deposit of ETH from the on-chain balance of the wallet to
 nahmii.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.
 
 | Param | Type | Description |
 | --- | --- | --- |
 | amountEth | <code>number</code> \| <code>string</code> | The amount of ETH to deposit. |
 | [options] |  |  |
 
-**Example**  
+**Example**
 ```js
 const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 const receipt = await wallet.provider.getTransactionConfirmation(hash);
@@ -119,7 +119,7 @@ const receipt = await wallet.provider.getTransactionConfirmation(hash);
 #### wallet.getDepositAllowance(symbol) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
 Retrieve current deposit allowance for the specified symbol.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -131,9 +131,9 @@ Retrieve current deposit allowance for the specified symbol.
 Initiates the deposit of a token from the wallet's on-chain balance to
 nahmii by calling the approve method of the token smart contract.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.  
-**See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.
+**See**: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-receipts
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -141,7 +141,7 @@ nahmii by calling the approve method of the token smart contract.
 | symbol | <code>string</code> | The currency symbol |
 | [options] |  |  |
 
-**Example**  
+**Example**
 ```js
 const {hash} = await wallet.depositToken('1.1', 'HBT', {gasLimit: 200000});
 const receipt = await wallet.provider.getTransactionConfirmation(hash);
@@ -154,8 +154,8 @@ balance to nahmii by calling the depositTokens method of the nahmii
 clientFund smart contract.
 Requires approveTokenDeposit to have been called first.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into a transaction with a hash.
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -163,7 +163,7 @@ Requires approveTokenDeposit to have been called first.
 | symbol | <code>string</code> | The currency symbol |
 | [options] |  |  |
 
-**Example**  
+**Example**
 ```js
 const {hash} = await wallet.completeTokenDepsoit('1.1', 'HBT', {gasLimit: 200000});
 const receipt = await wallet.provider.getTransactionConfirmation(hash);
@@ -173,15 +173,15 @@ const receipt = await wallet.provider.getTransactionConfirmation(hash);
 #### wallet.withdraw(monetaryAmount, [options]) ⇒ <code>Promise</code>
 Withdraw an amount of ETH or ERC20 tokens from nahmii to base layer.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.
 
 | Param | Type | Description |
 | --- | --- | --- |
 | monetaryAmount | <code>MonetaryAmount</code> | The amount to withdraw from nahmii. |
 | [options] |  |  |
 
-**Example**  
+**Example**
 ```js
 let amountBN = ethers.utils.parseUnits('1.1', 18);
 let currency = '0x0000000000000000000000000000000000000000'
@@ -194,15 +194,15 @@ let hashObj = await wallet.withdraw(monetaryAmount, {gasLimit: 200000});
 Unstage an amount of ETH or ERC20 tokens from staged balance back to
 nahmii available balance.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise</code> - A promise that resolves into transaction hash.
 
 | Param | Type | Description |
 | --- | --- | --- |
 | monetaryAmount | <code>MonetaryAmount</code> | The amount unstage from staged balance. |
 | [options] |  |  |
 
-**Example**  
+**Example**
 ```js
 let amountBN = ethers.utils.parseUnits('1.1', 18);
 let currency = '0x0000000000000000000000000000000000000000'
@@ -214,8 +214,8 @@ let hashObj = await wallet.unstage(monetaryAmount, {gasLimit: 200000});
 #### wallet.getAddress() ⇒ <code>Promise.&lt;string&gt;</code>
 Retrieves the wallet address.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - - The wallet address as a hexadecimal string  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
+**Returns**: <code>Promise.&lt;string&gt;</code> - - The wallet address as a hexadecimal string
 <a name="module_nahmii-sdk--Wallet+signMessage"></a>
 
 #### wallet.signMessage(message) ⇒ <code>Promise.&lt;string&gt;</code>
@@ -223,11 +223,11 @@ Signs message and returns a Promise that resolves to the flat-format
 signature. If message is a string, it is converted to UTF-8 bytes,
 otherwise it is preserved as a binary representation of the Arrayish data.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param |
 | --- |
-| message | 
+| message |
 
 <a name="module_nahmii-sdk--Wallet+sign"></a>
 
@@ -237,18 +237,18 @@ transaction as a hex string.
 In general, the sendTransaction method is preferred to sign, as it can
 automatically populate values asynchronously.
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param |
 | --- |
-| transaction | 
+| transaction |
 
 <a name="module_nahmii-sdk--Wallet+getBalance"></a>
 
 #### wallet.getBalance([blockTag]) ⇒ <code>Promise.&lt;BigNumber&gt;</code>
 Returns the wallet instance on-chain ETH balance
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -259,7 +259,7 @@ Returns the wallet instance on-chain ETH balance
 #### wallet.getTransactionCount([blockTag]) ⇒ <code>Promise.&lt;number&gt;</code>
 Returns the wallet instance on-chain transaction count
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ to a Transaction Response.
 Any properties that are not provided will be populated from the network.
 See: https://docs.ethers.io/ethers.js/html/api-providers.html#transaction-request
 
-**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
+**Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)
 
 | Param | Type | Description |
 | --- | --- | --- |
