@@ -141,7 +141,7 @@ Stop an ongoing challenge.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ongoingChallenge | <code>OngoingChallenge</code> | The object stores the necessary parameters for stopping a settlement challenge. |
+| ongoingChallenge | <code>OngoingChallenge</code> | The ongoing settlement challenge to be stopped. |
 | wallet | <code>Wallet</code> | The wallet to stop challenge |
 | [options] |  |  |
 
