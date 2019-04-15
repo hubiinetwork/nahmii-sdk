@@ -65,7 +65,7 @@ information and logic such as the private key, otherwise undefined
 <a name="module_nahmii-sdk--Wallet+getNahmiiBalance"></a>
 
 #### wallet.getNahmiiBalance() ⇒ <code>Promise</code>
-Retrieves nahmii balance for current wallet.
+Retrieves available nahmii balance for current wallet.
 
 **Kind**: instance method of [<code>Wallet</code>](#exp_module_nahmii-sdk--Wallet)  
 **Returns**: <code>Promise</code> - A promise that resolves into a mapping from symbol to human readable amount.  
