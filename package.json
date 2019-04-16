@@ -66,7 +66,7 @@
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.0.0",
-    "nahmii-contract-abstractions-ropsten": "1.0.2",
+    "nahmii-contract-abstractions-ropsten": "1.3.0",
     "nahmii-ethereum-address": "^2.0.0",
     "node-yaml": "^3.2.0",
     "socket.io-client": "^2.2.0",
