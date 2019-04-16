@@ -6,11 +6,10 @@
     * [NullSettlement](#exp_module_nahmii-sdk--NullSettlement) ⏏
         * [new NullSettlement(provider)](#new_module_nahmii-sdk--NullSettlement_new)
         * [.hasCurrentProposalExpired(address, ct, id)](#module_nahmii-sdk--NullSettlement+hasCurrentProposalExpired) ⇒ <code>Promise</code>
-        * [.getCurrentProposalNonce(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalNonce) ⇒ <code>Promise</code>
+        * [.hasCurrentProposalTerminated(address, ct, id)](#module_nahmii-sdk--NullSettlement+hasCurrentProposalTerminated) ⇒ <code>Promise</code>
         * [.getCurrentProposalExpirationTime(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalExpirationTime) ⇒ <code>Promise</code>
         * [.getCurrentProposalStageAmount(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStageAmount) ⇒ <code>Promise</code>
         * [.getCurrentProposalStatus(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStatus) ⇒ <code>Promise</code>
-        * [.getMaxNullNonce(address, ct, id)](#module_nahmii-sdk--NullSettlement+getMaxNullNonce) ⇒ <code>Promise</code>
         * [.checkStartChallenge(stageAmount, address)](#module_nahmii-sdk--NullSettlement+checkStartChallenge) ⇒ <code>Promise</code>
         * [.checkSettleNull(address, ct, id)](#module_nahmii-sdk--NullSettlement+checkSettleNull) ⇒ <code>Promise</code>
         * [.settleNull(wallet, ct, id, [options])](#module_nahmii-sdk--NullSettlement+settleNull) ⇒ <code>Promise</code>
@@ -60,13 +59,13 @@ Returns expire state of the current proposal
 ```js
 let hasExpired = await nullSettlement.hasCurrentProposalExpired(address, ct, id);
 ```
-<a name="module_nahmii-sdk--NullSettlement+getCurrentProposalNonce"></a>
+<a name="module_nahmii-sdk--NullSettlement+hasCurrentProposalTerminated"></a>
 
-#### nullSettlement.getCurrentProposalNonce(address, ct, id) ⇒ <code>Promise</code>
-Returns the proposal nonce
+#### nullSettlement.hasCurrentProposalTerminated(address, ct, id) ⇒ <code>Promise</code>
+Returns the terminated state of the current proposal
 
 **Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
-**Returns**: <code>Promise</code> - A promise that resolves into a BigNumber value representing the nonce of the latest challenge.  
+**Returns**: <code>Promise</code> - A promise that resolves into a boolean value indicating if the latest challenge has been terminated.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -76,7 +75,7 @@ Returns the proposal nonce
 
 **Example**  
 ```js
-let nonce = await nullSettlement.getCurrentProposalNonce(address, ct, id);
+let hasTerminated = await nullSettlement.hasCurrentProposalTerminated(address, ct, id);
 ```
 <a name="module_nahmii-sdk--NullSettlement+getCurrentProposalExpirationTime"></a>
 
@@ -131,24 +130,6 @@ Returns status of the current challenge proposal
 **Example**  
 ```js
 let status = await nullSettlement.getCurrentProposalStatus(address, ct, id);
-```
-<a name="module_nahmii-sdk--NullSettlement+getMaxNullNonce"></a>
-
-#### nullSettlement.getMaxNullNonce(address, ct, id) ⇒ <code>Promise</code>
-Returns max null nonce.
-
-**Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
-**Returns**: <code>Promise</code> - A promise that resolves into the max null nonce of the wallet-currency pair.  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| address | <code>Address</code> | The wallet address |
-| ct | <code>Address</code> | The currency address |
-| id | <code>Integer</code> | The currency id |
-
-**Example**  
-```js
-let settlement = await nullSettlement.getMaxNullNonce(address, ct, id);
 ```
 <a name="module_nahmii-sdk--NullSettlement+checkStartChallenge"></a>
 
