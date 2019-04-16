@@ -75,7 +75,7 @@ Returns the terminated state of the current proposal
 
 **Example**  
 ```js
-let hasExpired = await nullSettlement.hasCurrentProposalTerminated(address, ct, id);
+let hasTerminated = await nullSettlement.hasCurrentProposalTerminated(address, ct, id);
 ```
 <a name="module_nahmii-sdk--NullSettlement+getCurrentProposalExpirationTime"></a>
 
