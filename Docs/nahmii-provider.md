@@ -20,6 +20,7 @@
             * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
             * [.getWalletReceipts(address, [fromNonce], [limit], [asc])](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
             * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
+            * [.getClusterInformation()](#module_nahmii-sdk--NahmiiProvider+getClusterInformation) ⇒ <code>Promise.&lt;\*&gt;</code>
         * _static_
             * [.from(nahmiiDomain, apiAppId, apiAppSecret)](#module_nahmii-sdk--NahmiiProvider.from) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
 
@@ -199,6 +200,13 @@ Rejects if a transaction is mined, but fails to execute, for example in an out o
 const {hash} = await wallet.depositEth('1.1', {gasLimit: 200000});
 const transactionReceipt = await getTransactionConfirmation(hash);
 ```
+<a name="module_nahmii-sdk--NahmiiProvider+getClusterInformation"></a>
+
+#### nahmiiProvider.getClusterInformation() ⇒ <code>Promise.&lt;\*&gt;</code>
+Retrieves the cluster information from the connected cluster.
+
+**Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
+**Returns**: <code>Promise.&lt;\*&gt;</code> - A promise that resolves into a cluster information structure  
 <a name="module_nahmii-sdk--NahmiiProvider.from"></a>
 
 #### NahmiiProvider.from(nahmiiDomain, apiAppId, apiAppSecret) ⇒ <code>Promise.&lt;NahmiiProvider&gt;</code>
