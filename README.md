@@ -54,7 +54,7 @@ wallet's balance:
 
 ```
 
-To do make more advanced workflows as easy as possible there is also a higher
+To make a more advanced workflow as easy as possible there is also a higher
 level SDK, e.g.: the Wallet class and the Payment class. In this example we
 create a payment, sign it and register it with the API:
 
@@ -80,15 +80,27 @@ create a payment, sign it and register it with the API:
 
 ## Reference manual
 
+**Fundamentals**
 * [class NahmiiProvider](Docs/nahmii-provider.md)
 * [class NahmiiEventProvider](Docs/nahmii-event-provider.md)
 * [class Wallet](Docs/wallet.md)
+
+**Workflow: Payments**
 * [class Payment](Docs/payment.md)
 * [class Receipt](Docs/receipt.md)
-* [class MonetaryAmount](Docs/monetary-amount.md)
-* [class Erc20Contract](Docs/erc20-contract.md)
-* [class utils](Docs/utils.md)
 
+**Workflow: Settlement**
+* [class Settlement](Docs/settlement.md)
+* [class NullSettlement](Docs/null-settlement.md)
+* [class DriipSettlement](Docs/driip-settlement.md)
+
+**Base Layer**
+* [class Erc20Contract](Docs/erc20-contract.md)
+* [class NahmiiContract](Docs/nahmii-contract.md)
+
+**Utilities**
+* [class MonetaryAmount](Docs/monetary-amount.md)
+* [class utils](Docs/utils.md)
 
 ## Contributing
 
