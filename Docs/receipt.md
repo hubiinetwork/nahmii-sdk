@@ -8,7 +8,6 @@
         * _instance_
             * [.payment](#module_nahmii-sdk--Receipt+payment) ⇒ <code>Payment</code>
             * [.blockNumber](#module_nahmii-sdk--Receipt+blockNumber) ⇒ <code>any</code>
-            * ~~[.nonce](#module_nahmii-sdk--Receipt+nonce) ⇒ <code>any</code>~~
             * [.sender](#module_nahmii-sdk--Receipt+sender) ⇒ <code>Address</code>
             * [.recipient](#module_nahmii-sdk--Receipt+recipient) ⇒ <code>Address</code>
             * [.operatorId](#module_nahmii-sdk--Receipt+operatorId) ⇒ <code>Number</code>
@@ -50,14 +49,6 @@ Retrieve the payment this Receipt is based on.
 
 #### receipt.blockNumber ⇒ <code>any</code>
 Reference to the on-chain state the payments was effectuated after.
-
-**Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
-<a name="module_nahmii-sdk--Receipt+nonce"></a>
-
-#### ~~receipt.nonce ⇒ <code>any</code>~~
-***Deprecated***
-
-Global nonce - dont use this for anything, will be removed!
 
 **Kind**: instance property of [<code>Receipt</code>](#exp_module_nahmii-sdk--Receipt)  
 <a name="module_nahmii-sdk--Receipt+sender"></a>
