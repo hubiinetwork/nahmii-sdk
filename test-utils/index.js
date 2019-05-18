@@ -67,9 +67,11 @@ class ApiPayloadFactory {
     createUnsignedReceipt(signedPayment) {
         return {
             ...signedPayment,
-            nonce      : 1,
             blockNumber: 1,
-            operatorId : 1,
+            operator   : {
+                id  : 1,
+                data: ''
+            },
             sender     : {
                 ...signedPayment.sender,
                 nonce   : 1,
@@ -159,9 +161,6 @@ class ApiPayloadFactory {
             unsignedReceipt.seals.wallet.signature.r,
             unsignedReceipt.seals.wallet.signature.s
         );
-        const nonceHash = hash(
-            unsignedReceipt.nonce
-        );
         const senderHash = hash(
             hash(unsignedReceipt.sender.nonce),
             hash(
@@ -187,7 +186,8 @@ class ApiPayloadFactory {
             unsignedReceipt.transfers.single,
             unsignedReceipt.transfers.total
         );
-        return hash(walletSignatureHash, nonceHash, senderHash, recipientHash, transfersHash);
+        const operatorHash = hash(unsignedReceipt.operator.data);
+        return hash(walletSignatureHash, senderHash, recipientHash, transfersHash, operatorHash);
     }
 
     static hashFeesTotal(totalFigures) {
