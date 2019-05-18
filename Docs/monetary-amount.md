@@ -25,6 +25,10 @@ The class references the BigNumber implementation of ethers.
 #### new MonetaryAmount(amount, ct, [id])
 Constructs a new MonetaryAmount object.
 
+**Throws**:
+
+- <code>TypeError</code> - thrown if input arguments are unexpected.
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
