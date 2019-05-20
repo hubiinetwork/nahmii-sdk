@@ -31,6 +31,7 @@ supply a valid Wallet or NahmiiProvider instance.
 
 #### new Payment(amount, sender, recipient, [walletOrProvider])
 Constructor
+Creates a new payment with a unique sender reference.
 
 
 | Param | Type | Description |
@@ -78,7 +79,8 @@ The recipient of the payment
 <a name="module_nahmii-sdk--Payment+senderRef"></a>
 
 #### payment.senderRef ⇒ <code>string</code>
-The sender's unique reference for the payment.
+The sender's unique reference for the payment. A new unique reference is
+generated automatically at construction time.
 
 **Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 <a name="module_nahmii-sdk--Payment+sign"></a>

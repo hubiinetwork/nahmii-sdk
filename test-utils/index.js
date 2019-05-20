@@ -6,13 +6,13 @@ const {hash, prefix0x, fromRpcSig} = require('../lib/utils');
 const proxyquire = require('proxyquire').noPreserveCache().noCallThru();
 
 const Wallet = proxyquire('../lib/wallet/wallet', {
-    './client-fund-contract'    : function() {
+    './client-fund-contract': function() {
         return {};
     },
     './balance-tracker-contract': function() {
         return {};
     },
-    './erc20-contract'          : function() {
+    './erc20-contract': function() {
         return {};
     }
 });
@@ -33,17 +33,21 @@ class ApiPayloadFactory {
             undefined;
     }
 
-    createUnsignedPayment(senderRef) {
-        const senderData = Buffer
+    static createSenderData(senderRef) {
+        return Buffer
             .from(JSON.stringify({ref: senderRef}))
             .toString('base64');
+    }
+
+    createUnsignedPayment(senderRef) {
+        const senderData = ApiPayloadFactory.createSenderData(senderRef);
 
         return {
-            amount   : this.amount,
-            currency : this.currency,
-            sender   : {
+            amount: this.amount,
+            currency: this.currency,
+            sender: {
                 wallet: this.sender,
-                data  : senderData
+                data: senderData
             },
             recipient: {
                 wallet: this.recipient
@@ -68,58 +72,58 @@ class ApiPayloadFactory {
         return {
             ...signedPayment,
             blockNumber: 1,
-            operator   : {
-                id  : 1,
+            operator: {
+                id: 1,
                 data: ''
             },
-            sender     : {
+            sender: {
                 ...signedPayment.sender,
-                nonce   : 1,
+                nonce: 1,
                 balances: {
-                    current : '0',
+                    current: '0',
                     previous: '100'
                 },
-                fees    : {
+                fees: {
                     single: {
                         currency: this.currency,
-                        amount  : '1000000000000000000'
+                        amount: '1000000000000000000'
                     },
-                    total : [
+                    total: [
                         {
                             originId: '1',
-                            figure  : {
+                            figure: {
                                 currency: this.currency,
-                                amount  : '1000000000000000000'
+                                amount: '1000000000000000000'
                             }
                         }
                     ]
                 }
             },
-            recipient  : {
+            recipient: {
                 ...signedPayment.recipient,
-                nonce   : 1,
+                nonce: 1,
                 balances: {
-                    current : '100',
+                    current: '100',
                     previous: '0'
                 },
-                fees    : {
+                fees: {
                     total: [
                         {
                             originId: '1',
-                            figure  : {
+                            figure: {
                                 currency: {
                                     ct: '0x0000000000000000000000000000000000000001',
                                     id: '1'
                                 },
-                                amount  : '1000000000000000000'
+                                amount: '1000000000000000000'
                             }
                         }
                     ]
                 }
             },
-            transfers  : {
+            transfers: {
                 single: '100',
-                total : '100'
+                total: '100'
             }
         };
     }
