@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -52,7 +52,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "eslint": "^5.16.0",
-    "jsdoc-to-markdown": "^4.0.1",
+    "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^6.0.2",
     "nock": "^10.0.6",
     "npm-install-peers": "^1.2.1",
@@ -67,12 +67,13 @@
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.2.0",
-    "nahmii-contract-abstractions-ropsten": "1.4.0",
+    "nahmii-contract-abstractions-ropsten": "1.5.0",
     "nahmii-ethereum-address": "^2.0.0",
     "node-yaml": "^3.2.0",
     "socket.io-client": "^2.2.0",
     "superagent": "^5.0.2",
-    "web3-utils": "1.0.0-beta.37"
+    "uuid": "^3.3.2",
+    "web3-utils": "1.0.0-beta.55"
   },
   "peerDependencies": {
     "ethers": "~4.0.0"
