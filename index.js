@@ -11,6 +11,7 @@ const Erc20Contract = require('./lib/erc20/erc20-contract');
 const NahmiiContract = require('./lib/contract');
 const InsufficientFundsError = require('./lib/insufficient-funds-error');
 const NahmiiEventProvider = require('./lib/event-provider');
+const ClusterInformation = require('./lib/cluster-information');
 
 module.exports = {
     NahmiiProvider,
@@ -25,5 +26,6 @@ module.exports = {
     Erc20Contract,
     NahmiiContract,
     InsufficientFundsError,
+    ClusterInformation,
     utils
 };
