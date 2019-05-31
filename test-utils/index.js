@@ -34,8 +34,15 @@ class ApiPayloadFactory {
     }
 
     static createSenderData(senderRef) {
+        return this.encodeLiteral({ref: senderRef});
+    }
+
+    static encodeLiteral(data) {
+        if (typeof data !== 'object')
+            throw new TypeError('Input data must be an object literal');
+
         return Buffer
-            .from(JSON.stringify({ref: senderRef}))
+            .from(JSON.stringify(data))
             .toString('base64');
     }
 
@@ -74,7 +81,7 @@ class ApiPayloadFactory {
             blockNumber: 1,
             operator: {
                 id: 1,
-                data: ''
+                data: ApiPayloadFactory.encodeLiteral({})
             },
             sender: {
                 ...signedPayment.sender,
