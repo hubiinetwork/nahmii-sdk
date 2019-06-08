@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -67,7 +67,7 @@
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.2.2",
-    "nahmii-contract-abstractions-ropsten": "~1.5.3",
+    "nahmii-contract-abstractions-ropsten": "~2.0.0",
     "nahmii-ethereum-address": "^2.0.0",
     "node-yaml": "^3.2.0",
     "socket.io-client": "^2.2.0",
