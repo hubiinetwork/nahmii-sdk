@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -64,7 +64,6 @@
   },
   "dependencies": {
     "ethereumjs-util": "^6.1.0",
-    "ethers": "^4.0.29",
     "keythereum": "^1.0.4",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "1.2.2",
