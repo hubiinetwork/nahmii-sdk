@@ -136,7 +136,7 @@ class ApiPayloadFactory {
     }
 
     async createSignedReceipt(unsignedReceipt) {
-        let signedReceipt = {
+        const signedReceipt = {
             ...unsignedReceipt,
             seals: {
                 ...unsignedReceipt.seals,
