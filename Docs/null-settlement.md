@@ -138,7 +138,7 @@ let status = await nullSettlement.getCurrentProposalStatus(address, ct, id);
 Returns block number of the start of the current settlement proposal
 
 **Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
-**Returns**: <code>Promise</code> - A promise that resolves into true or throws errors  
+**Returns**: <code>Promise</code> - A promise that resolves into a BigNumber or throws errors  
 
 | Param | Type | Description |
 | --- | --- | --- |

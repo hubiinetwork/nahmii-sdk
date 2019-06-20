@@ -157,7 +157,7 @@ let settlement = await driipSettlement.settlementByWalletAndNonce('0x00000000000
 Returns block number of the start of the current settlement proposal
 
 **Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
-**Returns**: <code>Promise</code> - A promise that resolves into true or throws errors  
+**Returns**: <code>Promise</code> - A promise that resolves into a BigNumber or throws errors  
 
 | Param | Type | Description |
 | --- | --- | --- |
