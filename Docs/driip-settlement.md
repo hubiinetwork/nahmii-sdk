@@ -11,7 +11,7 @@
         * [.getCurrentProposalStageAmount(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStageAmount) ⇒ <code>Promise</code>
         * [.getCurrentProposalStatus(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStatus) ⇒ <code>Promise</code>
         * [.getSettlementByNonce(address, nonce)](#module_nahmii-sdk--DriipSettlement+getSettlementByNonce) ⇒ <code>Promise</code>
-        * [.getCurrentProposalStartBlockNumber(address, ct)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStartBlockNumber) ⇒ <code>Promise</code>
+        * [.getCurrentProposalStartBlockNumber(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStartBlockNumber) ⇒ <code>Promise</code>
         * [.hasPaymentDriipSettled(nonce, address)](#module_nahmii-sdk--DriipSettlement+hasPaymentDriipSettled) ⇒ <code>Promise</code>
         * [.checkStartChallengeFromPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkStartChallengeFromPayment) ⇒ <code>Promise</code>
         * [.checkSettleDriipAsPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkSettleDriipAsPayment) ⇒ <code>Promise</code>
@@ -153,7 +153,7 @@ let settlement = await driipSettlement.settlementByWalletAndNonce('0x00000000000
 ```
 <a name="module_nahmii-sdk--DriipSettlement+getCurrentProposalStartBlockNumber"></a>
 
-#### driipSettlement.getCurrentProposalStartBlockNumber(address, ct) ⇒ <code>Promise</code>
+#### driipSettlement.getCurrentProposalStartBlockNumber(address, ct, id) ⇒ <code>Promise</code>
 Returns block number of the start of the current settlement proposal
 
 **Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
@@ -163,6 +163,7 @@ Returns block number of the start of the current settlement proposal
 | --- | --- | --- |
 | address | <code>Address</code> | The wallet address. |
 | ct | <code>Address</code> | The currency address. |
+| id | <code>Integer</code> | The currency id. |
 
 <a name="module_nahmii-sdk--DriipSettlement+hasPaymentDriipSettled"></a>
 

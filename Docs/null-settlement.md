@@ -10,7 +10,7 @@
         * [.getCurrentProposalExpirationTime(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalExpirationTime) ⇒ <code>Promise</code>
         * [.getCurrentProposalStageAmount(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStageAmount) ⇒ <code>Promise</code>
         * [.getCurrentProposalStatus(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStatus) ⇒ <code>Promise</code>
-        * [.getCurrentProposalStartBlockNumber(address, ct)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStartBlockNumber) ⇒ <code>Promise</code>
+        * [.getCurrentProposalStartBlockNumber(address, ct, id)](#module_nahmii-sdk--NullSettlement+getCurrentProposalStartBlockNumber) ⇒ <code>Promise</code>
         * [.checkStartChallenge(stageAmount, address)](#module_nahmii-sdk--NullSettlement+checkStartChallenge) ⇒ <code>Promise</code>
         * [.checkSettleNull(address, ct, id)](#module_nahmii-sdk--NullSettlement+checkSettleNull) ⇒ <code>Promise</code>
         * [.settleNull(wallet, ct, id, [options])](#module_nahmii-sdk--NullSettlement+settleNull) ⇒ <code>Promise</code>
@@ -134,7 +134,7 @@ let status = await nullSettlement.getCurrentProposalStatus(address, ct, id);
 ```
 <a name="module_nahmii-sdk--NullSettlement+getCurrentProposalStartBlockNumber"></a>
 
-#### nullSettlement.getCurrentProposalStartBlockNumber(address, ct) ⇒ <code>Promise</code>
+#### nullSettlement.getCurrentProposalStartBlockNumber(address, ct, id) ⇒ <code>Promise</code>
 Returns block number of the start of the current settlement proposal
 
 **Kind**: instance method of [<code>NullSettlement</code>](#exp_module_nahmii-sdk--NullSettlement)  
@@ -144,6 +144,7 @@ Returns block number of the start of the current settlement proposal
 | --- | --- | --- |
 | address | <code>Address</code> | The wallet address. |
 | ct | <code>Address</code> | The currency address. |
+| id | <code>Integer</code> | The currency id. |
 
 <a name="module_nahmii-sdk--NullSettlement+checkStartChallenge"></a>
 
