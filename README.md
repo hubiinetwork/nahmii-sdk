@@ -8,8 +8,8 @@ easier to get started with.
 ## About nahmii
 
 _nahmii_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
-hybrid centralized/decentralized solution that enables instant
-(micro-) payments, trading and trustless settlements.
+hybrid centralized/decentralized solution that enables instant (micro-) 
+payments, trading and trustless settlements.
 
 ## About hubii
 
@@ -27,6 +27,23 @@ See www.hubii.com for more information.
 To install the SDK into your project, simply run:
 
     npm install nahmii-sdk
+
+## Dependency management
+
+After you have installed the nahmii-sdk module into your own project, please 
+make sure to install the dependencies listed as _peer dependencies_ into your 
+project to have it included in the end product.
+
+The reason this SDK uses _peer dependencies_ is that it is actively doing type 
+checking for some shared types in some situations. To have type checking work in 
+a nodejs environment, all npm-based types must be de-duplicated. 
+
+To force a de-duplication after you have installed several modules, just run the 
+following command:
+
+    npm ddp
+
+In most cases this should not be needed though.
 
 ## Usage
 
