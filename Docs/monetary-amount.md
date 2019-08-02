@@ -9,6 +9,7 @@
             * [.amount](#module_nahmii-sdk--MonetaryAmount+amount) ⇒ <code>BigNumber</code>
             * [.currency](#module_nahmii-sdk--MonetaryAmount+currency) ⇒ <code>Object</code>
             * [.toJSON()](#module_nahmii-sdk--MonetaryAmount+toJSON) ⇒ <code>Object</code>
+            * [.toBSON()](#module_nahmii-sdk--MonetaryAmount+toBSON) ⇒ <code>Object</code>
         * _static_
             * [.from(jsonOrAmount, [ctOrUndefined], [idOrUndefined])](#module_nahmii-sdk--MonetaryAmount.from) ⇒ <code>MonetaryAmount</code> \| <code>null</code>
 
@@ -64,6 +65,13 @@ Converts the monetary amount into a JSON object.
 
 **Kind**: instance method of [<code>MonetaryAmount</code>](#exp_module_nahmii-sdk--MonetaryAmount)  
 **Returns**: <code>Object</code> - - A JSON object that is in the format that nahmii APIs expects.  
+<a name="module_nahmii-sdk--MonetaryAmount+toBSON"></a>
+
+#### monetaryAmount.toBSON() ⇒ <code>Object</code>
+Converts the monetary amount into a BSON object.
+
+**Kind**: instance method of [<code>MonetaryAmount</code>](#exp_module_nahmii-sdk--MonetaryAmount)  
+**Returns**: <code>Object</code> - - A BSON object that is in the format that nahmii MongoDBs expects.  
 <a name="module_nahmii-sdk--MonetaryAmount.from"></a>
 
 #### MonetaryAmount.from(jsonOrAmount, [ctOrUndefined], [idOrUndefined]) ⇒ <code>MonetaryAmount</code> \| <code>null</code>
