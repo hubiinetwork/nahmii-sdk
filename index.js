@@ -5,6 +5,7 @@ const Wallet = require('./lib/wallet');
 const Payment = require('./lib/payment');
 const Receipt = require('./lib/receipt');
 const MonetaryAmount = require('./lib/monetary-amount');
+const Currency = require('./lib/currency');
 const {Settlement, DriipSettlement, NullSettlement} = require('./lib/settlement');
 const utils = require('./lib/utils');
 const Erc20Contract = require('./lib/erc20/erc20-contract');
@@ -20,6 +21,7 @@ module.exports = {
     Payment,
     Receipt,
     MonetaryAmount,
+    Currency,
     DriipSettlement,
     NullSettlement,
     Settlement,
