@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
