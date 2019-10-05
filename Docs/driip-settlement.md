@@ -12,6 +12,7 @@
         * [.getCurrentProposalStatus(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStatus) ⇒ <code>Promise</code>
         * [.getSettlementByNonce(address, nonce)](#module_nahmii-sdk--DriipSettlement+getSettlementByNonce) ⇒ <code>Promise</code>
         * [.getCurrentProposalStartBlockNumber(address, ct, id)](#module_nahmii-sdk--DriipSettlement+getCurrentProposalStartBlockNumber) ⇒ <code>Promise</code>
+        * [.hasCurrentProposalTerminated(address, ct, id)](#module_nahmii-sdk--DriipSettlement+hasCurrentProposalTerminated) ⇒ <code>Promise</code>
         * [.hasPaymentDriipSettled(nonce, address)](#module_nahmii-sdk--DriipSettlement+hasPaymentDriipSettled) ⇒ <code>Promise</code>
         * [.checkStartChallengeFromPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkStartChallengeFromPayment) ⇒ <code>Promise</code>
         * [.checkSettleDriipAsPayment(receipt, address)](#module_nahmii-sdk--DriipSettlement+checkSettleDriipAsPayment) ⇒ <code>Promise</code>
@@ -158,6 +159,20 @@ Returns block number of the start of the current settlement proposal
 
 **Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
 **Returns**: <code>Promise</code> - A promise that resolves into a BigNumber or throws errors  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address | <code>Address</code> | The wallet address. |
+| ct | <code>Address</code> | The currency address. |
+| id | <code>Integer</code> | The currency id. |
+
+<a name="module_nahmii-sdk--DriipSettlement+hasCurrentProposalTerminated"></a>
+
+#### driipSettlement.hasCurrentProposalTerminated(address, ct, id) ⇒ <code>Promise</code>
+Check if current proposal has been terminated
+
+**Kind**: instance method of [<code>DriipSettlement</code>](#exp_module_nahmii-sdk--DriipSettlement)  
+**Returns**: <code>Promise</code> - A promise that resolves into boolean or throws errors  
 
 | Param | Type | Description |
 | --- | --- | --- |
