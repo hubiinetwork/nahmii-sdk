@@ -17,6 +17,7 @@
         * [.startChallenge(stageMonetaryAmount, wallet, [options])](#module_nahmii-sdk--Settlement+startChallenge) ⇒ <code>Promise</code>
         * [.stopChallenges(wallet, ct, id, [options])](#module_nahmii-sdk--Settlement+stopChallenges) ⇒ <code>Promise</code>
         * [.settle(stageMonetaryAmount, wallet, [options])](#module_nahmii-sdk--Settlement+settle) ⇒ <code>Promise</code>
+        * [.hasOffchainSynchronised(address, ct, [options])](#module_nahmii-sdk--Settlement+hasOffchainSynchronised) ⇒ <code>Promise</code>
 
 <a name="exp_module_nahmii-sdk--Settlement"></a>
 
@@ -200,5 +201,19 @@ Settle the qualified challenges for a currency.
 | --- | --- | --- |
 | stageMonetaryAmount | <code>MonetaryAmount</code> | The intended stage amount |
 | wallet | <code>Wallet</code> | The nahmii wallet object |
+| [options] |  |  |
+
+<a name="module_nahmii-sdk--Settlement+hasOffchainSynchronised"></a>
+
+#### settlement.hasOffchainSynchronised(address, ct, [options]) ⇒ <code>Promise</code>
+Check if the offchain balance has been synchronised.
+
+**Kind**: instance method of [<code>Settlement</code>](#exp_module_nahmii-sdk--Settlement)  
+**Returns**: <code>Promise</code> - A promise that resolves into a boolean value.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address | <code>Address</code> | The wallet address |
+| ct | <code>Address</code> | The currency address |
 | [options] |  |  |
 

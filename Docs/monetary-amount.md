@@ -4,11 +4,12 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [MonetaryAmount](#exp_module_nahmii-sdk--MonetaryAmount) ⏏
-        * [new MonetaryAmount(amount, ct, [id])](#new_module_nahmii-sdk--MonetaryAmount_new)
+        * [new MonetaryAmount(amount, currency)](#new_module_nahmii-sdk--MonetaryAmount_new)
         * _instance_
             * [.amount](#module_nahmii-sdk--MonetaryAmount+amount) ⇒ <code>BigNumber</code>
-            * [.currency](#module_nahmii-sdk--MonetaryAmount+currency) ⇒ <code>Object</code>
+            * [.currency](#module_nahmii-sdk--MonetaryAmount+currency) ⇒ <code>Currency</code>
             * [.toJSON()](#module_nahmii-sdk--MonetaryAmount+toJSON) ⇒ <code>Object</code>
+            * [.toBSON()](#module_nahmii-sdk--MonetaryAmount+toBSON) ⇒ <code>Object</code>
         * _static_
             * [.from(jsonOrAmount, [ctOrUndefined], [idOrUndefined])](#module_nahmii-sdk--MonetaryAmount.from) ⇒ <code>MonetaryAmount</code> \| <code>null</code>
 
@@ -22,7 +23,7 @@ The class references the BigNumber implementation of ethers.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--MonetaryAmount_new"></a>
 
-#### new MonetaryAmount(amount, ct, [id])
+#### new MonetaryAmount(amount, currency)
 Constructs a new MonetaryAmount object.
 
 **Throws**:
@@ -30,11 +31,10 @@ Constructs a new MonetaryAmount object.
 - <code>TypeError</code> - thrown if input arguments are unexpected.
 
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| amount | <code>BigNumber</code> |  | the amount in base units (e.g. WEI). |
-| ct | <code>EthereumAddress</code> |  | currency contract address of the amount. |
-| [id] | <code>Integer</code> | <code>0</code> | positive number that identifies the currency item (0 for ERC20 tokens). Default is 0. |
+| Param | Type | Description |
+| --- | --- | --- |
+| amount | <code>BigNumber</code> | the amount in base units (e.g. WEI). |
+| currency | <code>Currency</code> | currency of the amount. |
 
 **Example**  
 ```js
@@ -52,11 +52,11 @@ Returns the currency amount in base units (e.g. WEI).
 **Returns**: <code>BigNumber</code> - - currency amount.  
 <a name="module_nahmii-sdk--MonetaryAmount+currency"></a>
 
-#### monetaryAmount.currency ⇒ <code>Object</code>
-Returns an object with the currency address (ct) and currency identifier (id).
+#### monetaryAmount.currency ⇒ <code>Currency</code>
+Returns a Currency instance with the currency address (ct) and currency identifier (id).
 
 **Kind**: instance property of [<code>MonetaryAmount</code>](#exp_module_nahmii-sdk--MonetaryAmount)  
-**Returns**: <code>Object</code> - - currency information.  
+**Returns**: <code>Currency</code> - - currency information.  
 <a name="module_nahmii-sdk--MonetaryAmount+toJSON"></a>
 
 #### monetaryAmount.toJSON() ⇒ <code>Object</code>
@@ -64,6 +64,13 @@ Converts the monetary amount into a JSON object.
 
 **Kind**: instance method of [<code>MonetaryAmount</code>](#exp_module_nahmii-sdk--MonetaryAmount)  
 **Returns**: <code>Object</code> - - A JSON object that is in the format that nahmii APIs expects.  
+<a name="module_nahmii-sdk--MonetaryAmount+toBSON"></a>
+
+#### monetaryAmount.toBSON() ⇒ <code>Object</code>
+Converts the monetary amount into a BSON object.
+
+**Kind**: instance method of [<code>MonetaryAmount</code>](#exp_module_nahmii-sdk--MonetaryAmount)  
+**Returns**: <code>Object</code> - - A BSON object that is in the format that nahmii MongoDBs expects.  
 <a name="module_nahmii-sdk--MonetaryAmount.from"></a>
 
 #### MonetaryAmount.from(jsonOrAmount, [ctOrUndefined], [idOrUndefined]) ⇒ <code>MonetaryAmount</code> \| <code>null</code>

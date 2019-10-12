@@ -8,8 +8,8 @@ easier to get started with.
 ## About nahmii
 
 _nahmii_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
-hybrid centralized/decentralized solution that enables instant
-(micro-) payments, trading and trustless settlements.
+hybrid centralized/decentralized solution that enables instant (micro-) 
+payments, trading and trustless settlements.
 
 ## About hubii
 
@@ -27,6 +27,23 @@ See www.hubii.com for more information.
 To install the SDK into your project, simply run:
 
     npm install nahmii-sdk
+
+## Dependency management
+
+After you have installed the nahmii-sdk module into your own project, please 
+make sure to install the dependencies listed as _peer dependencies_ into your 
+project to have it included in the end product.
+
+The reason this SDK uses _peer dependencies_ is that it is actively doing type 
+checking for some shared types in some situations. To have type checking work in 
+a nodejs environment, all npm-based types must be de-duplicated. 
+
+To force a de-duplication after you have installed several modules, just run the 
+following command:
+
+    npm ddp
+
+In most cases this should not be needed though.
 
 ## Usage
 
@@ -104,58 +121,66 @@ create a payment, sign it and register it with the API:
 
 ## Contributing
 
-To contribute to the development of the payment engine, you need to clone the
-repository `https://github.com/hubiinetwork/omphalos-payment-engine.git`.
+To contribute to the development of the nahmii SDK, you need to clone the
+repository `https://github.com/hubiinetwork/nahmii-sdk.git`.
 
-We also follow a few practices that we expect contributors to also adhere too.
+You changes should be made on a branch starting with the name "feature/" 
+(e.g.: `feature/awesomesauce`) and be branched from the latest "master"
+branch.
+
+We also follow a few practices that we expect contributors to also adhere 
+to.
 
 ### Practices
 
 **Branching Model**
 
-The master branch is expected to always be in a _green_ state. Every commit to
-master is expected generate a new NPM release of the library.
-For more long lasting work, create a feature branch and merge it through a
-pull request.
+The master branch is expected to always be in a _green_ state. Every 
+commit to master is expected generate a new NPM release of the library.
+For more long lasting work, create a feature branch and merge it through
+a pull request.
 
 **Pull Request**
 
-Don't just push a new branch and expect us to magically discover it and do
-something with it; also make sure you create a pull request for your branch
-where the changes can be examined and findings recorded in a organized manner.
+Don't just push a new branch and expect us to magically discover it and 
+do something with it; also make sure you create a pull request for your 
+branch where the changes can be examined and findings recorded in a 
+organized manner.
 
 If your changes address either partially, or fully, an open issue in the
-backlog, make sure to reference it in the description of your pull requests.
+backlog, make sure to reference it in the description of your pull 
+requests.
 
-Also make sure to reference one or more of the admins of the repo and set them
-as reviewers for your pull request.
+Also make sure to reference one or more of the admins of the repo and 
+set them as reviewers for your pull request.
 
 **Code Review**
 
-As part of the pull requests all reviewers should as soon as possible provide
-constructive feedback on the pull request.
+As part of the pull requests all reviewers should as soon as possible 
+provide constructive feedback on the pull request.
 
 The reviewer should look at the following as a minimum:
 
-    - Code quality, readability, maintainability, performance, security
-    - Test code quality, coverage, readability, maintainability
-    - Design of any public APIs, including documentation
-    - Overall architecture of solution, does it fit with current designs
-    - Missed opportunities: simplification of design, refactoring, invalidation
-      of previous assumptions
+- Code quality, readability, maintainability, performance, security
+- Test code quality, coverage, readability, maintainability
+- Design of any public APIs, including documentation
+- Overall architecture of solution, does it fit with current designs
+- Missed opportunities: simplification of design, refactoring, 
+  invalidation of previous assumptions
 
 **Test Driven Development (TDD)**
 
-Why? Because done right, the codebase becomes better and getting full test
-coverage becomes trivial. Always start by writing a test that turns *red*, then
-change your production code to turn it (and all other tests) *green* again. Then
-do some refactoring as needed. Rinse and repeat. Follow the cycle
-"red-green-refactor" and don't leave any of the steps out! And yes, an
-experienced TDD practitioner can in most cases easily spot code that has not
-been created using TDD.
+Why? Because done right, the codebase becomes better and getting full 
+test coverage becomes trivial. Always start by writing a test that turns 
+*red*, then change your production code to turn it (and all other tests) 
+*green* again. Then do some refactoring as needed. Refactoring is 
+arguably the most important step, so dont skip it. Rinse and repeat. 
+Follow the cycle "red-green-refactor" and don't leave any of the steps 
+out. And yes, an experienced TDD practitioner can in most cases easily 
+spot code that has not been created using TDD.
 
-There is no need to limit you test suite to only have unit tests, but the unit
-tests themselves should have ~100% code coverage.
+There is no need to limit you test suite to only have unit tests, but 
+the unit tests themselves should have ~100% code coverage.
 
 ## Who do I talk to?
 
