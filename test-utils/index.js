@@ -4,6 +4,7 @@ const ethers = require('ethers');
 const {privateToAddress} = require('ethereumjs-util');
 const {hash, prefix0x, fromRpcSig} = require('../lib/utils');
 const proxyquire = require('proxyquire').noPreserveCache().noCallThru();
+const sinon = require('sinon');
 
 const Wallet = proxyquire('../lib/wallet/wallet', {
     './client-fund-contract': function() {
@@ -228,6 +229,29 @@ class ApiPayloadFactory {
     }
 }
 
+function EthereumAddressMatcher(address) {
+    return sinon.match(function (ethereumAddress) {
+        return ethereumAddress.isEqual(address);
+    });
+}
+
+function CurrencyMatcher(currency) {
+    return sinon.match(function (_currency) {
+        const json = currency.toJSON();
+        const _json = _currency.toJSON();
+        return json.ct === _json.ct && json.id === _json.id;
+    });
+}
+
+function MonetaryAmountMatcher(monetaryAmount) {
+    return sinon.match(function (_monetaryAmount) {
+        return JSON.stringify(monetaryAmount.toJSON()) === JSON.stringify(_monetaryAmount.toJSON());
+    });
+}
+
 module.exports = {
-    ApiPayloadFactory
+    ApiPayloadFactory,
+    EthereumAddressMatcher,
+    CurrencyMatcher,
+    MonetaryAmountMatcher
 };
