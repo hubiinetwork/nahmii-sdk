@@ -6,7 +6,7 @@ const Payment = require('./lib/payment');
 const Receipt = require('./lib/receipt');
 const MonetaryAmount = require('./lib/monetary-amount');
 const Currency = require('./lib/currency');
-const {SettlementFactory, PaymentSettlement, OnchainBalanceSettlement} = require('./lib/settlement');
+const {SettlementFactory} = require('./lib/settlement');
 const utils = require('./lib/utils');
 const Erc20Contract = require('./lib/erc20/erc20-contract');
 const NahmiiContract = require('./lib/contract');
@@ -23,8 +23,6 @@ module.exports = {
     MonetaryAmount,
     SettlementFactory,
     Currency,
-    PaymentSettlement,
-    OnchainBalanceSettlement,
     Erc20Contract,
     NahmiiContract,
     InsufficientFundsError,
