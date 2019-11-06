@@ -18,7 +18,7 @@
             * [.getPendingPayments()](#module_nahmii-sdk--NahmiiProvider+getPendingPayments) ⇒ <code>Promise</code>
             * [.registerPayment(payment)](#module_nahmii-sdk--NahmiiProvider+registerPayment) ⇒ <code>Promise</code>
             * [.effectuatePayment(receipt)](#module_nahmii-sdk--NahmiiProvider+effectuatePayment) ⇒ <code>Promise</code>
-            * [.registerSettlement(payment)](#module_nahmii-sdk--NahmiiProvider+registerSettlement) ⇒ <code>Promise</code>
+            * [.registerSettlement(serializedTransaction)](#module_nahmii-sdk--NahmiiProvider+registerSettlement) ⇒ <code>Promise</code>
             * [.getAllReceipts()](#module_nahmii-sdk--NahmiiProvider+getAllReceipts) ⇒ <code>Promise</code>
             * [.getWalletReceipts(address, [fromNonce], [limit], [asc])](#module_nahmii-sdk--NahmiiProvider+getWalletReceipts) ⇒ <code>Promise</code>
             * [.getTransactionConfirmation(transactionHash, [timeout])](#module_nahmii-sdk--NahmiiProvider+getTransactionConfirmation) ⇒ <code>Promise.&lt;Object&gt;</code>
@@ -170,7 +170,7 @@ _hubii nahmii_ protocol.
 
 <a name="module_nahmii-sdk--NahmiiProvider+registerSettlement"></a>
 
-#### nahmiiProvider.registerSettlement(payment) ⇒ <code>Promise</code>
+#### nahmiiProvider.registerSettlement(serializedTransaction) ⇒ <code>Promise</code>
 Registers a settlement with the server. The settlement is expected to notify the server,
 which will relay it to a node provider if it is a valid settlement proposal.
 
@@ -179,7 +179,7 @@ which will relay it to a node provider if it is a valid settlement proposal.
 
 | Param | Description |
 | --- | --- |
-| payment | A JSON object of a serialized signed Payment |
+| serializedTransaction | A JSON object of a serialized signed Payment |
 
 <a name="module_nahmii-sdk--NahmiiProvider+getAllReceipts"></a>
 

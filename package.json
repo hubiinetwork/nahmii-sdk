@@ -15,7 +15,7 @@
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "build:docs:erc20": "jsdoc2md lib/erc20/erc20-contract.js > Docs/erc20-contract.md",
     "build:docs:payment-settlement": "jsdoc2md lib/settlement/payment-settlement.js > Docs/payment-settlement.md",
-    "build:docs:onchain-balance-settlement": "jsdoc2md lib/settlement/payment-settlement.js > Docs/onchain-balance-settlement.md",
+    "build:docs:onchain-balance-settlement": "jsdoc2md lib/settlement/onchain-balance-settlement.js > Docs/onchain-balance-settlement.md",
     "build:docs:settlement-factory": "jsdoc2md lib/settlement/settlement-factory.js > Docs/settlement-factory.md",
     "build:docs:nahmii-contract": "jsdoc2md lib/contract/index.js > Docs/nahmii-contract.md",
     "test": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules nyc mocha 'lib/**/*.spec.js' --exit",
