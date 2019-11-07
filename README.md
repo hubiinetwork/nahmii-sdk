@@ -107,9 +107,9 @@ create a payment, sign it and register it with the API:
 * [class Receipt](Docs/receipt.md)
 
 **Workflow: Settlement**
-* [class Settlement](Docs/settlement.md)
-* [class NullSettlement](Docs/null-settlement.md)
-* [class DriipSettlement](Docs/driip-settlement.md)
+* [class SettlementFactory](Docs/settlement-factory.md)
+* [class OnchainBalanceSettlement](Docs/onchain-balance-settlement.md)
+* [class PaymentSettlement](Docs/payment-settlement.md)
 
 **Base Layer**
 * [class Erc20Contract](Docs/erc20-contract.md)

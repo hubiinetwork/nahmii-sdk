@@ -31,7 +31,7 @@ A class for managing a settlement in payment driip type.
 
 ### new PaymentSettlement(address, receipt, stageAmount, provider)
 Constructor
-Creates a new settlement with an payment receipt for an intended stage amount.
+Creates a new settlement with a payment receipt for an intended stage amount.
 
 
 | Param | Type | Description |
@@ -58,7 +58,7 @@ This settlement's type
 <a name="module_nahmii-sdk+receipt"></a>
 
 ### paymentSettlement.receipt ⇒ <code>Receipt</code>
-The receipt this settlement bases on
+The receipt this settlement is based on
 
 **Kind**: instance property of [<code>PaymentSettlement</code>](#module_nahmii-sdk)  
 <a name="module_nahmii-sdk+walletNonce"></a>
@@ -128,7 +128,7 @@ Starts this settlement with a wallet
 Stages this settlement with a wallet
 
 **Kind**: instance method of [<code>PaymentSettlement</code>](#module_nahmii-sdk)  
-**Returns**: <code>Promise</code> - A promise that resolves into an record that contains the transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into a record that contains the transaction hash.  
 
 | Param | Type | Description |
 | --- | --- | --- |

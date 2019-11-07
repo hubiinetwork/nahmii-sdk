@@ -117,7 +117,7 @@ Starts this settlement with a wallet
 Stages this settlement with a wallet
 
 **Kind**: instance method of [<code>OnchainBalanceSettlement</code>](#module_nahmii-sdk)  
-**Returns**: <code>Promise</code> - A promise that resolves into an record that contains the transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into a record that contains the transaction hash.  
 
 | Param | Type | Description |
 | --- | --- | --- |
