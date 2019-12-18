@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -63,10 +63,13 @@
     "sinon-chai": "^3.2.0"
   },
   "dependencies": {
+    "bson": "^4.0.2",
     "ethereumjs-util": "^6.1.0",
+    "ethers": "^4.0.40",
     "lodash.get": "^4.4.2",
     "nahmii-contract-abstractions": "2.1.4",
     "nahmii-contract-abstractions-ropsten": "3.1.6",
+    "nahmii-ethereum-address": "^2.1.1",
     "socket.io-client": "^2.2.0",
     "superagent": "^5.1.0",
     "uuid": "^3.3.2",
