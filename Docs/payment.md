@@ -4,7 +4,7 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Payment](#exp_module_nahmii-sdk--Payment) ⏏
-        * [new Payment(amount, sender, recipient, [walletOrProvider])](#new_module_nahmii-sdk--Payment_new)
+        * [new Payment(amount, sender, recipient, [walletOrProvider], [senderRef])](#new_module_nahmii-sdk--Payment_new)
         * _instance_
             * [.amount](#module_nahmii-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
             * [.sender](#module_nahmii-sdk--Payment+sender) ⇒ <code>Address</code>
@@ -29,7 +29,7 @@ supply a valid Wallet or NahmiiProvider instance.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--Payment_new"></a>
 
-#### new Payment(amount, sender, recipient, [walletOrProvider])
+#### new Payment(amount, sender, recipient, [walletOrProvider], [senderRef])
 Constructor
 Creates a new payment with a unique sender reference.
 
@@ -40,23 +40,21 @@ Creates a new payment with a unique sender reference.
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 | [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | An optional Wallet or NahmiiProvider instance |
+| [senderRef] | <code>String</code> | Optional uuid identifying the payment. Must be unique per sender wallet. Random if undefined. |
 
 **Example**  
 ```js
-const nahmii = require('nahmii-sdk');
-const wallet = new nahmii.Wallet(...);
+// Normal, random sender reference
+const senderWallet = new nahmii.Wallet(...);
+const recipientWallet = new nahmii.Wallet(...);
+const paymentAmount = nahmii.MonetaryAmount.from(...);
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet);
 
-// Creates a new Payment, providing essential inputs such as the amount,
-// the currency, the sender, and the recipient.
-const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
-const payment = new nahmii.Payment(monetaryAmount, wallet_address, recipient_address, wallet);
-
-// Signs the payment with the private key belonging to your wallet.
-payment.sign();
-
-// Sends the signed payment to the API for registration and execution and
-// logs the API response to the console.
-payment.register().then(console.log);
+// Advanced, semantic sender reference. See: https://github.com/uuidjs/uuid
+const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
+const paymentSubject = '...';
+const senderRef = uuidv5(paymentSubject, uuidNamespace);
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderRef);
 ```
 <a name="module_nahmii-sdk--Payment+amount"></a>
 
