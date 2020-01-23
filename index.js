@@ -14,6 +14,7 @@ const NahmiiContract = require('./lib/contract');
 const InsufficientFundsError = require('./lib/insufficient-funds-error');
 const NahmiiEventProvider = require('./lib/event-provider');
 const ClusterInformation = require('./lib/cluster-information');
+const {FeesClaimant} = require('./lib/claim');
 
 module.exports = {
     NahmiiProvider,
@@ -30,5 +31,6 @@ module.exports = {
     NahmiiContract,
     InsufficientFundsError,
     ClusterInformation,
+    FeesClaimant,
     utils
 };
