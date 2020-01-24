@@ -1,5 +1,6 @@
 'use strict';
 
+require('./lib/ethers-config');
 const NahmiiProvider = require('./lib/nahmii-provider');
 const Wallet = require('./lib/wallet');
 const Payment = require('./lib/payment');
