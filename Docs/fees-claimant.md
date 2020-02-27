@@ -7,12 +7,28 @@ A class for the claiming and withdrawal of accrued fees
 **Kind**: global class  
 
 * [FeesClaimant](#module_nahmii-sdk)
+    * [.claimableAccruals(wallet, currency, [startAccrual], [endAccrual])](#module_nahmii-sdk+claimableAccruals) ⇒ <code>Promise</code>
     * [.claimableFeesForAccruals(wallet, currency, startAccrual, endAccrual)](#module_nahmii-sdk+claimableFeesForAccruals) ⇒ <code>Promise</code>
     * [.claimFeesForAccruals(wallet, currency, startAccrual, endAccrual, [options])](#module_nahmii-sdk+claimFeesForAccruals) ⇒ <code>Promise</code>
     * [.claimableFeesForBlocks(wallet, currency, startBlock, endBlock)](#module_nahmii-sdk+claimableFeesForBlocks) ⇒ <code>Promise</code>
     * [.claimFeesForBlocks(wallet, currency, startBlock, endBlock, [options])](#module_nahmii-sdk+claimFeesForBlocks) ⇒ <code>Promise</code>
     * [.withdrawableFees(wallet, currency)](#module_nahmii-sdk+withdrawableFees) ⇒ <code>Promise</code>
     * [.withdrawFees(wallet, monetaryAmount, [options])](#module_nahmii-sdk+withdrawFees) ⇒ <code>Promise</code>
+
+<a name="module_nahmii-sdk+claimableAccruals"></a>
+
+### feesClaimant.claimableAccruals(wallet, currency, [startAccrual], [endAccrual]) ⇒ <code>Promise</code>
+Get claimable accruals
+
+**Kind**: instance method of [<code>FeesClaimant</code>](#module_nahmii-sdk)  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of claimable accruals.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| wallet | <code>Wallet</code> | The claimer nahmii wallet |
+| currency | <code>Currency</code> | The currency |
+| [startAccrual] | <code>number</code> | An optional lower accrual index boundary |
+| [endAccrual] | <code>number</code> | An optional upper accrual index boundary |
 
 <a name="module_nahmii-sdk+claimableFeesForAccruals"></a>
 
