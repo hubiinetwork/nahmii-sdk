@@ -51,7 +51,7 @@ Get claimable amount of fees for a span of accruals
 Claim fees for a span of accruals
 
 **Kind**: instance method of [<code>FeesClaimant</code>](#module_nahmii-sdk)  
-**Returns**: <code>Promise</code> - A promise that resolves into a record that contains the transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of transaction hashes.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -82,7 +82,7 @@ Get claimable amount of fees for a span of block numbers
 Claim fees for a span of block numbers
 
 **Kind**: instance method of [<code>FeesClaimant</code>](#module_nahmii-sdk)  
-**Returns**: <code>Promise</code> - A promise that resolves into a record that contains the transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of transaction hashes.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -111,7 +111,7 @@ Get the withdrawable amount of fees
 Withdraw the given amount of fees
 
 **Kind**: instance method of [<code>FeesClaimant</code>](#module_nahmii-sdk)  
-**Returns**: <code>Promise</code> - A promise that resolves into a record that contains the transaction hash.  
+**Returns**: <code>Promise</code> - A promise that resolves into an array of transaction hashes.  
 
 | Param | Type | Description |
 | --- | --- | --- |

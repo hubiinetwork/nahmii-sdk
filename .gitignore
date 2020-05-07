@@ -60,9 +60,10 @@ typings/
 # next.js build output
 .next
 
-# WebStorm
+# WebStorm/IntelliJ
 .idea
 package-lock.json
+*.iml
 
 # VSCode
 .vscode
