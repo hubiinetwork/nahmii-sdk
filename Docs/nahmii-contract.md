@@ -4,7 +4,7 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiContract](#exp_module_nahmii-sdk--NahmiiContract) ⏏
-        * [new NahmiiContract(contractName, walletOrProvider)](#new_module_nahmii-sdk--NahmiiContract_new)
+        * [new NahmiiContract(abstractionName, walletOrProvider)](#new_module_nahmii-sdk--NahmiiContract_new)
         * [.from(contractName, walletOrProvider)](#module_nahmii-sdk--NahmiiContract.from) ⇒ <code>NahmiiContract</code> \| <code>null</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiContract"></a>
@@ -18,7 +18,7 @@ officially in use by the nahmii cluster, use the `validate()` method.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NahmiiContract_new"></a>
 
-#### new NahmiiContract(contractName, walletOrProvider)
+#### new NahmiiContract(abstractionName, walletOrProvider)
 (Deprecated) Constructs a new contract wrapper instance by loading the correct ABIs
 based on the name of the contract and the network that the provider or
 wallet is connected to.
@@ -26,7 +26,7 @@ wallet is connected to.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| contractName | <code>string</code> | Name of the nahmii contract to load |
+| abstractionName | <code>string</code> | Name of the nahmii contract to load |
 | walletOrProvider | <code>NahmiiProvider</code> \| <code>Wallet</code> | Wallet or provider connected to nahmii cluster |
 
 **Example**  
