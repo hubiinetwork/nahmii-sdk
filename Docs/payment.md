@@ -4,11 +4,12 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Payment](#exp_module_nahmii-sdk--Payment) ⏏
-        * [new Payment(amount, sender, recipient, [walletOrProvider], [senderRef])](#new_module_nahmii-sdk--Payment_new)
+        * [new Payment(amount, sender, recipient, [walletOrProvider], [senderPayload], [senderRef])](#new_module_nahmii-sdk--Payment_new)
         * _instance_
             * [.amount](#module_nahmii-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
             * [.sender](#module_nahmii-sdk--Payment+sender) ⇒ <code>Address</code>
             * [.recipient](#module_nahmii-sdk--Payment+recipient) ⇒ <code>Address</code>
+            * [.senderPayload](#module_nahmii-sdk--Payment+senderPayload) ⇒ <code>string</code>
             * [.senderRef](#module_nahmii-sdk--Payment+senderRef) ⇒ <code>string</code>
             * [.sign()](#module_nahmii-sdk--Payment+sign)
             * [.isSigned()](#module_nahmii-sdk--Payment+isSigned) ⇒ <code>Boolean</code>
@@ -29,7 +30,7 @@ supply a valid Wallet or NahmiiProvider instance.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--Payment_new"></a>
 
-#### new Payment(amount, sender, recipient, [walletOrProvider], [senderRef])
+#### new Payment(amount, sender, recipient, [walletOrProvider], [senderPayload], [senderRef])
 Constructor
 Creates a new payment with a unique sender reference.
 
@@ -40,21 +41,29 @@ Creates a new payment with a unique sender reference.
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 | [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | An optional Wallet or NahmiiProvider instance |
+| [senderPayload] | <code>String</code> | Optional stringified payment sender data payload |
 | [senderRef] | <code>String</code> | Optional uuid identifying the payment. Must be unique per sender wallet. Random if undefined. |
 
 **Example**  
 ```js
-// Normal, random sender reference
+// Normal, no sender payload and random sender reference
 const senderWallet = new nahmii.Wallet(...);
 const recipientWallet = new nahmii.Wallet(...);
 const paymentAmount = nahmii.MonetaryAmount.from(...);
 const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet);
 
-// Advanced, semantic sender reference. See: https://github.com/uuidjs/uuid
+// Advanced, sender payload and random sender reference
 const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
 const paymentSubject = '...';
+const senderPayload = 'some sender payload';
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderPayload);
+
+// Advanced, sender payload and semantic sender reference. See: https://github.com/uuidjs/uuid
+const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
+const paymentSubject = '...';
+const senderPayload = 'some sender payload';
 const senderRef = uuidv5(paymentSubject, uuidNamespace);
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderRef);
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderPayload, senderRef);
 ```
 <a name="module_nahmii-sdk--Payment+amount"></a>
 
@@ -72,6 +81,12 @@ The sender of the payment
 
 #### payment.recipient ⇒ <code>Address</code>
 The recipient of the payment
+
+**Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
+<a name="module_nahmii-sdk--Payment+senderPayload"></a>
+
+#### payment.senderPayload ⇒ <code>string</code>
+The sender's payload for the payment.
 
 **Kind**: instance property of [<code>Payment</code>](#exp_module_nahmii-sdk--Payment)  
 <a name="module_nahmii-sdk--Payment+senderRef"></a>
