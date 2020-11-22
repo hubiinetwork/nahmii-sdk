@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "4.5.2",
+  "version": "5.0.0",
   "description": "Javascript SDK for using hubii nahmii APIs",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
     "test": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules nyc mocha 'lib/**/*.spec.js' --exit",
+    "test:no-coverage": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix",
