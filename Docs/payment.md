@@ -4,7 +4,7 @@
 
 * [nahmii-sdk](#module_nahmii-sdk)
     * [Payment](#exp_module_nahmii-sdk--Payment) ⏏
-        * [new Payment(amount, sender, recipient, [walletOrProvider], [senderPayload], [senderRef])](#new_module_nahmii-sdk--Payment_new)
+        * [new Payment(amount, sender, recipient, [walletOrProvider], [senderRef], [senderPayload])](#new_module_nahmii-sdk--Payment_new)
         * _instance_
             * [.amount](#module_nahmii-sdk--Payment+amount) ⇒ <code>MonetaryAmount</code>
             * [.sender](#module_nahmii-sdk--Payment+sender) ⇒ <code>Address</code>
@@ -30,7 +30,7 @@ supply a valid Wallet or NahmiiProvider instance.
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--Payment_new"></a>
 
-#### new Payment(amount, sender, recipient, [walletOrProvider], [senderPayload], [senderRef])
+#### new Payment(amount, sender, recipient, [walletOrProvider], [senderRef], [senderPayload])
 Constructor
 Creates a new payment with a unique sender reference.
 
@@ -41,8 +41,8 @@ Creates a new payment with a unique sender reference.
 | sender | <code>Address</code> | Senders address |
 | recipient | <code>Address</code> | Recipient address |
 | [walletOrProvider] | <code>Wallet</code> \| <code>NahmiiProvider</code> | An optional Wallet or NahmiiProvider instance |
-| [senderPayload] | <code>String</code> | Optional stringified payment sender data payload |
 | [senderRef] | <code>String</code> | Optional uuid identifying the payment. Must be unique per sender wallet. Random if undefined. |
+| [senderPayload] | <code>String</code> | Optional stringified payment sender data payload |
 
 **Example**  
 ```js
