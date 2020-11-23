@@ -46,24 +46,21 @@ Creates a new payment with a unique sender reference.
 
 **Example**  
 ```js
-// Normal, no sender payload and random sender reference
+// Normal, random sender reference and no sender payload
 const senderWallet = new nahmii.Wallet(...);
 const recipientWallet = new nahmii.Wallet(...);
 const paymentAmount = nahmii.MonetaryAmount.from(...);
 const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet);
 
-// Advanced, sender payload and random sender reference
+// Advanced, semantic sender reference (https://github.com/uuidjs/uuid) and no sender payload
 const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
 const paymentSubject = '...';
-const senderPayload = 'some sender payload';
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderPayload);
-
-// Advanced, sender payload and semantic sender reference. See: https://github.com/uuidjs/uuid
-const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
-const paymentSubject = '...';
-const senderPayload = 'some sender payload';
 const senderRef = uuidv5(paymentSubject, uuidNamespace);
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderPayload, senderRef);
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderRef);
+
+// Advanced, random sender reference and stringified sender payload
+const senderPayload = 'some sender payload';
+const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, null, senderPayload);
 ```
 <a name="module_nahmii-sdk--Payment+amount"></a>
 
