@@ -34,8 +34,13 @@ class ApiPayloadFactory {
             undefined;
     }
 
-    static createSenderData(senderRef) {
-        return this.encodeLiteral({ref: senderRef});
+    static createSenderData(senderRef, senderPayload) {
+        const data = {ref: senderRef};
+
+        if (senderPayload)
+            data.payload = senderPayload;
+
+        return this.encodeLiteral(data);
     }
 
     static encodeLiteral(data) {
@@ -47,8 +52,8 @@ class ApiPayloadFactory {
             .toString('base64');
     }
 
-    createUnsignedPayment(senderRef) {
-        const senderData = ApiPayloadFactory.createSenderData(senderRef);
+    createUnsignedPayment(senderRef, senderPayload) {
+        const senderData = ApiPayloadFactory.createSenderData(senderRef, senderPayload);
 
         return {
             amount: this.amount,
