@@ -46,21 +46,20 @@ Creates a new payment with a unique sender reference.
 
 **Example**  
 ```js
-// Normal, random sender reference and no sender payload
-const senderWallet = new nahmii.Wallet(...);
-const recipientWallet = new nahmii.Wallet(...);
-const paymentAmount = nahmii.MonetaryAmount.from(...);
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet);
+const nahmii = require('nahmii-sdk');
+const wallet = new nahmii.Wallet(...);
 
-// Advanced, semantic sender reference (https://github.com/uuidjs/uuid) and no sender payload
-const uuidNamespace = '706ac453-2691-41af-9fde-ac5f787da1ec';
-const paymentSubject = '...';
-const senderRef = uuidv5(paymentSubject, uuidNamespace);
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, senderRef);
+// Creates a new Payment, providing essential inputs such as the amount,
+// the currency, the sender, and the recipient.
+const monetaryAmount = new nahmii.MonetaryAmount(amount, erc20_token_address);
+const payment = new nahmii.Payment(monetaryAmount, wallet_address, recipient_address, wallet);
 
-// Advanced, random sender reference and stringified sender payload
-const senderPayload = 'some sender payload';
-const payment = new nahmii.Payment(paymentAmount, senderWallet.address, recipientWallet.address, senderWallet, null, senderPayload);
+// Signs the payment with the private key belonging to your wallet.
+payment.sign();
+
+// Sends the signed payment to the API for registration and execution and
+// logs the API response to the console.
+payment.register().then(console.log);
 ```
 <a name="module_nahmii-sdk--Payment+amount"></a>
 

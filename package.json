@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
-    "build:docs": "npm run build:docs:erc20 && npm run build:docs:event-provider && npm run build:docs:fees-claimant && npm run build:docs:monetary-amount && npm run build:docs:nahmii-contract && npm run build:docs:onchain-balance-settlement && npm run build:docs:payment && npm run build:docs:payment-settlement && npm run build:docs:provider && npm run build:docs:receipt && npm run build:docs:settlement-factory && npm run build:docs:utils && npm run build:docs:wallet",
+    "build:docs": "npm run build:docs:erc20 && npm run build:docs:event-provider && npm run build:docs:fees-claimant && npm run build:docs:monetary-amount && npm run build:docs:nahmii-contract && npm run build:docs:onchain-balance-settlement && npm run build:docs:payment && npm run build:docs:payment-settlement && npm run build:docs:provider && npm run build:docs:receipt && npm run build:docs:settlement-factory && npm run build:docs:utils && npm run build:docs:wallet && npm run build:docs:cluster-information",
     "build:docs:erc20": "jsdoc2md lib/erc20/erc20-contract.js > Docs/erc20-contract.md",
     "build:docs:event-provider": "jsdoc2md lib/event-provider/index.js > Docs/nahmii-event-provider.md",
     "build:docs:fees-claimant": "jsdoc2md lib/claim/fees-claimant.js > Docs/fees-claimant.md",
@@ -19,6 +19,7 @@
     "build:docs:settlement-factory": "jsdoc2md lib/settlement/settlement-factory.js > Docs/settlement-factory.md",
     "build:docs:utils": "jsdoc2md lib/utils.js > Docs/utils.md",
     "build:docs:wallet": "jsdoc2md lib/wallet/wallet.js > Docs/wallet.md",
+    "build:docs:cluster-information": "jsdoc2md lib/cluster-information/cluster-information.js > Docs/cluster-information.md",
     "test": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules nyc mocha 'lib/**/*.spec.js' --exit",
     "test:no-coverage": "NODE_PATH=$npm_package_peerInstallOptions_prefix/node_modules mocha 'lib/**/*.spec.js' --exit",
     "test:watch": "npm run test -- --watch",
