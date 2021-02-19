@@ -67,3 +67,6 @@ package-lock.json
 
 # VSCode
 .vscode
+
+# Local scratch pads
+deleteme*
