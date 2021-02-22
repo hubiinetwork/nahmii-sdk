@@ -52,7 +52,7 @@ else {
 Checks if contract is a valid nahmii contract.
 For a nahmii contract to be valid, it must be
 registered in the nahmii cluster and deployed to the block chain.
-The function accesses the block chain with a slight delay.
+The function accesses the block chain which may pose some delay.
 
 **Kind**: instance method of [<code>NahmiiContract</code>](#exp_module_nahmii-sdk--NahmiiContract)  
 **Throws**:
