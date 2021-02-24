@@ -5,7 +5,11 @@
 * [nahmii-sdk](#module_nahmii-sdk)
     * [NahmiiContract](#exp_module_nahmii-sdk--NahmiiContract) ⏏
         * [new NahmiiContract(abstractionName, walletOrProvider)](#new_module_nahmii-sdk--NahmiiContract_new)
-        * [.from(contractName, walletOrProvider)](#module_nahmii-sdk--NahmiiContract.from) ⇒ <code>NahmiiContract</code> \| <code>null</code>
+        * _instance_
+            * [.assertIsValid()](#module_nahmii-sdk--NahmiiContract+assertIsValid)
+            * [.validate()](#module_nahmii-sdk--NahmiiContract+validate) ⇒ <code>Boolean</code>
+        * _static_
+            * [.from(contractName, walletOrProvider)](#module_nahmii-sdk--NahmiiContract.from) ⇒ <code>NahmiiContract</code> \| <code>null</code>
 
 <a name="exp_module_nahmii-sdk--NahmiiContract"></a>
 
@@ -42,6 +46,27 @@ else {
     throw new Error('Contract is not associated with the current cluster');
 }
 ```
+<a name="module_nahmii-sdk--NahmiiContract+assertIsValid"></a>
+
+#### nahmiiContract.assertIsValid()
+Checks if contract is a valid nahmii contract.
+For a nahmii contract to be valid, it must be
+registered in the nahmii cluster and deployed to the block chain.
+The function accesses the block chain which may pose some delay.
+
+**Kind**: instance method of [<code>NahmiiContract</code>](#exp_module_nahmii-sdk--NahmiiContract)  
+**Throws**:
+
+- <code>Error</code> Throws if contract is not valid.
+
+<a name="module_nahmii-sdk--NahmiiContract+validate"></a>
+
+#### nahmiiContract.validate() ⇒ <code>Boolean</code>
+Checks if contract is a valid nahmii contract.
+Calls [NahmiiContract#assertIsValid](NahmiiContract#assertIsValid) but does not throw any Error.
+
+**Kind**: instance method of [<code>NahmiiContract</code>](#exp_module_nahmii-sdk--NahmiiContract)  
+**Returns**: <code>Boolean</code> - True if valid. False if not.  
 <a name="module_nahmii-sdk--NahmiiContract.from"></a>
 
 #### NahmiiContract.from(contractName, walletOrProvider) ⇒ <code>NahmiiContract</code> \| <code>null</code>
