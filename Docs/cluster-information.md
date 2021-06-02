@@ -20,7 +20,7 @@ Returns cluster information from the meta service.
 Input is either a domain name or an URL.
 Only http and https protocols are supported.
 Defaults to https protocol if only domain is given.
-External access through hubii gateway requires https.
+External access through nahmii gateway requires https.
 Will reject if URL is invalid or meta service cannot be reached.
 
 **Kind**: static method of [<code>ClusterInformation</code>](#exp_module_nahmii-sdk--ClusterInformation)  

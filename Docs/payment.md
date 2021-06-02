@@ -22,7 +22,7 @@
 
 ### Payment ⏏
 Payment
-A class for creating a _hubii nahmii_ payment.
+A class for creating a _nahmii_ payment.
 To be able to sign a new payment, you must supply a valid Wallet instance.
 To be able to do operations that interacts with the server you need to
 supply a valid Wallet or NahmiiProvider instance.

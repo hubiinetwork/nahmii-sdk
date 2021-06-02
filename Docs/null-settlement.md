@@ -21,7 +21,7 @@
 
 ### NullSettlement ⏏
 NullSettlement
-A class for creating a _hubii nahmii_ NullSettlement, which is used for settlements without driips.
+A class for creating a _nahmii_ NullSettlement, which is used for settlements without driips.
 
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NullSettlement_new"></a>
