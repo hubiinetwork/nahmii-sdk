@@ -1,26 +1,29 @@
-# NAHMII BY HUBII SDK
+# NAHMII SDK
 
 ## About the SDK
 
-This is a javascript library that wraps the _hubii nahmii_ APIs making them
+This is a javascript library that wraps the _nahmii_ APIs making them
 easier to get started with.
 
 ## About nahmii
 
-_nahmii_ is _hubii_'s scaling solution for the Ethereum block chain. It is a
-hybrid centralized/decentralized solution that enables instant (micro-) 
-payments, trading and trustless settlements.
+_nahmii_ is both the name of the company as well as of the scaling solution 
+for the Ethereum blockchain. It is a hybrid centralized/decentralized 
+solution that enables instant (micro-)payments, trading and trustless 
+settlements. See www.nahmii.io for additional information.
 
 ## About hubii
 
-See www.hubii.com for more information.
+_hubii_ is no more. It is the old name of the company. If you find references 
+to it, think _nahmii_. Still this repository is hosted in the GitHub organization
+archaically labelled _hubiinetwork_.
 
 ## Prerequisites
 
 * To use this software you need a modern version of **NodeJS and NPM**.
-  We recommend having the current LTS version (v8.x) installed, or
-  later, and updating NPM to the latest available version.
-* You will also need an **API key** for access to _hubii_'s APIs.
+  We recommend having the versions 10 installed and updating NPM to the
+  latest available version.
+* You will also need an **API key** for access to the _nahmii_ APIs.
 
 ## Installation
 
@@ -184,5 +187,4 @@ the unit tests themselves should have ~100% code coverage.
 
 ## Who do I talk to?
 
-* [Jacobo Toll-Messia](mailto:jacobo@hubii.com)
-* [Morten Fjeldstad](mailto:morten@hubii.com)
+* [nahmii support](mailto:support@nahmii.io)
