@@ -1,6 +1,6 @@
 {
   "name": "nahmii-sdk",
-  "version": "4.8.1",
+  "version": "4.8.2",
   "description": "Javascript SDK for using nahmii APIs",
   "main": "index.js",
   "scripts": {

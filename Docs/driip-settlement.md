@@ -24,7 +24,7 @@
 
 ### DriipSettlement ⏏
 DriipSettlement
-A class for creating a _hubii nahmii_ DriipSettlement, which is used for settlement with driip.
+A class for creating a _nahmii_ DriipSettlement, which is used for settlement with driip.
 
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--DriipSettlement_new"></a>

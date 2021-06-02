@@ -22,7 +22,7 @@
 
 ### Receipt ⏏
 Receipt
-A class for modelling a _hubii nahmii_ payment receipt.
+A class for modelling a _nahmii_ payment receipt.
 To be able to sign a receipt, you must supply a valid Wallet instance.
 To be able to do operations that interacts with the server you need to
 supply a valid Wallet or NahmiiProvider instance.

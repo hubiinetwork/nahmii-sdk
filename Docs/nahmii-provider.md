@@ -30,7 +30,7 @@
 
 ### NahmiiProvider ⏏
 NahmiiProvider
-A class providing low-level access to the _hubii nahmii_ APIs.
+A class providing low-level access to the _nahmii_ APIs.
 
 **Kind**: Exported class  
 <a name="new_module_nahmii-sdk--NahmiiProvider_new"></a>
@@ -104,7 +104,7 @@ server as needed.
 <a name="module_nahmii-sdk--NahmiiProvider+getSupportedTokens"></a>
 
 #### nahmiiProvider.getSupportedTokens() ⇒ <code>Promise</code>
-Retrieves the list of tokens (currencies) supported by _hubii nahmii_.
+Retrieves the list of tokens (currencies) supported by _nahmii_.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolves into an array of token definitions.  
@@ -144,7 +144,7 @@ server.
 
 #### nahmiiProvider.registerPayment(payment) ⇒ <code>Promise</code>
 Registers a payment with the server to have it effectuated. The payment
-is expected to be hashed and signed according to the _hubii nahmii_
+is expected to be hashed and signed according to the _nahmii_
 protocol.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
@@ -159,7 +159,7 @@ protocol.
 #### nahmiiProvider.effectuatePayment(receipt) ⇒ <code>Promise</code>
 Registers a receipt with the server to effectuate the transfer. The
 receipt is expected to be hashed and signed according to the
-_hubii nahmii_ protocol.
+_nahmii_ protocol.
 
 **Kind**: instance method of [<code>NahmiiProvider</code>](#exp_module_nahmii-sdk--NahmiiProvider)  
 **Returns**: <code>Promise</code> - A promise that resolved into a receipt registration payload  
