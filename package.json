@@ -1,7 +1,7 @@
 {
   "name": "nahmii-sdk",
-  "version": "4.8.0",
-  "description": "Javascript SDK for using hubii nahmii APIs",
+  "version": "4.8.1",
+  "description": "Javascript SDK for using nahmii APIs",
   "main": "index.js",
   "scripts": {
     "build": "npm run build:docs",
@@ -58,7 +58,7 @@
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^7.1.1",
     "nock": "^12.0.3",
-    "npm-install-peers": "^1.2.1",
+    "npm-install-peers": "^1.2.2",
     "nyc": "^15.0.0",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
@@ -78,7 +78,7 @@
   "peerDependencies": {
     "bson": ">=1.1.1",
     "ethers": "~4.0.0",
-    "nahmii-ethereum-address": "^2.0.1"
+    "nahmii-ethereum-address": "^2.1.4"
   },
   "peerInstallOptions": {
     "prefix": "./peer_modules"
